@@ -41,6 +41,7 @@
       background-color: var(--bg-cream);
       color: var(--text-dark);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* Top Bar */
@@ -89,7 +90,7 @@
     }
 
     /* ======================================================== */
-    /* LIVE GOLD RATE TICKER (SCROLLING STRIP) */
+    /* LIVE GOLD RATE TICKER */
     /* ======================================================== */
     .ticker-wrap {
       display: flex;
@@ -159,6 +160,23 @@
       margin: 0 10px;
     }
 
+    /* Live Pulsing Dot */
+    .live-pulse-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      background-color: #00e676;
+      border-radius: 50%;
+      box-shadow: 0 0 0 rgba(0, 230, 118, 0.7);
+      animation: pulseDot 1.8s infinite;
+      margin-right: 4px;
+    }
+    @keyframes pulseDot {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 230, 118, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
+    }
+
     /* Header */
     header {
       background: var(--white);
@@ -187,6 +205,10 @@
       object-fit: contain;
       box-shadow: 0 2px 8px rgba(114, 58, 145, 0.25);
       border: 1.5px solid var(--metallic-gold);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .brand-logo:hover .logo-img {
+      transform: rotate(8deg) scale(1.08);
     }
     .brand-text h1 {
       font-size: 1.25rem;
@@ -234,6 +256,7 @@
     .nav-btn-franchise:hover {
       background: #c39e2e !important;
       color: #fff !important;
+      transform: translateY(-2px);
     }
     .nav-btn-login {
       background: #2a1145 !important;
@@ -241,10 +264,12 @@
       border: 1px solid var(--metallic-gold) !important;
       border-radius: 20px !important;
       font-weight: 700 !important;
+      transition: all 0.3s ease !important;
     }
     .nav-btn-login:hover {
       background: var(--metallic-gold) !important;
       color: #2a1145 !important;
+      transform: translateY(-2px);
     }
     .nav-btn-contact {
       background: var(--accent-orange) !important;
@@ -253,6 +278,7 @@
     }
     .nav-btn-contact:hover {
       background: #e66e00 !important;
+      transform: translateY(-2px);
     }
 
     /* Language Switcher Button */
@@ -286,10 +312,10 @@
     }
     .page-tab.active-tab {
       display: block;
-      animation: fadeIn 0.3s ease-in-out;
+      animation: fadeIn 0.4s ease-in-out;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -311,7 +337,28 @@
       font-weight: 700;
       font-size: 0.85rem;
       margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
     }
+    
+    /* Golden Shimmer Animation Effect */
+    .hero-badge::after, .btn-gold::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -70%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0) 100%);
+      transform: rotate(25deg);
+      animation: shimmerEffect 4s infinite ease-in-out;
+    }
+    @keyframes shimmerEffect {
+      0% { left: -70%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+
     .hero h2 {
       font-size: 2.3rem;
       font-weight: 700;
@@ -337,13 +384,15 @@
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       border: none;
       font-size: 0.95rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
+      position: relative;
+      overflow: hidden;
     }
     .btn-gold {
       background: var(--metallic-gold);
@@ -351,7 +400,8 @@
     }
     .btn-gold:hover {
       background: #c29d2b;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
     }
     .btn-orange {
       background: var(--accent-orange);
@@ -359,7 +409,8 @@
     }
     .btn-orange:hover {
       background: #e66e00;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(255, 122, 0, 0.4);
     }
     .btn-purple {
       background: #2a1145;
@@ -369,7 +420,8 @@
     .btn-purple:hover {
       background: var(--metallic-gold);
       color: #2a1145;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(42, 17, 69, 0.4);
     }
     .btn-outline {
       border: 2px solid #fff;
@@ -379,6 +431,7 @@
     .btn-outline:hover {
       background: #fff;
       color: var(--primary-purple);
+      transform: translateY(-3px);
     }
 
     /* Pillars */
@@ -397,11 +450,20 @@
       box-shadow: 0 5px 18px rgba(0,0,0,0.06);
       text-align: center;
       border-top: 4px solid var(--metallic-gold);
+      transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .pillar-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(114, 58, 145, 0.15);
     }
     .pillar-card i {
       font-size: 2.2rem;
       color: var(--primary-purple);
       margin-bottom: 10px;
+      transition: transform 0.3s;
+    }
+    .pillar-card:hover i {
+      transform: scale(1.15);
     }
     .pillar-card h3 {
       font-size: 1.05rem;
@@ -437,16 +499,20 @@
       border-radius: 12px;
       text-decoration: none;
       border: 1px solid #e7d8f5;
-      transition: all 0.3s ease;
+      transition: all 0.35s ease;
     }
     .portal-banner-card:hover {
       background: #f1e4fb;
       border-color: var(--metallic-gold);
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(114, 58, 145, 0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(114, 58, 145, 0.18);
     }
     .portal-banner-card i.main-icon {
       font-size: 1.8rem;
+      transition: transform 0.3s;
+    }
+    .portal-banner-card:hover i.main-icon {
+      transform: scale(1.15);
     }
     .portal-banner-card .portal-info h4 {
       font-size: 0.95rem;
@@ -500,12 +566,13 @@
       overflow: hidden;
       box-shadow: 0 5px 18px rgba(0,0,0,0.05);
       border: 1px solid var(--border-color);
-      transition: transform 0.3s;
+      transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
       display: flex;
       flex-direction: column;
     }
     .service-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 14px 28px rgba(114, 58, 145, 0.18), 0 0 12px rgba(212, 175, 55, 0.2);
     }
     .service-icon-banner {
       background: linear-gradient(135deg, var(--primary-purple), var(--primary-purple-dark));
@@ -513,6 +580,7 @@
       padding: 26px;
       text-align: center;
       font-size: 2.4rem;
+      transition: background 0.3s;
     }
     .service-body {
       padding: 24px;
@@ -540,6 +608,11 @@
       margin-bottom: 25px;
       border-left: 6px solid var(--metallic-gold);
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: all 0.35s ease;
+    }
+    .scheme-box:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 25px rgba(114, 58, 145, 0.12);
     }
 
     /* Branches 10-Grid */
@@ -559,6 +632,11 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .branch-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 28px rgba(114, 58, 145, 0.18), 0 0 10px rgba(212, 175, 55, 0.25);
     }
     .branch-card.hq-branch {
       border: 2px solid var(--primary-purple);
@@ -640,6 +718,11 @@
       border-radius: 12px;
       text-align: center;
       border: 1px solid var(--border-color);
+      transition: all 0.35s ease;
+    }
+    .f-step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 22px rgba(114, 58, 145, 0.12);
     }
     .f-step-card .num {
       width: 44px;
@@ -652,6 +735,10 @@
       justify-content: center;
       font-size: 1.2rem;
       margin-bottom: 12px;
+      transition: transform 0.3s;
+    }
+    .f-step-card:hover .num {
+      transform: scale(1.15) rotate(5deg);
     }
 
     /* Forms */
@@ -685,9 +772,11 @@
       border-radius: 8px;
       outline: none;
       font-size: 0.92rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
     .form-group input:focus, .form-group textarea:focus {
       border-color: var(--primary-purple);
+      box-shadow: 0 0 0 3px rgba(114, 58, 145, 0.15);
     }
 
     /* Legal Card */
@@ -719,8 +808,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(30, 11, 54, 0.7);
-      backdrop-filter: blur(4px);
+      background: rgba(30, 11, 54, 0.75);
+      backdrop-filter: blur(5px);
       z-index: 2000;
       display: none;
       align-items: center;
@@ -740,6 +829,11 @@
       position: relative;
       box-shadow: 0 15px 40px rgba(0,0,0,0.3);
       border: 2px solid var(--border-color);
+      animation: modalSlide 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes modalSlide {
+      from { transform: translateY(30px) scale(0.95); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
     }
     .close-modal-btn {
       position: absolute;
@@ -750,6 +844,7 @@
       border: none;
       cursor: pointer;
       color: var(--text-muted);
+      transition: color 0.3s;
     }
     .close-modal-btn:hover {
       color: var(--primary-purple);
@@ -769,7 +864,8 @@
     .modal-portal-item:hover {
       background: #f4effb;
       border-color: var(--primary-purple);
-      transform: translateX(4px);
+      transform: translateX(6px);
+      box-shadow: 0 6px 15px rgba(114, 58, 145, 0.12);
     }
     .modal-portal-item .icon-circle {
       width: 48px;
@@ -782,7 +878,7 @@
       flex-shrink: 0;
     }
 
-    /* WhatsApp Float */
+    /* WhatsApp Float & Animation */
     .whatsapp-float {
       position: fixed;
       bottom: 25px;
@@ -800,9 +896,26 @@
       z-index: 1000;
       text-decoration: none;
       transition: transform 0.3s;
+      animation: waPulse 3.5s infinite ease-in-out;
     }
     .whatsapp-float:hover {
-      transform: scale(1.1);
+      transform: scale(1.15) !important;
+      animation-play-state: paused;
+    }
+    @keyframes waPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5); }
+    }
+
+    /* Scroll Reveal Animation Classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.65s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Footer */
@@ -831,6 +944,7 @@
     .footer-col ul li a {
       color: #dfd3e7;
       text-decoration: none;
+      transition: color 0.3s;
     }
     .footer-col ul li a:hover {
       color: var(--metallic-gold);
@@ -891,10 +1005,9 @@
   <!-- LIVE GOLD RATE SCROLLING TICKER -->
   <div class="ticker-wrap">
     <div class="ticker-label">
-      <i class="fa-solid fa-bolt" style="color:#d4af37;"></i> <span data-i18n="ticker_live_badge">நேரலை விலை விகிதம்</span> (<span id="tickerDate"></span>)
+      <span class="live-pulse-dot"></span> <span data-i18n="ticker_live_badge">நேரலை விலை விகிதம்</span> (<span id="tickerDate"></span>)
     </div>
     <div class="ticker-scroll">
-      <!-- 2 identical sets for seamless continuous marquee loop -->
       <div class="ticker-content" id="goldRateMarquee">
         <!-- Injected dynamically via JavaScript -->
       </div>
@@ -947,22 +1060,22 @@
 
     <!-- 4 Trust Pillars -->
     <div class="pillars-container">
-      <div class="pillar-card">
+      <div class="pillar-card reveal">
         <i class="fa-solid fa-award"></i>
         <h3 data-i18n="pillar1_title">10+ வருட அனுபவம்</h3>
         <p data-i18n="pillar1_desc">15 வருட கைவினை நகை தயாரிப்பு & 10 வருட நம்பகமான நிதி நிர்வாகம்.</p>
       </div>
-      <div class="pillar-card">
+      <div class="pillar-card reveal">
         <i class="fa-solid fa-hand-holding-dollar"></i>
         <h3 data-i18n="pillar2_title">அதிகபட்ச நகைக்கடன்</h3>
         <p data-i18n="pillar2_desc">குறைந்த வட்டியில் கிராமிற்கு மார்க்கெட் மதிப்பிற்கேற்ப உடனடிப் பணம்.</p>
       </div>
-      <div class="pillar-card">
+      <div class="pillar-card reveal">
         <i class="fa-solid fa-scale-balanced"></i>
         <h3 data-i18n="pillar3_title">துல்லிய சோதனை</h3>
         <p data-i18n="pillar3_desc">ஹைட்ரோஸ்டேடிக் முறையில் 100% நேர்மையான மற்றும் சேதமற்ற காரட் ஆய்வு.</p>
       </div>
-      <div class="pillar-card">
+      <div class="pillar-card reveal">
         <i class="fa-solid fa-store"></i>
         <h3 data-i18n="pillar4_title">10 கிளைகளின் கட்டமைப்பு</h3>
         <p data-i18n="pillar4_desc">கன்னியாகுமரி மாவட்டம் முழுவதும் 10 இடங்களில் வாடிக்கையாளர் சேவை.</p>
@@ -970,7 +1083,7 @@
     </div>
 
     <!-- Quick Portals Access Strip -->
-    <div class="portals-banner-section">
+    <div class="portals-banner-section reveal">
       <div>
         <h3 style="color:var(--primary-purple); font-size:1.15rem; margin:0;" data-i18n="portals_heading"><i class="fa-solid fa-laptop-code" style="color:var(--metallic-gold);"></i> முத்துசிஸ் டிஜிட்டல் போர்ட்டல்கள் (Online Portals)</h3>
         <p style="color:var(--text-muted); font-size:0.85rem; margin:0;" data-i18n="portals_sub">வாடிக்கையாளர் சேமிப்பு மற்றும் நகை விற்பனைக்கான நேரடி இணையதள இணைப்புகள்</p>
@@ -997,13 +1110,13 @@
     </div>
 
     <!-- Quick Services Preview -->
-    <div class="section-title">
+    <div class="section-title reveal">
       <h2 data-i18n="sec_services_title">எங்களின் முதன்மைச் சேவைகள்</h2>
       <p data-i18n="sec_services_desc">வாடிக்கையாளர்களின் திருப்தி மற்றும் வெளிப்படைத்தன்மையே எங்களின் மூலதனம்</p>
     </div>
     
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon-banner"><i class="fa-solid fa-coins"></i></div>
         <div class="service-body">
           <div>
@@ -1014,7 +1127,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon-banner"><i class="fa-solid fa-unlock-keyhole"></i></div>
         <div class="service-body">
           <div>
@@ -1025,7 +1138,7 @@
         </div>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon-banner"><i class="fa-solid fa-gem"></i></div>
         <div class="service-body">
           <div>
@@ -1045,7 +1158,7 @@
       <p style="color:var(--metallic-gold)" data-i18n="about_tagline">பாரம்பரியத்தின் பெருமை • கார்ப்பரேட் சட்டப்படியான நம்பகத்தன்மை</p>
     </div>
     <div style="max-width: 920px; margin: 0 auto 50px; padding: 0 20px;">
-      <div style="background:white; padding: 35px; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); margin-bottom: 25px;">
+      <div style="background:white; padding: 35px; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); margin-bottom: 25px;" class="reveal">
         <h3 style="color:var(--primary-purple); margin-bottom: 15px;" data-i18n="about_hist_title">எங்கள் வரலாறு & நிர்வாகம்</h3>
         <p style="margin-bottom: 15px; color: var(--text-muted);" data-i18n="about_hist_p1">
           <strong>முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Company)</strong> 15 ஆண்டுகளுக்கும் மேலான கைவினைத் தங்க ஆபரண கலை அனுபவம் கொண்ட நிபுணத்துவ நிர்வாகத்தால் வழிநடத்தப்படுகிறது. கடந்த 10 ஆண்டுகளுக்கும் மேலாக <strong>'இந்தியன் கோல்டு'</strong> என்ற பெயரில் வாடிக்கையாளர்களின் அசைக்க முடியாத நம்பிக்கையைப் பெற்று, தற்போது கார்ப்பரேட் விவகாரங்கள் அமைச்சகத்தின் கீழ் (Ministry of Corporate Affairs) பதிவு செய்யப்பட்ட நிறுவனமாக விரிவடைந்துள்ளது.
@@ -1064,11 +1177,11 @@
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <div style="background:white; padding: 25px; border-radius: 12px; border-left: 4px solid var(--primary-purple);">
+        <div style="background:white; padding: 25px; border-radius: 12px; border-left: 4px solid var(--primary-purple);" class="reveal">
           <h4 style="color:var(--primary-purple);" data-i18n="vision_title"><i class="fa-solid fa-bullseye"></i> பார்வை (Vision)</h4>
           <p style="font-size:0.9rem; color:var(--text-muted); margin-top:8px;" data-i18n="vision_desc">தென் தமிழகத்தின் மிக வெளிப்படையான, உயர் தொழில்நுட்பத் தரத்துடன் கூடிய தங்க ஆபரண மற்றும் நிதிச் சேவை நிறுவனமாக நிலைத்திருப்பது.</p>
         </div>
-        <div style="background:white; padding: 25px; border-radius: 12px; border-left: 4px solid var(--metallic-gold);">
+        <div style="background:white; padding: 25px; border-radius: 12px; border-left: 4px solid var(--metallic-gold);" class="reveal">
           <h4 style="color:var(--primary-purple);" data-i18n="mission_title"><i class="fa-solid fa-handshake"></i> நோக்கம் (Mission)</h4>
           <p style="font-size:0.9rem; color:var(--text-muted); margin-top:8px;" data-i18n="mission_desc">ஒவ்வொரு வாடிக்கையாளரின் தங்கத்திற்கும் சரியான மார்க்கெட் மதிப்பையும், துல்லியமான காரட் சோதனையையும், உடனடி நிதி உதவியையும் வழங்குவது.</p>
         </div>
@@ -1083,42 +1196,42 @@
       <p style="color:var(--metallic-gold)" data-i18n="services_tagline">தங்கத்திற்கு முழு மதிப்பளிக்கும் சிறப்பு நிதி & ஆபரணச் சேவைகள்</p>
     </div>
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon-banner"><i class="fa-solid fa-hand-holding-dollar"></i></div>
         <div class="service-body">
           <h3 data-i18n="srv_card1_title">ஸ்பாட் நகைக்கடன்</h3>
           <p data-i18n="srv_card1_desc">குறைந்த வட்டியில் உடனடி கடன். மார்க்கெட் மதிப்பிற்கு ஏற்ப அதிகபட்ச நிதி உதவி 5 நிமிடங்களில் ரொக்கம்/வங்கி பரிமாற்றம் மூலம் கிடைக்கும்.</p>
         </div>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon-banner"><i class="fa-solid fa-ring"></i></div>
         <div class="service-body">
           <h3 data-i18n="srv_card2_title">916 BIS ஹால்மார்க் நகைகள்</h3>
           <p data-i18n="srv_card2_desc">பாரம்பரிய முறைப்படி தயாரிக்கப்படும் தாலி கொடிகள், வளையல்கள், மோதிரங்கள் மற்றும் புதிய நவீன திருமண நகை கலெக்ஷன்கள்.</p>
         </div>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon-banner"><i class="fa-solid fa-building-columns"></i></div>
         <div class="service-body">
           <h3 data-i18n="srv_card3_title">அடகு நகைகள் மீட்பு</h3>
           <p data-i18n="srv_card3_desc">வட்டி கட்ட முடியாமல் ஏலத்திற்கு செல்லும் நிலையில் உள்ள உங்கள் நகைகளை நாங்களே பணம்கொடுத்து மீட்டு, மார்க்கெட் விலைக்கு மாற்றி மீதித் தொகையை உடனே தருகிறோம்.</p>
         </div>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon-banner"><i class="fa-solid fa-scale-unbalanced"></i></div>
         <div class="service-body">
           <h3 data-i18n="srv_card4_title">பழைய தங்கம் கொள்முதல்</h3>
           <p data-i18n="srv_card4_desc">உடைந்த மற்றும் பழைய நகைகளை விற்கும்போது எந்தவித கழிவும் இன்றி நேரடி ஸ்பெசிபிக் கிராவிட்டி முறையில் பரிசோதித்து மார்க்கெட் உச்சபட்ச ரொக்கம்.</p>
         </div>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon-banner"><i class="fa-solid fa-piggy-bank"></i></div>
         <div class="service-body">
           <h3 data-i18n="srv_card5_title">தங்க சேமிப்புத் திட்டங்கள்</h3>
           <p data-i18n="srv_card5_desc">சிறுகச் சிறுகச் சேமித்து செய்கூலி, சேதாரம் இன்றி புதிய நகைகளை வாங்கும் எளிய மாதாந்திர சேமிப்புத் திட்டங்கள்.</p>
         </div>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon-banner"><i class="fa-solid fa-microscope"></i></div>
         <div class="service-body">
           <h3 data-i18n="srv_card6_title">ஹைட்ரோஸ்டேடிக் காரட் டெஸ்டிங்</h3>
@@ -1136,7 +1249,7 @@
     </div>
     <div style="max-width: 900px; margin: 0 auto 50px; padding: 0 20px;">
       
-      <div class="scheme-box">
+      <div class="scheme-box reveal">
         <span style="background:var(--gold-light); color:var(--primary-purple); padding:4px 12px; border-radius:20px; font-weight:700; font-size:0.85rem; border:1px solid var(--metallic-gold);" data-i18n="scheme1_badge">முக்கிய திட்டம்</span>
         <h3 style="color:var(--primary-purple); font-size:1.35rem; margin-top:10px;" data-i18n="scheme1_title">முத்துசிஸ் 11 மாத தங்க சேமிப்புத் திட்டம்</h3>
         <p style="color:var(--text-muted); margin: 8px 0 15px;" data-i18n="scheme1_desc">மாதம்தோறும் ரூ. 1000 முதல் உங்கள் வசதிக்கேற்ப சேமித்து, திட்ட நிறைவில் உங்கள் குடும்பத்தின் சுபகாரியங்களுக்கு அழகிய 916 நகைகளாகப் பெறுங்கள்.</p>
@@ -1151,7 +1264,7 @@
         </div>
       </div>
 
-      <div class="scheme-box">
+      <div class="scheme-box reveal">
         <span style="background:var(--gold-light); color:var(--primary-purple); padding:4px 12px; border-radius:20px; font-weight:700; font-size:0.85rem; border:1px solid var(--metallic-gold);" data-i18n="scheme2_badge">எடை சேமிப்பு</span>
         <h3 style="color:var(--primary-purple); font-size:1.35rem; margin-top:10px;" data-i18n="scheme2_title">ஃப்ளெக்ஸி கோல்டு வெயிட் திட்டம் (Gold Weight Scheme)</h3>
         <p style="color:var(--text-muted); margin: 8px 0 15px;" data-i18n="scheme2_desc">நீங்கள் செலுத்தும் தொகையை அன்றைய தங்க விலைக்கு ஏற்ப கிராமாக மாற்றிக்கொள்ளும் முறை.</p>
@@ -1175,7 +1288,7 @@
     <div class="branches-grid">
       
       <!-- 1. HEAD OFFICE: NAGERCOIL -->
-      <div class="branch-card hq-branch">
+      <div class="branch-card hq-branch reveal">
         <span class="branch-tag">HEAD OFFICE</span>
         <div>
           <h3><i class="fa-solid fa-building-flag" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br1_name">தலைமை அலுவலகம்</span> <span class="branch-code-badge">HQ - NGL</span></h3>
@@ -1192,7 +1305,7 @@
       </div>
 
       <!-- 2. மணக்குடி - MKU -->
-      <div class="branch-card">
+      <div class="branch-card reveal">
         <div>
           <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br2_name">மணக்குடி</span> <span class="branch-code-badge">MKU</span></h3>
           <ul class="branch-info-list">
@@ -1208,7 +1321,7 @@
       </div>
 
       <!-- 3. ஆண்டிவிளை - AVL -->
-      <div class="branch-card">
+      <div class="branch-card reveal">
         <div>
           <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br3_name">ஆண்டிவிளை</span> <span class="branch-code-badge">AVL</span></h3>
           <ul class="branch-info-list">
@@ -1224,7 +1337,7 @@
       </div>
 
       <!-- 4. இடலாக்குடி - EDK -->
-      <div class="branch-card">
+      <div class="branch-card reveal">
         <div>
           <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br4_name">இடலாக்குடி</span> <span class="branch-code-badge">EDK</span></h3>
           <ul class="branch-info-list">
@@ -1240,7 +1353,7 @@
       </div>
 
       <!-- 5. இருளப்பபுரம் - EPM -->
-      <div class="branch-card">
+      <div class="branch-card reveal">
         <div>
           <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br5_name">இருளப்பபுரம்</span> <span class="branch-code-badge">EPM</span></h3>
           <ul class="branch-info-list">
@@ -1256,7 +1369,7 @@
       </div>
 
       <!-- 6. கரும்பாட்டூர் - KPT -->
-      <div class="branch-card">
+      <div class="branch-card reveal">
         <div>
           <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br6_name">கரும்பாட்டூர்</span> <span class="branch-code-badge">KPT</span></h3>
           <ul class="branch-info-list">
@@ -1272,7 +1385,7 @@
       </div>
 
       <!-- 7. மயிலாடி - MYL -->
-      <div class="branch-card">
+      <div class="branch-card reveal">
         <div>
           <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br7_name">மயிலாடி</span> <span class="branch-code-badge">MYL</span></h3>
           <ul class="branch-info-list">
@@ -1288,7 +1401,7 @@
       </div>
 
       <!-- 8. திங்கள்நகர் - TNG -->
-      <div class="branch-card">
+      <div class="branch-card reveal">
         <div>
           <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br8_name">திங்கள்நகர்</span> <span class="branch-code-badge">TNG</span></h3>
           <ul class="branch-info-list">
@@ -1304,7 +1417,7 @@
       </div>
 
       <!-- 9. மீனாட்சிபுரம் - MPM -->
-      <div class="branch-card">
+      <div class="branch-card reveal">
         <div>
           <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br9_name">மீனாட்சிபுரம்</span> <span class="branch-code-badge">MPM</span></h3>
           <ul class="branch-info-list">
@@ -1320,7 +1433,7 @@
       </div>
 
       <!-- 10. கீழமணக்குடி - KMK -->
-      <div class="branch-card">
+      <div class="branch-card reveal">
         <div>
           <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br10_name">கீழமணக்குடி</span> <span class="branch-code-badge">KMK</span></h3>
           <ul class="branch-info-list">
@@ -1348,28 +1461,28 @@
 
     <div style="max-width: 950px; margin: 0 auto 60px; padding: 0 20px;">
       
-      <div class="section-title">
+      <div class="section-title reveal">
         <h2 data-i18n="fr_why_title">ஏன் முத்துசிஸ் உடன் இணைய வேண்டும்?</h2>
         <p data-i18n="fr_why_desc">10+ வருட பிராண்ட் பலம் மற்றும் முழுமையான தொழில்நுட்ப ஆதரவு</p>
       </div>
 
       <div class="franchise-steps">
-        <div class="f-step-card">
+        <div class="f-step-card reveal">
           <div class="num"><i class="fa-solid fa-chart-line"></i></div>
           <h4 style="color:var(--primary-purple); margin-bottom:8px;" data-i18n="fr_p1_title">உயர்ந்த வருமானம்</h4>
           <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="fr_p1_desc">ஸ்பாட் நகைக்கடன் மற்றும் பழைய தங்கம் வாங்கும் வணிகத்தில் உத்தரவாதமான வருவாய் வாய்ப்பு.</p>
         </div>
-        <div class="f-step-card">
+        <div class="f-step-card reveal">
           <div class="num"><i class="fa-solid fa-laptop-code"></i></div>
           <h4 style="color:var(--primary-purple); margin-bottom:8px;" data-i18n="fr_p2_title">முழு ஆட்டோமேஷன்</h4>
           <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="fr_p2_desc">பில்லிங், லாக்கர் மேனேஜ்மென்ட், DLT SMS மற்றும் வாடிக்கையாளர் நோட்டிபிகேஷன் சாப்ட்வேர் வசதி.</p>
         </div>
-        <div class="f-step-card">
+        <div class="f-step-card reveal">
           <div class="num"><i class="fa-solid fa-scale-balanced"></i></div>
           <h4 style="color:var(--primary-purple); margin-bottom:8px;" data-i18n="fr_p3_title">காரட் பரிசோதனை</h4>
           <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="fr_p3_desc">ஹைட்ரோஸ்டேடிக் சோதனை உபகரணங்கள் மற்றும் ஊழியர்களுக்கான முழுமையான தொழிற்பயிற்சி.</p>
         </div>
-        <div class="f-step-card">
+        <div class="f-step-card reveal">
           <div class="num"><i class="fa-solid fa-bullhorn"></i></div>
           <h4 style="color:var(--primary-purple); margin-bottom:8px;" data-i18n="fr_p4_title">மார்க்கெட்டிங் ஆதரவு</h4>
           <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="fr_p4_desc">டிஜிட்டல் விளம்பரங்கள், சமூக வலைத்தள பிரச்சாரம் மற்றும் பிராண்டிங் வழிகாட்டுதல்.</p>
@@ -1377,7 +1490,7 @@
       </div>
 
       <!-- Franchise Application Form -->
-      <div class="form-box" style="margin-top:40px;">
+      <div class="form-box reveal" style="margin-top:40px;">
         <h3 style="color:var(--primary-purple); margin-bottom:15px; text-align:center;" data-i18n="fr_form_title">பிரான்சைசி உரிமைக்கு விண்ணப்பிக்கவும்</h3>
         <p style="text-align:center; color:var(--text-muted); font-size:0.9rem; margin-bottom:25px;" data-i18n="fr_form_sub">கீழே உள்ள படிவத்தை பூர்த்தி செய்தால் எங்கள் நிறுவனத்தின் இயக்குநர் குழு தங்களை நேரில் சந்திக்கும்.</p>
         
@@ -1433,7 +1546,7 @@
     </div>
 
     <div class="contact-wrapper">
-      <div style="background:white; padding: 35px; border-radius: 16px; border: 1px solid var(--border-color);">
+      <div style="background:white; padding: 35px; border-radius: 16px; border: 1px solid var(--border-color);" class="reveal">
         <h3 style="color:var(--primary-purple); margin-bottom: 20px;" data-i18n="cnt_hq_title">தலைமை அலுவலக விவரங்கள்</h3>
         <p style="margin-bottom: 12px;"><i class="fa-solid fa-building" style="color:var(--metallic-gold); width:25px;"></i> <strong>MUTHUSISE GOLD PRODUCT PRIVATE LIMITED</strong></p>
         <p style="margin-bottom: 12px;"><i class="fa-solid fa-file-contract" style="color:var(--metallic-gold); width:25px;"></i> CIN: U47912TN2024PTC171143</p>
@@ -1443,7 +1556,7 @@
         <p style="margin-bottom: 20px;"><i class="fa-solid fa-clock" style="color:var(--metallic-gold); width:25px;"></i> <span data-i18n="cnt_hq_time">திங்கள் - சனி: காலை 9:30 மணி முதல் இரவு 8:30 மணி வரை</span></p>
       </div>
 
-      <div class="form-box">
+      <div class="form-box reveal">
         <h3 style="color:var(--primary-purple); margin-bottom: 15px;" data-i18n="cnt_form_title">உடனடி விசாரணை படிவம்</h3>
         <form id="contactForm">
           <div class="form-group">
@@ -1552,14 +1665,12 @@
   </footer>
 
   <!-- ======================================================== -->
-  <!-- JAVASCRIPT: SUPABASE LIVE RATES & INTERACTION LOGIC -->
+  <!-- JAVASCRIPT: SUPABASE & INTERACTION & ANIMATION LOGIC -->
   <!-- ======================================================== -->
   <script>
-    // உங்கள் Supabase திட்டத்தின் சரியான URL மற்றும் Anon Key இணைக்கப்பட்டுள்ளது
     const SUPABASE_URL = "https://gxdmupqopfocmmcxxkbv.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4ZG11cHFvcGZvY21tY3h4a2J2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2ODc4NDEsImV4cCI6MjEwNDI2Mzg0MX0.BU3Cjtow8zzMQukTxXo4J-ulJW5M3k1pnX3Dd204u1M";
 
-    // ஆரம்ப இருப்பு விலைகள்
     let TODAY_RATES = {
       gold22k_1g: "₹7,150",
       gold22k_8g: "₹57,200",
@@ -1569,7 +1680,6 @@
       jewelLoanMax: "₹5,600/g"
     };
 
-    // Supabase-ல் இருந்து நேரலை விலைகளைப் பெறும் ஃபங்ஷன்
     async function fetchLiveRatesFromSupabase() {
       try {
         const response = await fetch(`${SUPABASE_URL}/rest/v1/daily_rates?id=eq.1&select=*`, {
@@ -1596,7 +1706,6 @@
       }
     }
 
-    // Translations Dictionary
     const translations = {
       ta: {
         langBtn: '<i class="fa-solid fa-globe"></i> English',
@@ -2046,13 +2155,28 @@
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      handleScrollReveal();
+    }
+
+    // Scroll Reveal Intersection Logic
+    function handleScrollReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
+      reveals.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 40) {
+          el.classList.add('visible');
+        }
+      });
     }
 
     document.addEventListener('DOMContentLoaded', function() {
       setLanguage(currentLang);
-      
-      // பக்கம் லோட் ஆனதும் Supabase-ல் இருந்து நேரடி விலைகளைப் பெறுகிறோம்
       fetchLiveRatesFromSupabase();
+
+      // Trigger initial scroll reveal
+      handleScrollReveal();
+      window.addEventListener('scroll', handleScrollReveal);
 
       const langToggleBtn = document.getElementById('langToggleBtn');
       if (langToggleBtn) {
