@@ -143,7 +143,7 @@
       color: var(--text-dark);
       font-weight: 600;
       font-size: 0.9rem;
-      padding: 8px 13px;
+      padding: 8px 12px;
       border-radius: 8px;
       transition: all 0.3s ease;
       cursor: pointer;
@@ -182,6 +182,21 @@
     }
     .nav-btn-contact:hover {
       background: #e66e00 !important;
+    }
+
+    /* Language Switcher Button */
+    .lang-switcher-btn {
+      background: #f0e6f7 !important;
+      color: var(--primary-purple) !important;
+      border: 1.5px solid var(--primary-purple) !important;
+      border-radius: 20px !important;
+      font-weight: 700 !important;
+      padding: 6px 14px !important;
+      transition: all 0.3s ease !important;
+    }
+    .lang-switcher-btn:hover {
+      background: var(--primary-purple) !important;
+      color: white !important;
     }
 
     /* Mobile Menu Toggle */
@@ -327,7 +342,7 @@
       color: var(--text-muted);
     }
 
-    /* Quick Portals Strip on Home Page */
+    /* Quick Portals Strip */
     .portals-banner-section {
       background: white;
       margin: 0 5% 50px;
@@ -604,7 +619,7 @@
       border-color: var(--primary-purple);
     }
 
-    /* Legal Verification Card */
+    /* Legal Card */
     .legal-card {
       background: #fdfbf7;
       border: 1.5px dashed var(--metallic-gold);
@@ -626,7 +641,7 @@
       margin-bottom: 6px;
     }
 
-    /* Modal / Pop-up Styles for Customer & Shop Portals */
+    /* Modal / Pop-up Styles */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -794,10 +809,10 @@
   <div class="top-bar">
     <div>
       <span class="info-item"><i class="fa-solid fa-certificate" style="color:var(--metallic-gold)"></i> CIN: U47912TN2024PTC171143 (Govt. of India Registered)</span>
-      <span class="info-item"><i class="fa-solid fa-gem" style="color:var(--metallic-gold)"></i> 10+ வருடங்கள் தொடரும் வாடிக்கையாளர் நம்பிக்கை</span>
+      <span class="info-item" data-i18n="top_trust"><i class="fa-solid fa-gem" style="color:var(--metallic-gold)"></i> 10+ வருடங்கள் தொடரும் வாடிக்கையாளர் நம்பிக்கை</span>
     </div>
     <div class="top-links">
-      <a href="https://muthusise.mygold916.com/login" target="_blank" class="quick-login-link"><i class="fa-solid fa-piggy-bank"></i> வாடிக்கையாளர் லாகின்</a>
+      <a href="https://muthusise.mygold916.com/login" target="_blank" class="quick-login-link" data-i18n="top_cust_login"><i class="fa-solid fa-piggy-bank"></i> வாடிக்கையாளர் லாகின்</a>
       <span class="badge-pill"><i class="fa-solid fa-phone"></i> +91 916 2700 916</span>
     </div>
   </div>
@@ -809,7 +824,7 @@
         <!-- Brand Logo -->
         <img src="logo.png" alt="Muthusise Gold Logo" class="logo-img">
         <div class="brand-text">
-          <h1>முத்துசிஸ் கோல்டு கம்பெனி</h1>
+          <h1 data-i18n="brand_title">முத்துசிஸ் கோல்டு கம்பெனி</h1>
           <p>MUTHUSISE GOLD COMPANY</p>
         </div>
       </div>
@@ -819,15 +834,17 @@
       </button>
       
       <ul class="nav-links" id="navLinks">
-        <li><button class="tab-btn active" data-target="home">Home</button></li>
-        <li><button class="tab-btn" data-target="about">எங்களைப் பற்றி</button></li>
-        <li><button class="tab-btn" data-target="services">சேவைகள்</button></li>
-        <li><button class="tab-btn" data-target="schemes">திட்டங்கள்</button></li>
-        <li><button class="tab-btn" data-target="branches">கிளைகள் (10)</button></li>
-        <li><button class="tab-btn nav-btn-franchise" data-target="franchise"><i class="fa-solid fa-handshake"></i> பிரான்சைசி</button></li>
-        <!-- Login Portal Trigger Button (Customer & Shop Only) -->
-        <li><button class="nav-btn-login" id="openModalBtn"><i class="fa-solid fa-arrow-right-to-bracket"></i> உள்நுழைவு (Logins)</button></li>
-        <li><button class="tab-btn nav-btn-contact" data-target="contact">தொடர்புக்கு</button></li>
+        <li><button class="tab-btn active" data-target="home" data-i18n="nav_home">Home</button></li>
+        <li><button class="tab-btn" data-target="about" data-i18n="nav_about">எங்களைப் பற்றி</button></li>
+        <li><button class="tab-btn" data-target="services" data-i18n="nav_services">சேவைகள்</button></li>
+        <li><button class="tab-btn" data-target="schemes" data-i18n="nav_schemes">திட்டங்கள்</button></li>
+        <li><button class="tab-btn" data-target="branches" data-i18n="nav_branches">கிளைகள் (10)</button></li>
+        <li><button class="tab-btn nav-btn-franchise" data-target="franchise" data-i18n="nav_franchise"><i class="fa-solid fa-handshake"></i> பிரான்சைசி</button></li>
+        <li><button class="nav-btn-login" id="openModalBtn" data-i18n="nav_login"><i class="fa-solid fa-arrow-right-to-bracket"></i> உள்நுழைவு</button></li>
+        <li><button class="tab-btn nav-btn-contact" data-target="contact" data-i18n="nav_contact">தொடர்புக்கு</button></li>
+        
+        <!-- Language Switcher Button -->
+        <li><button id="langToggleBtn" class="lang-switcher-btn"><i class="fa-solid fa-globe"></i> English</button></li>
       </ul>
     </div>
   </header>
@@ -835,14 +852,14 @@
   <!-- TAB 1: HOME PAGE -->
   <main id="tab-home" class="page-tab active-tab">
     <section class="hero">
-      <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> அரசு பதிவுபெற்ற நிறுவனம் (CIN: U47912TN2024PTC171143)</span>
-      <h2>முத்துசிஸ் கோல்டு கம்பெனி — உங்கள் தங்கத்திற்கான நம்பகமான முகவரி</h2>
-      <p>10+ ஆண்டுகளாக முந்தைய 'இந்தியன் கோல்டு' நற்பெயருடன் மக்களின் பேராதரவு பெற்ற நிறுவனம். புதிய 916 ஆபரண விற்பனை, ஸ்பாட் நகைக்கடன் மற்றும் மூழ்கும் நகைகள் மீட்பு சேவை.</p>
+      <span class="hero-badge" data-i18n="hero_badge"><i class="fa-solid fa-shield-halved"></i> அரசு பதிவுபெற்ற நிறுவனம் (CIN: U47912TN2024PTC171143)</span>
+      <h2 data-i18n="hero_title">முத்துசிஸ் கோல்டு கம்பெனி — உங்கள் தங்கத்திற்கான நம்பகமான முகவரி</h2>
+      <p data-i18n="hero_desc">10+ ஆண்டுகளாக முந்தைய 'இந்தியன் கோல்டு' நற்பெயருடன் மக்களின் பேராதரவு பெற்ற நிறுவனம். புதிய 916 ஆபரண விற்பனை, ஸ்பாட் நகைக்கடன் மற்றும் மூழ்கும் நகைகள் மீட்பு சேவை.</p>
       <div class="btn-group">
-        <button class="btn btn-gold tab-btn" data-target="services"><i class="fa-solid fa-list-check"></i> எங்கள் சேவைகள்</button>
-        <button class="btn btn-orange tab-btn" data-target="franchise"><i class="fa-solid fa-handshake"></i> பிரான்சைசி வாய்ப்புகள்</button>
-        <button class="btn btn-purple" id="heroLoginBtn"><i class="fa-solid fa-lock"></i> ஆன்லைன் சேமிப்பு லாகின்</button>
-        <button class="btn btn-outline tab-btn" data-target="branches"><i class="fa-solid fa-store"></i> கிளை விவரங்கள் (10)</button>
+        <button class="btn btn-gold tab-btn" data-target="services" data-i18n="btn_services"><i class="fa-solid fa-list-check"></i> எங்கள் சேவைகள்</button>
+        <button class="btn btn-orange tab-btn" data-target="franchise" data-i18n="btn_franchise"><i class="fa-solid fa-handshake"></i> பிரான்சைசி வாய்ப்புகள்</button>
+        <button class="btn btn-purple" id="heroLoginBtn" data-i18n="btn_scheme_login"><i class="fa-solid fa-lock"></i> ஆன்லைன் சேமிப்பு லாகின்</button>
+        <button class="btn btn-outline tab-btn" data-target="branches" data-i18n="btn_branches"><i class="fa-solid fa-store"></i> கிளை விவரங்கள் (10)</button>
       </div>
     </section>
 
@@ -850,50 +867,46 @@
     <div class="pillars-container">
       <div class="pillar-card">
         <i class="fa-solid fa-award"></i>
-        <h3>10+ வருட அனுபவம்</h3>
-        <p>15 வருட கைவினை நகை தயாரிப்பு & 10 வருட நம்பகமான நிதி நிர்வாகம்.</p>
+        <h3 data-i18n="pillar1_title">10+ வருட அனுபவம்</h3>
+        <p data-i18n="pillar1_desc">15 வருட கைவினை நகை தயாரிப்பு & 10 வருட நம்பகமான நிதி நிர்வாகம்.</p>
       </div>
       <div class="pillar-card">
         <i class="fa-solid fa-hand-holding-dollar"></i>
-        <h3>அதிகபட்ச நகைக்கடன்</h3>
-        <p>குறைந்த வட்டியில் கிராமிற்கு மார்க்கெட் மதிப்பிற்கேற்ப உடனடிப் பணம்.</p>
+        <h3 data-i18n="pillar2_title">அதிகபட்ச நகைக்கடன்</h3>
+        <p data-i18n="pillar2_desc">குறைந்த வட்டியில் கிராமிற்கு மார்க்கெட் மதிப்பிற்கேற்ப உடனடிப் பணம்.</p>
       </div>
       <div class="pillar-card">
         <i class="fa-solid fa-scale-balanced"></i>
-        <h3>துல்லிய சோதனை</h3>
-        <p>ஹைட்ரோஸ்டேடிக் முறையில் 100% நேர்மையான மற்றும் சேதமற்ற காரட் ஆய்வு.</p>
+        <h3 data-i18n="pillar3_title">துல்லிய சோதனை</h3>
+        <p data-i18n="pillar3_desc">ஹைட்ரோஸ்டேடிக் முறையில் 100% நேர்மையான மற்றும் சேதமற்ற காரட் ஆய்வு.</p>
       </div>
       <div class="pillar-card">
         <i class="fa-solid fa-store"></i>
-        <h3>10 கிளைகளின் கட்டமைப்பு</h3>
-        <p>கன்னியாகுமரி மாவட்டம் முழுவதும் 10 இடங்களில் வாடிக்கையாளர் சேவை.</p>
+        <h3 data-i18n="pillar4_title">10 கிளைகளின் கட்டமைப்பு</h3>
+        <p data-i18n="pillar4_desc">கன்னியாகுமரி மாவட்டம் முழுவதும் 10 இடங்களில் வாடிக்கையாளர் சேவை.</p>
       </div>
     </div>
 
-    <!-- Quick Portals Access Strip on Home (Only Customer Scheme & Shop) -->
+    <!-- Quick Portals Access Strip -->
     <div class="portals-banner-section">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-        <div>
-          <h3 style="color:var(--primary-purple); font-size:1.15rem; margin:0;"><i class="fa-solid fa-laptop-code" style="color:var(--metallic-gold);"></i> முத்துசிஸ் டிஜிட்டல் போர்ட்டல்கள் (Online Portals)</h3>
-          <p style="color:var(--text-muted); font-size:0.85rem; margin:0;">வாடிக்கையாளர் சேமிப்பு மற்றும் நகை விற்பனைக்கான நேரடி இணையதள இணைப்புகள்</p>
-        </div>
+      <div>
+        <h3 style="color:var(--primary-purple); font-size:1.15rem; margin:0;" data-i18n="portals_heading"><i class="fa-solid fa-laptop-code" style="color:var(--metallic-gold);"></i> முத்துசிஸ் டிஜிட்டல் போர்ட்டல்கள் (Online Portals)</h3>
+        <p style="color:var(--text-muted); font-size:0.85rem; margin:0;" data-i18n="portals_sub">வாடிக்கையாளர் சேமிப்பு மற்றும் நகை விற்பனைக்கான நேரடி இணையதள இணைப்புகள்</p>
       </div>
       <div class="portals-banner-grid">
-        <!-- 1. Gold Scheme Login -->
         <a href="https://muthusise.mygold916.com/login" target="_blank" class="portal-banner-card">
           <i class="fa-solid fa-piggy-bank main-icon" style="color:#ff7a00;"></i>
           <div class="portal-info">
-            <h4>தங்க சேமிப்புத் திட்ட லாகின்</h4>
+            <h4 data-i18n="portal_scheme_title">தங்க சேமிப்புத் திட்ட லாகின்</h4>
             <p>Customer Gold Scheme Portal</p>
           </div>
           <i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--metallic-gold); margin-left:auto;"></i>
         </a>
 
-        <!-- 2. Jewellery Sales Shop -->
         <a href="https://shop.muthusisegold.com" target="_blank" class="portal-banner-card">
           <i class="fa-solid fa-store main-icon" style="color:#27ae60;"></i>
           <div class="portal-info">
-            <h4>நகை விற்பனை & அங்காடி</h4>
+            <h4 data-i18n="portal_shop_title">நகை விற்பனை & அங்காடி</h4>
             <p>Online Shop & Jewellery Catalog</p>
           </div>
           <i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--metallic-gold); margin-left:auto;"></i>
@@ -903,8 +916,8 @@
 
     <!-- Quick Services Preview -->
     <div class="section-title">
-      <h2>எங்களின் முதன்மைச் சேவைகள்</h2>
-      <p>வாடிக்கையாளர்களின் திருப்தி மற்றும் வெளிப்படைத்தன்மையே எங்களின் மூலதனம்</p>
+      <h2 data-i18n="sec_services_title">எங்களின் முதன்மைச் சேவைகள்</h2>
+      <p data-i18n="sec_services_desc">வாடிக்கையாளர்களின் திருப்தி மற்றும் வெளிப்படைத்தன்மையே எங்களின் மூலதனம்</p>
     </div>
     
     <div class="services-grid">
@@ -912,10 +925,10 @@
         <div class="service-icon-banner"><i class="fa-solid fa-coins"></i></div>
         <div class="service-body">
           <div>
-            <h3>ஸ்பாட் நகைக்கடன் (Jewel Loan)</h3>
-            <p>அவசர பணத் தேவைகளுக்கு உடனடியாக நகைகளை அடகு வைத்து குறைந்த வட்டியில் அதிகபட்ச கடன் பெறும் வசதி.</p>
+            <h3 data-i18n="srv1_title">ஸ்பாட் நகைக்கடன் (Jewel Loan)</h3>
+            <p data-i18n="srv1_desc">அவசர பணத் தேவைகளுக்கு உடனடியாக நகைகளை அடகு வைத்து குறைந்த வட்டியில் அதிகபட்ச கடன் பெறும் வசதி.</p>
           </div>
-          <button class="btn btn-gold tab-btn" data-target="contact" style="width:100%;">விசாரிக்க</button>
+          <button class="btn btn-gold tab-btn" data-target="contact" style="width:100%;" data-i18n="btn_enquire">விசாரிக்க</button>
         </div>
       </div>
 
@@ -923,10 +936,10 @@
         <div class="service-icon-banner"><i class="fa-solid fa-unlock-keyhole"></i></div>
         <div class="service-body">
           <div>
-            <h3>அடகு நகைகள் மீட்பு</h3>
-            <p>வங்கிகள் அல்லது பிற நிதி நிறுவனங்களில் மூழ்கும் நிலையில் உள்ள உங்கள் நகைகளை நாங்களே பணம்கொடுத்து மீட்டுத் தருகிறோம்.</p>
+            <h3 data-i18n="srv2_title">அடகு நகைகள் மீட்பு</h3>
+            <p data-i18n="srv2_desc">வங்கிகள் அல்லது பிற நிதி நிறுவனங்களில் மூழ்கும் நிலையில் உள்ள உங்கள் நகைகளை நாங்களே பணம்கொடுத்து மீட்டுத் தருகிறோம்.</p>
           </div>
-          <button class="btn btn-gold tab-btn" data-target="contact" style="width:100%;">தொடர்பு கொள்ள</button>
+          <button class="btn btn-gold tab-btn" data-target="contact" style="width:100%;" data-i18n="btn_contact_us">தொடர்பு கொள்ள</button>
         </div>
       </div>
 
@@ -934,10 +947,10 @@
         <div class="service-icon-banner"><i class="fa-solid fa-gem"></i></div>
         <div class="service-body">
           <div>
-            <h3>பழைய தங்கம் சிறந்த விலைக்கு வாங்குதல்</h3>
-            <p>பழைய மற்றும் உடைந்த நகைகளுக்கு உடனடி ரொக்கம். மார்க்கெட் நிலவரப்படி உச்சபட்ச விலை.</p>
+            <h3 data-i18n="srv3_title">பழைய தங்கம் சிறந்த விலைக்கு வாங்குதல்</h3>
+            <p data-i18n="srv3_desc">பழைய மற்றும் உடைந்த நகைகளுக்கு உடனடி ரொக்கம். மார்க்கெட் நிலவரப்படி உச்சபட்ச விலை.</p>
           </div>
-          <button class="btn btn-gold tab-btn" data-target="contact" style="width:100%;">மதிப்பீடு செய்ய</button>
+          <button class="btn btn-gold tab-btn" data-target="contact" style="width:100%;" data-i18n="btn_estimate">மதிப்பீடு செய்ய</button>
         </div>
       </div>
     </div>
@@ -946,36 +959,36 @@
   <!-- TAB 2: ABOUT US -->
   <main id="tab-about" class="page-tab">
     <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 35px;">
-      <h2>எங்களைப் பற்றி (About Us)</h2>
-      <p style="color:var(--metallic-gold)">பாரம்பரியத்தின் பெருமை • கார்ப்பரேட் சட்டப்படியான நம்பகத்தன்மை</p>
+      <h2 data-i18n="about_heading">எங்களைப் பற்றி (About Us)</h2>
+      <p style="color:var(--metallic-gold)" data-i18n="about_tagline">பாரம்பரியத்தின் பெருமை • கார்ப்பரேட் சட்டப்படியான நம்பகத்தன்மை</p>
     </div>
     <div style="max-width: 920px; margin: 0 auto 50px; padding: 0 20px;">
       <div style="background:white; padding: 35px; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); margin-bottom: 25px;">
-        <h3 style="color:var(--primary-purple); margin-bottom: 15px;">எங்கள் வரலாறு & நிர்வாகம்</h3>
-        <p style="margin-bottom: 15px; color: var(--text-muted);">
+        <h3 style="color:var(--primary-purple); margin-bottom: 15px;" data-i18n="about_hist_title">எங்கள் வரலாறு & நிர்வாகம்</h3>
+        <p style="margin-bottom: 15px; color: var(--text-muted);" data-i18n="about_hist_p1">
           <strong>முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Company)</strong> 15 ஆண்டுகளுக்கும் மேலான கைவினைத் தங்க ஆபரண கலை அனுபவம் கொண்ட நிபுணத்துவ நிர்வாகத்தால் வழிநடத்தப்படுகிறது. கடந்த 10 ஆண்டுகளுக்கும் மேலாக <strong>'இந்தியன் கோல்டு'</strong> என்ற பெயரில் வாடிக்கையாளர்களின் அசைக்க முடியாத நம்பிக்கையைப் பெற்று, தற்போது கார்ப்பரேட் விவகாரங்கள் அமைச்சகத்தின் கீழ் (Ministry of Corporate Affairs) பதிவு செய்யப்பட்ட நிறுவனமாக விரிவடைந்துள்ளது.
         </p>
         
         <div class="legal-card">
-          <h4><i class="fa-solid fa-building-circle-check"></i> சட்டப்பூர்வ நிறுவன பதிவு விபரங்கள்</h4>
+          <h4 data-i18n="legal_title"><i class="fa-solid fa-building-circle-check"></i> சட்டப்பூர்வ நிறுவன பதிவு விபரங்கள்</h4>
           <ul>
-            <li><strong>நிறுவனப் பெயர்:</strong> MUTHUSISE GOLD PRODUCT PRIVATE LIMITED</li>
-            <li><strong>கார்ப்பரேட் அடையாள எண் (CIN):</strong> U47912TN2024PTC171143</li>
-            <li><strong>நிறுவப்பட்ட தேதி:</strong> 19 ஜூன் 2024 (Incorporated under Companies Act)</li>
-            <li><strong>பதிவு அலுவலக முகவரி:</strong> # 435, 2nd Floor, KP Road, Chettikulam Junction, Nagercoil, Kanyakumari, Tamil Nadu - 629001.</li>
-            <li><strong>நிர்வாக இயக்குநர்கள்:</strong> Siva Selvan Muthu Swamy (MD & CEO) | Anuja Paulraj (Director)</li>
+            <li><strong data-i18n="legal_name">நிறுவனப் பெயர்:</strong> MUTHUSISE GOLD PRODUCT PRIVATE LIMITED</li>
+            <li><strong data-i18n="legal_cin">கார்ப்பரேட் அடையாள எண் (CIN):</strong> U47912TN2024PTC171143</li>
+            <li><strong data-i18n="legal_incorp">நிறுவப்பட்ட தேதி:</strong> 19 June 2024 (Incorporated under Companies Act)</li>
+            <li><strong data-i18n="legal_reg_addr">பதிவு அலுவலக முகவரி:</strong> # 435, 2nd Floor, KP Road, Chettikulam Junction, Nagercoil, Kanyakumari, Tamil Nadu - 629001.</li>
+            <li><strong data-i18n="legal_directors">நிர்வாக இயக்குநர்கள்:</strong> Siva Selvan Muthu Swamy (MD & CEO) | Anuja Paulraj (Director)</li>
           </ul>
         </div>
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
         <div style="background:white; padding: 25px; border-radius: 12px; border-left: 4px solid var(--primary-purple);">
-          <h4 style="color:var(--primary-purple);"><i class="fa-solid fa-bullseye"></i> பார்வை (Vision)</h4>
-          <p style="font-size:0.9rem; color:var(--text-muted); margin-top:8px;">தென் தமிழகத்தின் மிக வெளிப்படையான, உயர் தொழில்நுட்பத் தரத்துடன் கூடிய தங்க ஆபரண மற்றும் நிதிச் சேவை நிறுவனமாக நிலைத்திருப்பது.</p>
+          <h4 style="color:var(--primary-purple);" data-i18n="vision_title"><i class="fa-solid fa-bullseye"></i> பார்வை (Vision)</h4>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-top:8px;" data-i18n="vision_desc">தென் தமிழகத்தின் மிக வெளிப்படையான, உயர் தொழில்நுட்பத் தரத்துடன் கூடிய தங்க ஆபரண மற்றும் நிதிச் சேவை நிறுவனமாக நிலைத்திருப்பது.</p>
         </div>
         <div style="background:white; padding: 25px; border-radius: 12px; border-left: 4px solid var(--metallic-gold);">
-          <h4 style="color:var(--primary-purple);"><i class="fa-solid fa-handshake"></i> நோக்கம் (Mission)</h4>
-          <p style="font-size:0.9rem; color:var(--text-muted); margin-top:8px;">ஒவ்வொரு வாடிக்கையாளரின் தங்கத்திற்கும் சரியான மார்க்கெட் மதிப்பையும், துல்லியமான காரட் சோதனையையும், உடனடி நிதி உதவியையும் வழங்குவது.</p>
+          <h4 style="color:var(--primary-purple);" data-i18n="mission_title"><i class="fa-solid fa-handshake"></i> நோக்கம் (Mission)</h4>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-top:8px;" data-i18n="mission_desc">ஒவ்வொரு வாடிக்கையாளரின் தங்கத்திற்கும் சரியான மார்க்கெட் மதிப்பையும், துல்லியமான காரட் சோதனையையும், உடனடி நிதி உதவியையும் வழங்குவது.</p>
         </div>
       </div>
     </div>
@@ -984,50 +997,50 @@
   <!-- TAB 3: SERVICES -->
   <main id="tab-services" class="page-tab">
     <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 35px;">
-      <h2>எங்கள் சேவைகள் (Services)</h2>
-      <p style="color:var(--metallic-gold)">தங்கத்திற்கு முழு மதிப்பளிக்கும் சிறப்பு நிதி & ஆபரணச் சேவைகள்</p>
+      <h2 data-i18n="services_heading">எங்கள் சேவைகள் (Services)</h2>
+      <p style="color:var(--metallic-gold)" data-i18n="services_tagline">தங்கத்திற்கு முழு மதிப்பளிக்கும் சிறப்பு நிதி & ஆபரணச் சேவைகள்</p>
     </div>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon-banner"><i class="fa-solid fa-hand-holding-dollar"></i></div>
         <div class="service-body">
-          <h3>ஸ்பாட் நகைக்கடன்</h3>
-          <p>குறைந்த வட்டியில் உடனடி கடன். மார்க்கெட் மதிப்பிற்கு ஏற்ப அதிகபட்ச நிதி உதவி 5 நிமிடங்களில் ரொக்கம்/வங்கி பரிமாற்றம் மூலம் கிடைக்கும்.</p>
+          <h3 data-i18n="srv_card1_title">ஸ்பாட் நகைக்கடன்</h3>
+          <p data-i18n="srv_card1_desc">குறைந்த வட்டியில் உடனடி கடன். மார்க்கெட் மதிப்பிற்கு ஏற்ப அதிகபட்ச நிதி உதவி 5 நிமிடங்களில் ரொக்கம்/வங்கி பரிமாற்றம் மூலம் கிடைக்கும்.</p>
         </div>
       </div>
       <div class="service-card">
         <div class="service-icon-banner"><i class="fa-solid fa-ring"></i></div>
         <div class="service-body">
-          <h3>916 BIS ஹால்மார்க் நகைகள்</h3>
-          <p>பாரம்பரிய முறைப்படி தயாரிக்கப்படும் தாலி கொடிகள், வளையல்கள், மோதிரங்கள் மற்றும் புதிய நவீன திருமண நகை கலெக்ஷன்கள்.</p>
+          <h3 data-i18n="srv_card2_title">916 BIS ஹால்மார்க் நகைகள்</h3>
+          <p data-i18n="srv_card2_desc">பாரம்பரிய முறைப்படி தயாரிக்கப்படும் தாலி கொடிகள், வளையல்கள், மோதிரங்கள் மற்றும் புதிய நவீன திருமண நகை கலெக்ஷன்கள்.</p>
         </div>
       </div>
       <div class="service-card">
         <div class="service-icon-banner"><i class="fa-solid fa-building-columns"></i></div>
         <div class="service-body">
-          <h3>அடகு நகைகள் மீட்பு</h3>
-          <p>வட்டி கட்ட முடியாமல் ஏலத்திற்கு செல்லும் நிலையில் உள்ள உங்கள் நகைகளை நாங்களே பணம்கொடுத்து மீட்டு, மார்க்கெட் விலைக்கு மாற்றி மீதித் தொகையை உடனே தருகிறோம்.</p>
+          <h3 data-i18n="srv_card3_title">அடகு நகைகள் மீட்பு</h3>
+          <p data-i18n="srv_card3_desc">வட்டி கட்ட முடியாமல் ஏலத்திற்கு செல்லும் நிலையில் உள்ள உங்கள் நகைகளை நாங்களே பணம்கொடுத்து மீட்டு, மார்க்கெட் விலைக்கு மாற்றி மீதித் தொகையை உடனே தருகிறோம்.</p>
         </div>
       </div>
       <div class="service-card">
         <div class="service-icon-banner"><i class="fa-solid fa-scale-unbalanced"></i></div>
         <div class="service-body">
-          <h3>பழைய தங்கம் கொள்முதல்</h3>
-          <p>உடைந்த மற்றும் பழைய நகைகளை விற்கும்போது எந்தவித கழிவும் இன்றி நேரடி ஸ்பெசிபிக் கிராவிட்டி முறையில் பரிசோதித்து மார்க்கெட் உச்சபட்ச ரொக்கம்.</p>
+          <h3 data-i18n="srv_card4_title">பழைய தங்கம் கொள்முதல்</h3>
+          <p data-i18n="srv_card4_desc">உடைந்த மற்றும் பழைய நகைகளை விற்கும்போது எந்தவித கழிவும் இன்றி நேரடி ஸ்பெசிபிக் கிராவிட்டி முறையில் பரிசோதித்து மார்க்கெட் உச்சபட்ச ரொக்கம்.</p>
         </div>
       </div>
       <div class="service-card">
         <div class="service-icon-banner"><i class="fa-solid fa-piggy-bank"></i></div>
         <div class="service-body">
-          <h3>தங்க சேமிப்புத் திட்டங்கள்</h3>
-          <p>சிறுகச் சிறுகச் சேமித்து செய்கூலி, சேதாரம் இன்றி புதிய நகைகளை வாங்கும் எளிய மாதாந்திர சேமிப்புத் திட்டங்கள்.</p>
+          <h3 data-i18n="srv_card5_title">தங்க சேமிப்புத் திட்டங்கள்</h3>
+          <p data-i18n="srv_card5_desc">சிறுகச் சிறுகச் சேமித்து செய்கூலி, சேதாரம் இன்றி புதிய நகைகளை வாங்கும் எளிய மாதாந்திர சேமிப்புத் திட்டங்கள்.</p>
         </div>
       </div>
       <div class="service-card">
         <div class="service-icon-banner"><i class="fa-solid fa-microscope"></i></div>
         <div class="service-body">
-          <h3>ஹைட்ரோஸ்டேடிக் காரட் டெஸ்டிங்</h3>
-          <p>நகைகளை உருக்காமல், கீறாமல் தண்ணீரின் ஒப்படர்த்தி முறைப்படி துல்லியமாக காரட் அளவை அறியும் நவீன தொழில்நுட்ப சேவை.</p>
+          <h3 data-i18n="srv_card6_title">ஹைட்ரோஸ்டேடிக் காரட் டெஸ்டிங்</h3>
+          <p data-i18n="srv_card6_desc">நகைகளை உருக்காமல், கீறாமல் தண்ணீரின் ஒப்படர்த்தி முறைப்படி துல்லியமாக காரட் அளவை அறியும் நவீன தொழில்நுட்ப சேவை.</p>
         </div>
       </div>
     </div>
@@ -1036,35 +1049,35 @@
   <!-- TAB 4: SCHEMES -->
   <main id="tab-schemes" class="page-tab">
     <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 35px;">
-      <h2>தங்கச் சேமிப்புத் திட்டங்கள் (Savings Schemes)</h2>
-      <p style="color:var(--metallic-gold)">சிறுகச் சிறுகச் சேமிப்போம் • சீர்மிகு தங்கம் பெறுவோம்</p>
+      <h2 data-i18n="schemes_heading">தங்கச் சேமிப்புத் திட்டங்கள் (Savings Schemes)</h2>
+      <p style="color:var(--metallic-gold)" data-i18n="schemes_tagline">சிறுகச் சிறுகச் சேமிப்போம் • சீர்மிகு தங்கம் பெறுவோம்</p>
     </div>
     <div style="max-width: 900px; margin: 0 auto 50px; padding: 0 20px;">
       
       <div class="scheme-box">
-        <span style="background:var(--gold-light); color:var(--primary-purple); padding:4px 12px; border-radius:20px; font-weight:700; font-size:0.85rem; border:1px solid var(--metallic-gold);">முக்கிய திட்டம்</span>
-        <h3 style="color:var(--primary-purple); font-size:1.35rem; margin-top:10px;">முத்துசிஸ் 11 மாத தங்க சேமிப்புத் திட்டம்</h3>
-        <p style="color:var(--text-muted); margin: 8px 0 15px;">மாதம்தோறும் ரூ. 1000 முதல் உங்கள் வசதிக்கேற்ப சேமித்து, திட்ட நிறைவில் உங்கள் குடும்பத்தின் சுபகாரியங்களுக்கு அழகிய 916 நகைகளாகப் பெறுங்கள்.</p>
+        <span style="background:var(--gold-light); color:var(--primary-purple); padding:4px 12px; border-radius:20px; font-weight:700; font-size:0.85rem; border:1px solid var(--metallic-gold);" data-i18n="scheme1_badge">முக்கிய திட்டம்</span>
+        <h3 style="color:var(--primary-purple); font-size:1.35rem; margin-top:10px;" data-i18n="scheme1_title">முத்துசிஸ் 11 மாத தங்க சேமிப்புத் திட்டம்</h3>
+        <p style="color:var(--text-muted); margin: 8px 0 15px;" data-i18n="scheme1_desc">மாதம்தோறும் ரூ. 1000 முதல் உங்கள் வசதிக்கேற்ப சேமித்து, திட்ட நிறைவில் உங்கள் குடும்பத்தின் சுபகாரியங்களுக்கு அழகிய 916 நகைகளாகப் பெறுங்கள்.</p>
         <ul style="list-style: none; margin-bottom: 15px;">
-          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> <strong>முழு செய்கூலி மற்றும் சேதாரம் தள்ளுபடி</strong> (நிபந்தனைகளுக்கு உட்பட்டு)</li>
-          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> மாதாந்திர தவணைகளுக்கு உடனடி DLT SMS ரசீது மற்றும் பாஸ்புக் வரவு</li>
-          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> 100% BIS 916 ஹால்மார்க் தரமான தங்க நகைகள்</li>
+          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> <strong data-i18n="scheme1_point1">முழு செய்கூலி மற்றும் சேதாரம் தள்ளுபடி (நிபந்தனைகளுக்கு உட்பட்டு)</strong></li>
+          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> <span data-i18n="scheme1_point2">மாதாந்திர தவணைகளுக்கு உடனடி DLT SMS ரசீது மற்றும் பாஸ்புக் வரவு</span></li>
+          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> <span data-i18n="scheme1_point3">100% BIS 916 ஹால்மார்க் தரமான தங்க நகைகள்</span></li>
         </ul>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="https://muthusise.mygold916.com/login" target="_blank" class="btn btn-orange"><i class="fa-solid fa-right-to-bracket"></i> உங்கள் சேமிப்பு கணக்கில் லாகின் செய்ய</a>
-          <button class="btn btn-gold tab-btn" data-target="contact">புதிய கணக்கு தொடங்க</button>
+          <a href="https://muthusise.mygold916.com/login" target="_blank" class="btn btn-orange" data-i18n="btn_scheme_open"><i class="fa-solid fa-right-to-bracket"></i> உங்கள் சேமிப்பு கணக்கில் லாகின் செய்ய</a>
+          <button class="btn btn-gold tab-btn" data-target="contact" data-i18n="btn_scheme_join">புதிய கணக்கு தொடங்க</button>
         </div>
       </div>
 
       <div class="scheme-box">
-        <span style="background:var(--gold-light); color:var(--primary-purple); padding:4px 12px; border-radius:20px; font-weight:700; font-size:0.85rem; border:1px solid var(--metallic-gold);">எடை சேமிப்பு</span>
-        <h3 style="color:var(--primary-purple); font-size:1.35rem; margin-top:10px;">ஃப்ளெக்ஸி கோல்டு வெயிட் திட்டம் (Gold Weight Scheme)</h3>
-        <p style="color:var(--text-muted); margin: 8px 0 15px;">நீங்கள் செலுத்தும் தொகையை அன்றைய தங்க விலைக்கு ஏற்ப கிராமாக மாற்றிக்கொள்ளும் முறை.</p>
+        <span style="background:var(--gold-light); color:var(--primary-purple); padding:4px 12px; border-radius:20px; font-weight:700; font-size:0.85rem; border:1px solid var(--metallic-gold);" data-i18n="scheme2_badge">எடை சேமிப்பு</span>
+        <h3 style="color:var(--primary-purple); font-size:1.35rem; margin-top:10px;" data-i18n="scheme2_title">ஃப்ளெக்ஸி கோல்டு வெயிட் திட்டம் (Gold Weight Scheme)</h3>
+        <p style="color:var(--text-muted); margin: 8px 0 15px;" data-i18n="scheme2_desc">நீங்கள் செலுத்தும் தொகையை அன்றைய தங்க விலைக்கு ஏற்ப கிராமாக மாற்றிக்கொள்ளும் முறை.</p>
         <ul style="list-style: none; margin-bottom: 15px;">
-          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> தங்க விலை உயர்வினால் ஏற்படும் இழப்பிலிருந்து முழுப் பாதுகாப்பு</li>
-          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> முதிர்வின் போது தங்க நாணயங்கள் அல்லது விரும்பிய ஆபரணங்களாகப் பெற்றுக்கொள்ளலாம்</li>
+          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> <span data-i18n="scheme2_point1">தங்க விலை உயர்வினால் ஏற்படும் இழப்பிலிருந்து முழுப் பாதுகாப்பு</span></li>
+          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> <span data-i18n="scheme2_point2">முதிர்வின் போது தங்க நாணயங்கள் அல்லது விரும்பிய ஆபரணங்களாகப் பெற்றுக்கொள்ளலாம்</span></li>
         </ul>
-        <button class="btn btn-gold tab-btn" data-target="contact">விவரங்கள் அறிய</button>
+        <button class="btn btn-gold tab-btn" data-target="contact" data-i18n="btn_learn_more">விவரங்கள் அறிய</button>
       </div>
 
     </div>
@@ -1073,8 +1086,8 @@
   <!-- TAB 5: BRANCHES (ALL 10 VERIFIED BRANCHES) -->
   <main id="tab-branches" class="page-tab">
     <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 35px;">
-      <h2>எங்கள் கிளைகள் (Our 10 Branch Network)</h2>
-      <p style="color:var(--metallic-gold)">கன்னியாகுமரி மாவட்டம் முழுவதும் 10 இடங்களில் உங்கள் சேவையில்</p>
+      <h2 data-i18n="branches_heading">எங்கள் கிளைகள் (Our 10 Branch Network)</h2>
+      <p style="color:var(--metallic-gold)" data-i18n="branches_tagline">கன்னியாகுமரி மாவட்டம் முழுவதும் 10 இடங்களில் உங்கள் சேவையில்</p>
     </div>
     
     <div class="branches-grid">
@@ -1083,160 +1096,160 @@
       <div class="branch-card hq-branch">
         <span class="branch-tag">HEAD OFFICE</span>
         <div>
-          <h3><i class="fa-solid fa-building-flag" style="color:var(--primary-purple); margin-right:8px;"></i> தலைமை அலுவலகம் <span class="branch-code-badge">HQ - NGL</span></h3>
+          <h3><i class="fa-solid fa-building-flag" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br1_name">தலைமை அலுவலகம்</span> <span class="branch-code-badge">HQ - NGL</span></h3>
           <ul class="branch-info-list">
-            <li><i class="fa-solid fa-location-dot"></i> #435, 2nd Floor, KP Road, செட்டிகுளம் சந்திப்பு, நாகர்கோவில், கன்னியாகுமரி மாவட்டம் - 629001.</li>
+            <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="br1_addr">#435, 2nd Floor, KP Road, செட்டிகுளம் சந்திப்பு, நாகர்கோவில், கன்னியாகுமரி மாவட்டம் - 629001.</span></li>
             <li><i class="fa-solid fa-phone"></i> +91 78100 04040 / +91 916 2700 916</li>
             <li><i class="fa-solid fa-envelope"></i> admin@muthusisegold.com</li>
-            <li><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:30 (திங்கள் - சனி)</li>
+            <li><i class="fa-solid fa-clock"></i> <span data-i18n="br1_time">காலை 9:30 - இரவு 8:30 (திங்கள் - சனி)</span></li>
           </ul>
         </div>
         <div class="branch-manager-box">
-          <strong><i class="fa-solid fa-user-tie"></i> நிர்வாகம்:</strong> தலைமை நிர்வாகக் குழு
+          <strong><i class="fa-solid fa-user-tie"></i> <span data-i18n="mgr_label">நிர்வாகம்:</span></strong> <span data-i18n="br1_mgr">தலைமை நிர்வாகக் குழு</span>
         </div>
       </div>
 
       <!-- 2. மணக்குடி - MKU -->
       <div class="branch-card">
         <div>
-          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> மணக்குடி <span class="branch-code-badge">MKU</span></h3>
+          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br2_name">மணக்குடி</span> <span class="branch-code-badge">MKU</span></h3>
           <ul class="branch-info-list">
-            <li><i class="fa-solid fa-location-dot"></i> #1-101, முதல் மாடி, பார்க் எதிரில், மணக்குடி, புத்தளம் அஞ்சல் - 629602, கன்னியாகுமரி மாவட்டம்.</li>
+            <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="br2_addr">#1-101, முதல் மாடி, பார்க் எதிரில், மணக்குடி, புத்தளம் அஞ்சல் - 629602, கன்னியாகுமரி மாவட்டம்.</span></li>
             <li><i class="fa-solid fa-phone"></i> +91 916 2700 916</li>
             <li><i class="fa-solid fa-envelope"></i> manakudi@muthusisegold.com</li>
-            <li><i class="fa-solid fa-clock"></i> காலை 9:30 - மாலை 6:00</li>
+            <li><i class="fa-solid fa-clock"></i> <span data-i18n="br_time_std">காலை 9:30 - மாலை 6:00</span></li>
           </ul>
         </div>
         <div class="branch-manager-box">
-          <strong><i class="fa-solid fa-user-check"></i> கிளை தலைவர்:</strong> திருமதி. J. சகாய ரஷிமா, M.Com.,
+          <strong><i class="fa-solid fa-user-check"></i> <span data-i18n="mgr_incharge">கிளை தலைவர்:</span></strong> திருமதி. J. சகாய ரஷிமா, M.Com.
         </div>
       </div>
 
       <!-- 3. ஆண்டிவிளை - AVL -->
       <div class="branch-card">
         <div>
-          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> ஆண்டிவிளை <span class="branch-code-badge">AVL</span></h3>
+          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br3_name">ஆண்டிவிளை</span> <span class="branch-code-badge">AVL</span></h3>
           <ul class="branch-info-list">
-            <li><i class="fa-solid fa-location-dot"></i> #7-141, தரை தளம், அன்னை திருமண மண்டபம் எதிரில், ஆண்டிவிளை, தென்தாமரைகுளம் அஞ்சல் - 629701, கன்னியாகுமரி மாவட்டம்.</li>
+            <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="br3_addr">#7-141, தரை தளம், அன்னை திருமண மண்டபம் எதிரில், ஆண்டிவிளை, தென்தாமரைகுளம் அஞ்சல் - 629701, கன்னியாகுமரி மாவட்டம்.</span></li>
             <li><i class="fa-solid fa-phone"></i> +91 916 2700 916</li>
             <li><i class="fa-solid fa-envelope"></i> aundivilai@muthusisegold.com</li>
-            <li><i class="fa-solid fa-clock"></i> காலை 9:00 - இரவு 7:00</li>
+            <li><i class="fa-solid fa-clock"></i> <span data-i18n="br3_time">காலை 9:00 - இரவு 7:00</span></li>
           </ul>
         </div>
         <div class="branch-manager-box">
-          <strong><i class="fa-solid fa-user-check"></i> கிளை தலைவர்:</strong> திருமதி. P.சுபித்ரா, B.Com.,
+          <strong><i class="fa-solid fa-user-check"></i> <span data-i18n="mgr_incharge">கிளை தலைவர்:</span></strong> திருமதி. P.சுபித்ரா, B.Com.
         </div>
       </div>
 
       <!-- 4. இடலாக்குடி - EDK -->
       <div class="branch-card">
         <div>
-          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> இடலாக்குடி <span class="branch-code-badge">EDK</span></h3>
+          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br4_name">இடலாக்குடி</span> <span class="branch-code-badge">EDK</span></h3>
           <ul class="branch-info-list">
-            <li><i class="fa-solid fa-location-dot"></i> #962, தரை தளம், கேப்ரோடு, அப்பலோ மெடிக்கல் அருகில், இடலாக்குடி, கோட்டாறு அஞ்சல் - 629002, கன்னியாகுமரி மாவட்டம்.</li>
+            <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="br4_addr">#962, தரை தளம், கேப்ரோடு, அப்பலோ மெடிக்கல் அருகில், இடலாக்குடி, கோட்டாறு அஞ்சல் - 629002, கன்னியாகுமரி மாவட்டம்.</span></li>
             <li><i class="fa-solid fa-phone"></i> +91 916 2700 916</li>
             <li><i class="fa-solid fa-envelope"></i> edalakudi@muthusisegold.com</li>
-            <li><i class="fa-solid fa-clock"></i> காலை 9:30 - மாலை 6:00</li>
+            <li><i class="fa-solid fa-clock"></i> <span data-i18n="br_time_std">காலை 9:30 - மாலை 6:00</span></li>
           </ul>
         </div>
         <div class="branch-manager-box">
-          <strong><i class="fa-solid fa-user-check"></i> கிளை தலைவர்:</strong> திருமதி. R. பானுமதி, MBA.,
+          <strong><i class="fa-solid fa-user-check"></i> <span data-i18n="mgr_incharge">கிளை தலைவர்:</span></strong> திருமதி. R. பானுமதி, MBA.
         </div>
       </div>
 
       <!-- 5. இருளப்பபுரம் - EPM -->
       <div class="branch-card">
         <div>
-          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> இருளப்பபுரம் <span class="branch-code-badge">EPM</span></h3>
+          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br5_name">இருளப்பபுரம்</span> <span class="branch-code-badge">EPM</span></h3>
           <ul class="branch-info-list">
-            <li><i class="fa-solid fa-location-dot"></i> #24-171, தரை தளம், அக்‌ஷயா மண்டபம் அருகில், இருளப்பபுரம், கோட்டாறு அஞ்சல் - 629002, கன்னியாகுமரி மாவட்டம்.</li>
+            <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="br5_addr">#24-171, தரை தளம், அக்‌ஷயா மண்டபம் அருகில், இருளப்பபுரம், கோட்டாறு அஞ்சல் - 629002, கன்னியாகுமரி மாவட்டம்.</span></li>
             <li><i class="fa-solid fa-phone"></i> +91 916 2700 916</li>
             <li><i class="fa-solid fa-envelope"></i> erulappapuram@muthusisegold.com</li>
-            <li><i class="fa-solid fa-clock"></i> காலை 9:30 - மாலை 6:00</li>
+            <li><i class="fa-solid fa-clock"></i> <span data-i18n="br_time_std">காலை 9:30 - மாலை 6:00</span></li>
           </ul>
         </div>
         <div class="branch-manager-box">
-          <strong><i class="fa-solid fa-user-check"></i> கிளை தலைவர்:</strong> திருமதி. V. வியட்னாவதி, M.Com.,
+          <strong><i class="fa-solid fa-user-check"></i> <span data-i18n="mgr_incharge">கிளை தலைவர்:</span></strong> திருமதி. V. வியட்னாவதி, M.Com.
         </div>
       </div>
 
       <!-- 6. கரும்பாட்டூர் - KPT -->
       <div class="branch-card">
         <div>
-          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> கரும்பாட்டூர் <span class="branch-code-badge">KPT</span></h3>
+          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br6_name">கரும்பாட்டூர்</span> <span class="branch-code-badge">KPT</span></h3>
           <ul class="branch-info-list">
-            <li><i class="fa-solid fa-location-dot"></i> #3-316, தரை தளம், பால்ராஜ் டிபன் சென்டர் எதிரில், வடக்கு கரும்பாட்டூர், சாஸ்தான்கோயில் அஞ்சல் - 629704, கன்னியாகுமரி மாவட்டம்.</li>
+            <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="br6_addr">#3-316, தரை தளம், பால்ராஜ் டிபன் சென்டர் எதிரில், வடக்கு கரும்பாட்டூர், சாஸ்தான்கோயில் அஞ்சல் - 629704, கன்னியாகுமரி மாவட்டம்.</span></li>
             <li><i class="fa-solid fa-phone"></i> +91 916 2700 916</li>
             <li><i class="fa-solid fa-envelope"></i> karumpattoor@muthusisegold.com</li>
-            <li><i class="fa-solid fa-clock"></i> காலை 9:30 - மாலை 6:00</li>
+            <li><i class="fa-solid fa-clock"></i> <span data-i18n="br_time_std">காலை 9:30 - மாலை 6:00</span></li>
           </ul>
         </div>
         <div class="branch-manager-box">
-          <strong><i class="fa-solid fa-user-check"></i> கிளை தலைவர்:</strong> திருமதி. K.பிரதீபா, BBA.,
+          <strong><i class="fa-solid fa-user-check"></i> <span data-i18n="mgr_incharge">கிளை தலைவர்:</span></strong> திருமதி. K.பிரதீபா, BBA.
         </div>
       </div>
 
       <!-- 7. மயிலாடி - MYL -->
       <div class="branch-card">
         <div>
-          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> மயிலாடி <span class="branch-code-badge">MYL</span></h3>
+          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br7_name">மயிலாடி</span> <span class="branch-code-badge">MYL</span></h3>
           <ul class="branch-info-list">
-            <li><i class="fa-solid fa-location-dot"></i> #8/71-2, முதல் மாடி, கூட்டுறவு சொசைட்டி எதிரில், மயிலாடி, மயிலாடி அஞ்சல் - 629402, கன்னியாகுமரி மாவட்டம்.</li>
+            <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="br7_addr">#8/71-2, முதல் மாடி, கூட்டுறவு சொசைட்டி எதிரில், மயிலாடி, மயிலாடி அஞ்சல் - 629402, கன்னியாகுமரி மாவட்டம்.</span></li>
             <li><i class="fa-solid fa-phone"></i> +91 916 2700 916</li>
             <li><i class="fa-solid fa-envelope"></i> maiylaudi@muthusisegold.com</li>
-            <li><i class="fa-solid fa-clock"></i> காலை 9:30 - மாலை 6:00</li>
+            <li><i class="fa-solid fa-clock"></i> <span data-i18n="br_time_std">காலை 9:30 - மாலை 6:00</span></li>
           </ul>
         </div>
         <div class="branch-manager-box">
-          <strong><i class="fa-solid fa-user-check"></i> கிளை தலைவர்:</strong> திருமதி. V.அனிதா, BA.,
+          <strong><i class="fa-solid fa-user-check"></i> <span data-i18n="mgr_incharge">கிளை தலைவர்:</span></strong> திருமதி. V.அனிதா, BA.
         </div>
       </div>
 
       <!-- 8. திங்கள்நகர் - TNG -->
       <div class="branch-card">
         <div>
-          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> திங்கள்நகர் <span class="branch-code-badge">TNG</span></h3>
+          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br8_name">திங்கள்நகர்</span> <span class="branch-code-badge">TNG</span></h3>
           <ul class="branch-info-list">
-            <li><i class="fa-solid fa-location-dot"></i> #17-80, முதல் மாடி, ரவுண்டானா அருகில், திங்கள்நகர், நெய்யூர் அஞ்சல் - 629802, கன்னியாகுமரி மாவட்டம்.</li>
+            <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="br8_addr">#17-80, முதல் மாடி, ரவுண்டானா அருகில், திங்கள்நகர், நெய்யூர் அஞ்சல் - 629802, கன்னியாகுமரி மாவட்டம்.</span></li>
             <li><i class="fa-solid fa-phone"></i> +91 916 2700 916</li>
             <li><i class="fa-solid fa-envelope"></i> thingalnager@muthusisegold.com</li>
-            <li><i class="fa-solid fa-clock"></i> காலை 9:30 - மாலை 6:00</li>
+            <li><i class="fa-solid fa-clock"></i> <span data-i18n="br_time_std">காலை 9:30 - மாலை 6:00</span></li>
           </ul>
         </div>
         <div class="branch-manager-box">
-          <strong><i class="fa-solid fa-user-check"></i> கிளை தலைவர்:</strong> திருமதி. N.ரெஜீமோள், B.Sc.,
+          <strong><i class="fa-solid fa-user-check"></i> <span data-i18n="mgr_incharge">கிளை தலைவர்:</span></strong> திருமதி. N.ரெஜீமோள், B.Sc.
         </div>
       </div>
 
       <!-- 9. மீனாட்சிபுரம் - MPM -->
       <div class="branch-card">
         <div>
-          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> மீனாட்சிபுரம் <span class="branch-code-badge">MPM</span></h3>
+          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br9_name">மீனாட்சிபுரம்</span> <span class="branch-code-badge">MPM</span></h3>
           <ul class="branch-info-list">
-            <li><i class="fa-solid fa-location-dot"></i> #158B, தரை தளம், SBI ATM எதிரில், மீனாட்சிபுரம், நாகர்கோயில் அஞ்சல் - 629001, கன்னியாகுமரி மாவட்டம்.</li>
+            <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="br9_addr">#158B, தரை தளம், SBI ATM எதிரில், மீனாட்சிபுரம், நாகர்கோயில் அஞ்சல் - 629001, கன்னியாகுமரி மாவட்டம்.</span></li>
             <li><i class="fa-solid fa-phone"></i> +91 916 2700 916</li>
             <li><i class="fa-solid fa-envelope"></i> meenakshipuram@muthusisegold.com</li>
-            <li><i class="fa-solid fa-clock"></i> காலை 9:30 - மாலை 6:00</li>
+            <li><i class="fa-solid fa-clock"></i> <span data-i18n="br_time_std">காலை 9:30 - மாலை 6:00</span></li>
           </ul>
         </div>
         <div class="branch-manager-box">
-          <strong><i class="fa-solid fa-user-check"></i> கிளை தலைவர்:</strong> திருமதி. N.G.விஜீதா, MCA.,
+          <strong><i class="fa-solid fa-user-check"></i> <span data-i18n="mgr_incharge">கிளை தலைவர்:</span></strong> திருமதி. N.G.விஜீதா, MCA.
         </div>
       </div>
 
       <!-- 10. கீழமணக்குடி - KMK -->
       <div class="branch-card">
         <div>
-          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> கீழமணக்குடி <span class="branch-code-badge">KMK</span></h3>
+          <h3><i class="fa-solid fa-store" style="color:var(--primary-purple); margin-right:8px;"></i> <span data-i18n="br10_name">கீழமணக்குடி</span> <span class="branch-code-badge">KMK</span></h3>
           <ul class="branch-info-list">
-            <li><i class="fa-solid fa-location-dot"></i> #492E, தரை தளம், ரவுண்டானா அருகில், கீழமணக்குடி, புத்தளம் அஞ்சல் - 629602, கன்னியாகுமரி மாவட்டம்.</li>
+            <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="br10_addr">#492E, தரை தளம், ரவுண்டானா அருகில், கீழமணக்குடி, புத்தளம் அஞ்சல் - 629602, கன்னியாகுமரி மாவட்டம்.</span></li>
             <li><i class="fa-solid fa-phone"></i> +91 916 2700 916</li>
             <li><i class="fa-solid fa-envelope"></i> keezhamanakudi@muthusisegold.com</li>
-            <li><i class="fa-solid fa-clock"></i> காலை 9:30 - மாலை 6:00</li>
+            <li><i class="fa-solid fa-clock"></i> <span data-i18n="br_time_std">காலை 9:30 - மாலை 6:00</span></li>
           </ul>
         </div>
         <div class="branch-manager-box">
-          <strong><i class="fa-solid fa-user-check"></i> கிளை தலைவர்:</strong> திருமதி. T.மார்க்ரெட் ராணி, MBA.,
+          <strong><i class="fa-solid fa-user-check"></i> <span data-i18n="mgr_incharge">கிளை தலைவர்:</span></strong> திருமதி. T.மார்க்ரெட் ராணி, MBA.
         </div>
       </div>
 
@@ -1246,84 +1259,84 @@
   <!-- TAB 6: FRANCHISE -->
   <main id="tab-franchise" class="page-tab">
     <div class="franchise-hero">
-      <span class="hero-badge" style="background:#ff7a00; color:white;">வணிகக் கூட்டாண்மை வாய்ப்பு</span>
-      <h2 style="font-size:2.2rem; margin-top:10px;">முத்துசிஸ் கோல்டு கம்பெனி பிரான்சைசி (Franchise Partner)</h2>
-      <p style="max-width:750px; margin:10px auto; color:#faeefa;">தங்க நகை மற்றும் நகைக்கடன் நிதி வணிகத்தில் குறைந்த ரிஸ்க்குடன் நிலையான மாதாந்திர லாபம் ஈட்ட ஒரு பொன்னான வாய்ப்பு!</p>
+      <span class="hero-badge" style="background:#ff7a00; color:white;" data-i18n="fr_badge">வணிகக் கூட்டாண்மை வாய்ப்பு</span>
+      <h2 style="font-size:2.2rem; margin-top:10px;" data-i18n="fr_hero_title">முத்துசிஸ் கோல்டு கம்பெனி பிரான்சைசி (Franchise Partner)</h2>
+      <p style="max-width:750px; margin:10px auto; color:#faeefa;" data-i18n="fr_hero_desc">தங்க நகை மற்றும் நகைக்கடன் நிதி வணிகத்தில் குறைந்த ரிஸ்க்குடன் நிலையான மாதாந்திர லாபம் ஈட்ட ஒரு பொன்னான வாய்ப்பு!</p>
     </div>
 
     <div style="max-width: 950px; margin: 0 auto 60px; padding: 0 20px;">
       
       <div class="section-title">
-        <h2>ஏன் முத்துசிஸ் உடன் இணைய வேண்டும்?</h2>
-        <p>10+ வருட பிராண்ட் பலம் மற்றும் முழுமையான தொழில்நுட்ப ஆதரவு</p>
+        <h2 data-i18n="fr_why_title">ஏன் முத்துசிஸ் உடன் இணைய வேண்டும்?</h2>
+        <p data-i18n="fr_why_desc">10+ வருட பிராண்ட் பலம் மற்றும் முழுமையான தொழில்நுட்ப ஆதரவு</p>
       </div>
 
       <div class="franchise-steps">
         <div class="f-step-card">
           <div class="num"><i class="fa-solid fa-chart-line"></i></div>
-          <h4 style="color:var(--primary-purple); margin-bottom:8px;">உயர்ந்த வருமானம்</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted);">ஸ்பாட் நகைக்கடன் மற்றும் பழைய தங்கம் வாங்கும் வணிகத்தில் உத்தரவாதமான வருவாய் வாய்ப்பு.</p>
+          <h4 style="color:var(--primary-purple); margin-bottom:8px;" data-i18n="fr_p1_title">உயர்ந்த வருமானம்</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="fr_p1_desc">ஸ்பாட் நகைக்கடன் மற்றும் பழைய தங்கம் வாங்கும் வணிகத்தில் உத்தரவாதமான வருவாய் வாய்ப்பு.</p>
         </div>
         <div class="f-step-card">
           <div class="num"><i class="fa-solid fa-laptop-code"></i></div>
-          <h4 style="color:var(--primary-purple); margin-bottom:8px;">முழு ஆட்டோமேஷன்</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted);">பில்லிங், லாக்கர் மேனேஜ்மென்ட், DLT SMS மற்றும் வாடிக்கையாளர் நோட்டிபிகேஷன் சாப்ட்வேர் வசதி.</p>
+          <h4 style="color:var(--primary-purple); margin-bottom:8px;" data-i18n="fr_p2_title">முழு ஆட்டோமேஷன்</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="fr_p2_desc">பில்லிங், லாக்கர் மேனேஜ்மென்ட், DLT SMS மற்றும் வாடிக்கையாளர் நோட்டிபிகேஷன் சாப்ட்வேர் வசதி.</p>
         </div>
         <div class="f-step-card">
           <div class="num"><i class="fa-solid fa-scale-balanced"></i></div>
-          <h4 style="color:var(--primary-purple); margin-bottom:8px;">காரட் பரிசோதனை</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted);">ஹைட்ரோஸ்டேடிக் சோதனை உபகரணங்கள் மற்றும் ஊழியர்களுக்கான முழுமையான தொழிற்பயிற்சி.</p>
+          <h4 style="color:var(--primary-purple); margin-bottom:8px;" data-i18n="fr_p3_title">காரட் பரிசோதனை</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="fr_p3_desc">ஹைட்ரோஸ்டேடிக் சோதனை உபகரணங்கள் மற்றும் ஊழியர்களுக்கான முழுமையான தொழிற்பயிற்சி.</p>
         </div>
         <div class="f-step-card">
           <div class="num"><i class="fa-solid fa-bullhorn"></i></div>
-          <h4 style="color:var(--primary-purple); margin-bottom:8px;">மார்க்கெட்டிங் ஆதரவு</h4>
-          <p style="font-size:0.85rem; color:var(--text-muted);">டிஜிட்டல் விளம்பரங்கள், சமூக வலைத்தள பிரச்சாரம் மற்றும் பிராண்டிங் வழிகாட்டுதல்.</p>
+          <h4 style="color:var(--primary-purple); margin-bottom:8px;" data-i18n="fr_p4_title">மார்க்கெட்டிங் ஆதரவு</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);" data-i18n="fr_p4_desc">டிஜிட்டல் விளம்பரங்கள், சமூக வலைத்தள பிரச்சாரம் மற்றும் பிராண்டிங் வழிகாட்டுதல்.</p>
         </div>
       </div>
 
       <!-- Franchise Application Form -->
       <div class="form-box" style="margin-top:40px;">
-        <h3 style="color:var(--primary-purple); margin-bottom:15px; text-align:center;">பிரான்சைசி உரிமைக்கு விண்ணப்பிக்கவும்</h3>
-        <p style="text-align:center; color:var(--text-muted); font-size:0.9rem; margin-bottom:25px;">கீழே உள்ள படிவத்தை பூர்த்தி செய்தால் எங்கள் நிறுவனத்தின் இயக்குநர் குழு தங்களை நேரில் சந்திக்கும்.</p>
+        <h3 style="color:var(--primary-purple); margin-bottom:15px; text-align:center;" data-i18n="fr_form_title">பிரான்சைசி உரிமைக்கு விண்ணப்பிக்கவும்</h3>
+        <p style="text-align:center; color:var(--text-muted); font-size:0.9rem; margin-bottom:25px;" data-i18n="fr_form_sub">கீழே உள்ள படிவத்தை பூர்த்தி செய்தால் எங்கள் நிறுவனத்தின் இயக்குநர் குழு தங்களை நேரில் சந்திக்கும்.</p>
         
         <form id="franchiseForm">
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:15px;">
             <div class="form-group">
-              <label>தங்கள் பெயர்</label>
-              <input type="text" placeholder="முழு பெயர்" required>
+              <label data-i18n="lbl_name">தங்கள் பெயர்</label>
+              <input type="text" placeholder="Full Name" required>
             </div>
             <div class="form-group">
-              <label>மொபைல் எண்</label>
-              <input type="tel" placeholder="10 இலக்க மொபைல் எண்" required>
+              <label data-i18n="lbl_phone">மொபைல் எண்</label>
+              <input type="tel" placeholder="10 Digit Mobile" required>
             </div>
           </div>
 
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:15px;">
             <div class="form-group">
-              <label>மின்னஞ்சல் முகவரி</label>
+              <label data-i18n="lbl_email">மின்னஞ்சல் முகவரி</label>
               <input type="email" placeholder="example@gmail.com" required>
             </div>
             <div class="form-group">
-              <label>கிளை அமைக்க விரும்பும் ஊர் / பகுதி</label>
-              <input type="text" placeholder="எ.கா: திருநெல்வேலி, மதுரை, வள்ளியூர்..." required>
+              <label data-i18n="lbl_location">கிளை அமைக்க விரும்பும் ஊர் / பகுதி</label>
+              <input type="text" placeholder="e.g. Tirunelveli, Madurai..." required>
             </div>
           </div>
 
           <div class="form-group">
-            <label>முதலீட்டுத் திறன் (Investment Budget)</label>
+            <label data-i18n="lbl_budget">முதலீட்டுத் திறன் (Investment Budget)</label>
             <select>
-              <option>ரூ. 15 முதல் 25 லட்சம் வரை</option>
-              <option>ரூ. 25 முதல் 50 லட்சம் வரை</option>
-              <option>ரூ. 50 லட்சத்திற்கு மேல்</option>
+              <option data-i18n="opt_b1">ரூ. 15 முதல் 25 லட்சம் வரை (₹15L - ₹25L)</option>
+              <option data-i18n="opt_b2">ரூ. 25 முதல் 50 லட்சம் வரை (₹25L - ₹50L)</option>
+              <option data-i18n="opt_b3">ரூ. 50 லட்சத்திற்கு மேல் (Above ₹50L)</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label>தங்களுக்கு நகைத் தொழில் அல்லது நிதித்துறையில் முன் அனுபவம் உள்ளதா?</label>
-            <textarea rows="2" placeholder="உங்கள் வணிகப் பின்னணி பற்றி குறிப்பிடவும்..."></textarea>
+            <label data-i18n="lbl_experience">தங்களுக்கு நகைத் தொழில் அல்லது நிதித்துறையில் முன் அனுபவம் உள்ளதா?</label>
+            <textarea rows="2" placeholder="Brief about your business background..."></textarea>
           </div>
 
-          <button type="submit" class="btn btn-orange" style="width:100%; font-size:1rem; padding:12px;">விண்ணப்பத்தை அனுப்புக</button>
+          <button type="submit" class="btn btn-orange" style="width:100%; font-size:1rem; padding:12px;" data-i18n="btn_submit_fr">விண்ணப்பத்தை அனுப்புக</button>
         </form>
       </div>
 
@@ -1333,48 +1346,48 @@
   <!-- TAB 7: CONTACT US -->
   <main id="tab-contact" class="page-tab">
     <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 35px;">
-      <h2>தொடர்பு கொள்ள (Contact Us)</h2>
-      <p style="color:var(--metallic-gold)">முத்துசிஸ் கோல்டு கம்பெனி இயக்குநர் குழுவோடு நேரடித் தொடர்பு</p>
+      <h2 data-i18n="contact_heading">தொடர்பு கொள்ள (Contact Us)</h2>
+      <p style="color:var(--metallic-gold)" data-i18n="contact_tagline">முத்துசிஸ் கோல்டு கம்பெனி இயக்குநர் குழுவோடு நேரடித் தொடர்பு</p>
     </div>
 
     <div class="contact-wrapper">
       <div style="background:white; padding: 35px; border-radius: 16px; border: 1px solid var(--border-color);">
-        <h3 style="color:var(--primary-purple); margin-bottom: 20px;">தலைமை அலுவலக விவரங்கள்</h3>
+        <h3 style="color:var(--primary-purple); margin-bottom: 20px;" data-i18n="cnt_hq_title">தலைமை அலுவலக விவரங்கள்</h3>
         <p style="margin-bottom: 12px;"><i class="fa-solid fa-building" style="color:var(--metallic-gold); width:25px;"></i> <strong>MUTHUSISE GOLD PRODUCT PRIVATE LIMITED</strong></p>
         <p style="margin-bottom: 12px;"><i class="fa-solid fa-file-contract" style="color:var(--metallic-gold); width:25px;"></i> CIN: U47912TN2024PTC171143</p>
-        <p style="margin-bottom: 12px;"><i class="fa-solid fa-map-location-dot" style="color:var(--metallic-gold); width:25px;"></i> # 435, 2nd Floor, KP Road, Chettikulam Junction, Nagercoil, Kanyakumari, Tamil Nadu - 629001.</p>
+        <p style="margin-bottom: 12px;"><i class="fa-solid fa-map-location-dot" style="color:var(--metallic-gold); width:25px;"></i> <span data-i18n="cnt_hq_addr"># 435, 2nd Floor, KP Road, Chettikulam Junction, Nagercoil, Kanyakumari, Tamil Nadu - 629001.</span></p>
         <p style="margin-bottom: 12px;"><i class="fa-solid fa-phone" style="color:var(--metallic-gold); width:25px;"></i> +91 916 2700 916 / +91 78100 04040</p>
         <p style="margin-bottom: 12px;"><i class="fa-solid fa-envelope" style="color:var(--metallic-gold); width:25px;"></i> admin@muthusisegold.com</p>
-        <p style="margin-bottom: 20px;"><i class="fa-solid fa-clock" style="color:var(--metallic-gold); width:25px;"></i> திங்கள் - சனி: காலை 9:30 மணி முதல் இரவு 8:30 மணி வரை</p>
+        <p style="margin-bottom: 20px;"><i class="fa-solid fa-clock" style="color:var(--metallic-gold); width:25px;"></i> <span data-i18n="cnt_hq_time">திங்கள் - சனி: காலை 9:30 மணி முதல் இரவு 8:30 மணி வரை</span></p>
       </div>
 
       <div class="form-box">
-        <h3 style="color:var(--primary-purple); margin-bottom: 15px;">உடனடி விசாரணை படிவம்</h3>
+        <h3 style="color:var(--primary-purple); margin-bottom: 15px;" data-i18n="cnt_form_title">உடனடி விசாரணை படிவம்</h3>
         <form id="contactForm">
           <div class="form-group">
-            <label>தங்கள் பெயர்</label>
-            <input type="text" placeholder="உங்கள் முழு பெயர்" required>
+            <label data-i18n="lbl_name">தங்கள் பெயர்</label>
+            <input type="text" placeholder="Full Name" required>
           </div>
           <div class="form-group">
-            <label>மொபைல் எண்</label>
-            <input type="tel" placeholder="10 இலக்க மொபைல் எண்" required>
+            <label data-i18n="lbl_phone">மொபைல் எண்</label>
+            <input type="tel" placeholder="10 Digit Mobile" required>
           </div>
           <div class="form-group">
-            <label>தேவைப்படும் சேவை</label>
+            <label data-i18n="lbl_service_req">தேவைப்படும் சேவை</label>
             <select>
-              <option>ஸ்பாட் நகைக்கடன் (Jewel Loan)</option>
-              <option>அடகு நகைகள் மீட்பு</option>
-              <option>பழைய தங்கம் விற்பனை</option>
-              <option>916 ஆபரணங்கள் வாங்குதல்</option>
-              <option>தங்க சேமிப்புத் திட்டம்</option>
-              <option>பிரான்சைசி விசாரணை</option>
+              <option data-i18n="opt_s1">ஸ்பாட் நகைக்கடன் (Jewel Loan)</option>
+              <option data-i18n="opt_s2">அடகு நகைகள் மீட்பு</option>
+              <option data-i18n="opt_s3">பழைய தங்கம் விற்பனை</option>
+              <option data-i18n="opt_s4">916 ஆபரணங்கள் வாங்குதல்</option>
+              <option data-i18n="opt_s5">தங்க சேமிப்புத் திட்டம்</option>
+              <option data-i18n="opt_s6">பிரான்சைசி விசாரணை</option>
             </select>
           </div>
           <div class="form-group">
-            <label>செய்தி / குறிப்பு</label>
-            <textarea rows="3" placeholder="உங்கள் தேவையை இங்கு குறிப்பிடவும்"></textarea>
+            <label data-i18n="lbl_message">செய்தி / குறிப்பு</label>
+            <textarea rows="3" placeholder="Enter your query..."></textarea>
           </div>
-          <button type="submit" class="btn btn-gold" style="width: 100%;">விசாரணையை அனுப்புக</button>
+          <button type="submit" class="btn btn-gold" style="width: 100%;" data-i18n="btn_send_inquiry">விசாரணையை அனுப்புக</button>
         </form>
       </div>
     </div>
@@ -1385,10 +1398,10 @@
     <div class="modal-box">
       <button class="close-modal-btn" id="closeModalBtn">&times;</button>
       <div style="text-align:center; margin-bottom: 25px;">
-        <h3 style="color:var(--primary-purple); font-size:1.4rem; margin-bottom:4px;">
+        <h3 style="color:var(--primary-purple); font-size:1.4rem; margin-bottom:4px;" data-i18n="modal_title">
           <i class="fa-solid fa-shield-halved" style="color:var(--metallic-gold);"></i> முத்துசிஸ் ஆன்லைன் போர்ட்டல்கள்
         </h3>
-        <p style="color:var(--text-muted); font-size:0.85rem;">நீங்கள் செல்ல விரும்பும் தளத்தைத் தேர்ந்தெடுக்கவும்</p>
+        <p style="color:var(--text-muted); font-size:0.85rem;" data-i18n="modal_sub">நீங்கள் செல்ல விரும்பும் தளத்தைத் தேர்ந்தெடுக்கவும்</p>
       </div>
 
       <!-- Option 1: Gold Scheme Login -->
@@ -1397,8 +1410,8 @@
           <i class="fa-solid fa-piggy-bank"></i>
         </div>
         <div>
-          <h4 style="color:var(--primary-purple); font-size:1.05rem; margin-bottom:2px;">1. தங்க சேமிப்புத் திட்ட லாகின்</h4>
-          <p style="color:var(--text-muted); font-size:0.8rem; margin:0;">வாடிக்கையாளர் மாதாந்திர சேமிப்புத் தளம்</p>
+          <h4 style="color:var(--primary-purple); font-size:1.05rem; margin-bottom:2px;" data-i18n="m_opt1_title">1. தங்க சேமிப்புத் திட்ட லாகின்</h4>
+          <p style="color:var(--text-muted); font-size:0.8rem; margin:0;" data-i18n="m_opt1_desc">வாடிக்கையாளர் மாதாந்திர சேமிப்புத் தளம்</p>
         </div>
         <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left:auto; color:var(--metallic-gold);"></i>
       </a>
@@ -1409,8 +1422,8 @@
           <i class="fa-solid fa-store"></i>
         </div>
         <div>
-          <h4 style="color:var(--primary-purple); font-size:1.05rem; margin-bottom:2px;">2. நகை விற்பனை & அங்காடி</h4>
-          <p style="color:var(--text-muted); font-size:0.8rem; margin:0;">Jewellery Catalog & Online Shop</p>
+          <h4 style="color:var(--primary-purple); font-size:1.05rem; margin-bottom:2px;" data-i18n="m_opt2_title">2. நகை விற்பனை & அங்காடி</h4>
+          <p style="color:var(--text-muted); font-size:0.8rem; margin:0;" data-i18n="m_opt2_desc">Jewellery Catalog & Online Shop</p>
         </div>
         <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left:auto; color:var(--metallic-gold);"></i>
       </a>
@@ -1418,7 +1431,7 @@
   </div>
 
   <!-- WhatsApp Float -->
-  <a href="https://wa.me/919162700916?text=வணக்கம்,%20முத்துசிஸ்%20கோல்டு%20கம்பெனி%20சேவைகள்%20மற்றும்%20சேமிப்புத்%20திட்டம்%20பற்றி%20தெரிந்து%20கொள்ள%20விரும்புகிறேன்" class="whatsapp-float" target="_blank" title="WhatsApp Chat">
+  <a href="https://wa.me/919162700916?text=Hello,%20Muthusise%20Gold%20Company" class="whatsapp-float" target="_blank" title="WhatsApp Chat">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
@@ -1426,37 +1439,416 @@
   <footer>
     <div class="footer-content">
       <div class="footer-col">
-        <h4>முத்துசிஸ் கோல்டு கம்பெனி</h4>
-        <p>MUTHUSISE GOLD PRODUCT PVT LTD (CIN: U47912TN2024PTC171143). 10+ ஆண்டுகளாக மக்களின் நன்மதிப்பைப் பெற்ற நம்பகமான நிறுவனம்.</p>
+        <h4 data-i18n="ftr_col1_title">முத்துசிஸ் கோல்டு கம்பெனி</h4>
+        <p data-i18n="ftr_col1_desc">MUTHUSISE GOLD PRODUCT PVT LTD (CIN: U47912TN2024PTC171143). 10+ ஆண்டுகளாக மக்களின் நன்மதிப்பைப் பெற்ற நம்பகமான நிறுவனம்.</p>
       </div>
       <div class="footer-col">
-        <h4>முக்கிய சேவைகள்</h4>
+        <h4 data-i18n="ftr_col2_title">முக்கிய சேவைகள்</h4>
         <ul>
-          <li>உடனடி ஸ்பாட் நகைக்கடன்</li>
-          <li>அடகு நகைகள் மீட்பு</li>
-          <li>பழைய தங்கம் சிறந்த விலைக்கு வாங்குதல்</li>
-          <li>முத்துசிஸ் சேமிப்புத் திட்டங்கள்</li>
+          <li data-i18n="ftr_s1">உடனடி ஸ்பாட் நகைக்கடன்</li>
+          <li data-i18n="ftr_s2">அடகு நகைகள் மீட்பு</li>
+          <li data-i18n="ftr_s3">பழைய தங்கம் சிறந்த விலைக்கு வாங்குதல்</li>
+          <li data-i18n="ftr_s4">முத்துசிஸ் சேமிப்புத் திட்டங்கள்</li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>டிஜிட்டல் போர்ட்டல்கள்</h4>
+        <h4 data-i18n="ftr_col3_title">டிஜிட்டல் போர்ட்டல்கள்</h4>
         <ul>
-          <li><a href="https://muthusise.mygold916.com/login" target="_blank">வாடிக்கையாளர் தங்க சேமிப்பு லாகின்</a></li>
-          <li><a href="https://shop.muthusisegold.com" target="_blank">நகை விற்பனை அங்காடி</a></li>
+          <li><a href="https://muthusise.mygold916.com/login" target="_blank" data-i18n="ftr_p1">வாடிக்கையாளர் தங்க சேமிப்பு லாகின்</a></li>
+          <li><a href="https://shop.muthusisegold.com" target="_blank" data-i18n="ftr_p2">நகை விற்பனை அங்காடி</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>தொடர்புக்கு</h4>
+        <h4 data-i18n="ftr_col4_title">தொடர்புக்கு</h4>
         <p><i class="fa-solid fa-phone"></i> +91 916 2700 916</p>
         <p><i class="fa-solid fa-envelope"></i> admin@muthusisegold.com</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Product Private Limited). அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+      <p data-i18n="ftr_copy">&copy; 2026 முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Product Private Limited). அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
     </div>
   </footer>
 
   <script>
+    // Internationalization (i18n) Translations
+    const translations = {
+      ta: {
+        langBtn: '<i class="fa-solid fa-globe"></i> English',
+        top_trust: '<i class="fa-solid fa-gem" style="color:var(--metallic-gold)"></i> 10+ வருடங்கள் தொடரும் வாடிக்கையாளர் நம்பிக்கை',
+        top_cust_login: '<i class="fa-solid fa-piggy-bank"></i> வாடிக்கையாளர் லாகின்',
+        brand_title: 'முத்துசிஸ் கோல்டு கம்பெனி',
+        nav_home: 'Home',
+        nav_about: 'எங்களைப் பற்றி',
+        nav_services: 'சேவைகள்',
+        nav_schemes: 'திட்டங்கள்',
+        nav_branches: 'கிளைகள் (10)',
+        nav_franchise: '<i class="fa-solid fa-handshake"></i> பிரான்சைசி',
+        nav_login: '<i class="fa-solid fa-arrow-right-to-bracket"></i> உள்நுழைவு',
+        nav_contact: 'தொடர்புக்கு',
+        hero_badge: '<i class="fa-solid fa-shield-halved"></i> அரசு பதிவுபெற்ற நிறுவனம் (CIN: U47912TN2024PTC171143)',
+        hero_title: 'முத்துசிஸ் கோல்டு கம்பெனி — உங்கள் தங்கத்திற்கான நம்பகமான முகவரி',
+        hero_desc: "10+ ஆண்டுகளாக முந்தைய 'இந்தியன் கோல்டு' நற்பெயருடன் மக்களின் பேராதரவு பெற்ற நிறுவனம். புதிய 916 ஆபரண விற்பனை, ஸ்பாட் நகைக்கடன் மற்றும் மூழ்கும் நகைகள் மீட்பு சேவை.",
+        btn_services: '<i class="fa-solid fa-list-check"></i> எங்கள் சேவைகள்',
+        btn_franchise: '<i class="fa-solid fa-handshake"></i> பிரான்சைசி வாய்ப்புகள்',
+        btn_scheme_login: '<i class="fa-solid fa-lock"></i> ஆன்லைன் சேமிப்பு லாகின்',
+        btn_branches: '<i class="fa-solid fa-store"></i> கிளை விவரங்கள் (10)',
+        pillar1_title: '10+ வருட அனுபவம்',
+        pillar1_desc: '15 வருட கைவினை நகை தயாரிப்பு & 10 வருட நம்பகமான நிதி நிர்வாகம்.',
+        pillar2_title: 'அதிகபட்ச நகைக்கடன்',
+        pillar2_desc: 'குறைந்த வட்டியில் கிராமிற்கு மார்க்கெட் மதிப்பிற்கேற்ப உடனடிப் பணம்.',
+        pillar3_title: 'துல்லிய சோதனை',
+        pillar3_desc: 'ஹைட்ரோஸ்டேடிக் முறையில் 100% நேர்மையான மற்றும் சேதமற்ற காரட் ஆய்வு.',
+        pillar4_title: '10 கிளைகளின் கட்டமைப்பு',
+        pillar4_desc: 'கன்னியாகுமரி மாவட்டம் முழுவதும் 10 இடங்களில் வாடிக்கையாளர் சேவை.',
+        portals_heading: '<i class="fa-solid fa-laptop-code" style="color:var(--metallic-gold);"></i> முத்துசிஸ் டிஜிட்டல் போர்ட்டல்கள் (Online Portals)',
+        portals_sub: 'வாடிக்கையாளர் சேமிப்பு மற்றும் நகை விற்பனைக்கான நேரடி இணையதள இணைப்புகள்',
+        portal_scheme_title: 'தங்க சேமிப்புத் திட்ட லாகின்',
+        portal_shop_title: 'நகை விற்பனை & அங்காடி',
+        sec_services_title: 'எங்களின் முதன்மைச் சேவைகள்',
+        sec_services_desc: 'வாடிக்கையாளர்களின் திருப்தி மற்றும் வெளிப்படைத்தன்மையே எங்களின் மூலதனம்',
+        srv1_title: 'ஸ்பாட் நகைக்கடன் (Jewel Loan)',
+        srv1_desc: 'அவசர பணத் தேவைகளுக்கு உடனடியாக நகைகளை அடகு வைத்து குறைந்த வட்டியில் அதிகபட்ச கடன் பெறும் வசதி.',
+        srv2_title: 'அடகு நகைகள் மீட்பு',
+        srv2_desc: 'வங்கிகள் அல்லது பிற நிதி நிறுவனங்களில் மூழ்கும் நிலையில் உள்ள உங்கள் நகைகளை நாங்களே பணம்கொடுத்து மீட்டுத் தருகிறோம்.',
+        srv3_title: 'பழைய தங்கம் சிறந்த விலைக்கு வாங்குதல்',
+        srv3_desc: 'பழைய மற்றும் உடைந்த நகைகளுக்கு உடனடி ரொக்கம். மார்க்கெட் நிலவரப்படி உச்சபட்ச விலை.',
+        btn_enquire: 'விசாரிக்க',
+        btn_contact_us: 'தொடர்பு கொள்ள',
+        btn_estimate: 'மதிப்பீடு செய்ய',
+        about_heading: 'எங்களைப் பற்றி (About Us)',
+        about_tagline: 'பாரம்பரியத்தின் பெருமை • கார்ப்பரேட் சட்டப்படியான நம்பகத்தன்மை',
+        about_hist_title: 'எங்கள் வரலாறு & நிர்வாகம்',
+        about_hist_p1: "<strong>முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Company)</strong> 15 ஆண்டுகளுக்கும் மேலான கைவினைத் தங்க ஆபரண கலை அனுபவம் கொண்ட நிபுணத்துவ நிர்வாகத்தால் வழிநடத்தப்படுகிறது. கடந்த 10 ஆண்டுகளுக்கும் மேலாக <strong>'இந்தியன் கோல்டு'</strong> என்ற பெயரில் வாடிக்கையாளர்களின் அசைக்க முடியாத நம்பிக்கையைப் பெற்று, தற்போது கார்ப்பரேட் விவகாரங்கள் அமைச்சகத்தின் கீழ் (Ministry of Corporate Affairs) பதிவு செய்யப்பட்ட நிறுவனமாக விரிவடைந்துள்ளது.",
+        legal_title: '<i class="fa-solid fa-building-circle-check"></i> சட்டப்பூர்வ நிறுவன பதிவு விபரங்கள்',
+        legal_name: 'நிறுவனப் பெயர்:',
+        legal_cin: 'கார்ப்பரேட் அடையாள எண் (CIN):',
+        legal_incorp: 'நிறுவப்பட்ட தேதி:',
+        legal_reg_addr: 'பதிவு அலுவலக முகவரி:',
+        legal_directors: 'நிர்வாக இயக்குநர்கள்:',
+        vision_title: '<i class="fa-solid fa-bullseye"></i> பார்வை (Vision)',
+        vision_desc: 'தென் தமிழகத்தின் மிக வெளிப்படையான, உயர் தொழில்நுட்பத் தரத்துடன் கூடிய தங்க ஆபரண மற்றும் நிதிச் சேவை நிறுவனமாக நிலைத்திருப்பது.',
+        mission_title: '<i class="fa-solid fa-handshake"></i> நோக்கம் (Mission)',
+        mission_desc: 'ஒவ்வொரு வாடிக்கையாளரின் தங்கத்திற்கும் சரியான மார்க்கெட் மதிப்பையும், துல்லியமான காரட் சோதனையையும், உடனடி நிதி உதவியையும் வழங்குவது.',
+        services_heading: 'எங்கள் சேவைகள் (Services)',
+        services_tagline: 'தங்கத்திற்கு முழு மதிப்பளிக்கும் சிறப்பு நிதி & ஆபரணச் சேவைகள்',
+        srv_card1_title: 'ஸ்பாட் நகைக்கடன்',
+        srv_card1_desc: 'குறைந்த வட்டியில் உடனடி கடன். மார்க்கெட் மதிப்பிற்கு ஏற்ப அதிகபட்ச நிதி உதவி 5 நிமிடங்களில் ரொக்கம்/வங்கி பரிமாற்றம் மூலம் கிடைக்கும்.',
+        srv_card2_title: '916 BIS ஹால்மார்க் நகைகள்',
+        srv_card2_desc: 'பாரம்பரிய முறைப்படி தயாரிக்கப்படும் தாலி கொடிகள், வளையல்கள், மோதிரங்கள் மற்றும் புதிய நவீன திருமண நகை கலெக்ஷன்கள்.',
+        srv_card3_title: 'அடகு நகைகள் மீட்பு',
+        srv_card3_desc: 'வட்டி கட்ட முடியாமல் ஏலத்திற்கு செல்லும் நிலையில் உள்ள உங்கள் நகைகளை நாங்களே பணம்கொடுத்து மீட்டு, மார்க்கெட் விலைக்கு மாற்றி மீதித் தொகையை உடனே தருகிறோம்.',
+        srv_card4_title: 'பழைய தங்கம் கொள்முதல்',
+        srv_card4_desc: 'உடைந்த மற்றும் பழைய நகைகளை விற்கும்போது எந்தவித கழிவும் இன்றி நேரடி ஸ்பெசிபிக் கிராவிட்டி முறையில் பரிசோதித்து மார்க்கெட் உச்சபட்ச ரொக்கம்.',
+        srv_card5_title: 'தங்க சேமிப்புத் திட்டங்கள்',
+        srv_card5_desc: 'சிறுகச் சிறுகச் சேமித்து செய்கூலி, சேதாரம் இன்றி புதிய நகைகளை வாங்கும் எளிய மாதாந்திர சேமிப்புத் திட்டங்கள்.',
+        srv_card6_title: 'ஹைட்ரோஸ்டேடிக் காரட் டெஸ்டிங்',
+        srv_card6_desc: 'நகைகளை உருக்காமல், கீறாமல் தண்ணீரின் ஒப்படர்த்தி முறைப்படி துல்லியமாக காரட் அளவை அறியும் நவீன தொழில்நுட்ப சேவை.',
+        schemes_heading: 'தங்கச் சேமிப்புத் திட்டங்கள் (Savings Schemes)',
+        schemes_tagline: 'சிறுகச் சிறுகச் சேமிப்போம் • சீர்மிகு தங்கம் பெறுவோம்',
+        scheme1_badge: 'முக்கிய திட்டம்',
+        scheme1_title: 'முத்துசிஸ் 11 மாத தங்க சேமிப்புத் திட்டம்',
+        scheme1_desc: 'மாதம்தோறும் ரூ. 1000 முதல் உங்கள் வசதிக்கேற்ப சேமித்து, திட்ட நிறைவில் உங்கள் குடும்பத்தின் சுபகாரியங்களுக்கு அழகிய 916 நகைகளாகப் பெறுங்கள்.',
+        scheme1_point1: 'முழு செய்கூலி மற்றும் சேதாரம் தள்ளுபடி (நிபந்தனைகளுக்கு உட்பட்டு)',
+        scheme1_point2: 'மாதாந்திர தவணைகளுக்கு உடனடி DLT SMS ரசீது மற்றும் பாஸ்புக் வரவு',
+        scheme1_point3: '100% BIS 916 ஹால்மார்க் தரமான தங்க நகைகள்',
+        btn_scheme_open: '<i class="fa-solid fa-right-to-bracket"></i> உங்கள் சேமிப்பு கணக்கில் லாகின் செய்ய',
+        btn_scheme_join: 'புதிய கணக்கு தொடங்க',
+        scheme2_badge: 'எடை சேமிப்பு',
+        scheme2_title: 'ஃப்ளெக்ஸி கோல்டு வெயிட் திட்டம் (Gold Weight Scheme)',
+        scheme2_desc: 'நீங்கள் செலுத்தும் தொகையை அன்றைய தங்க விலைக்கு ஏற்ப கிராமாக மாற்றிக்கொள்ளும் முறை.',
+        scheme2_point1: 'தங்க விலை உயர்வினால் ஏற்படும் இழப்பிலிருந்து முழுப் பாதுகாப்பு',
+        scheme2_point2: 'முதிர்வின் போது தங்க நாணயங்கள் அல்லது விரும்பிய ஆபரணங்களாகப் பெற்றுக்கொள்ளலாம்',
+        btn_learn_more: 'விவரங்கள் அறிய',
+        branches_heading: 'எங்கள் கிளைகள் (Our 10 Branch Network)',
+        branches_tagline: 'கன்னியாகுமரி மாவட்டம் முழுவதும் 10 இடங்களில் உங்கள் சேவையில்',
+        br1_name: 'தலைமை அலுவலகம்',
+        br1_addr: '#435, 2nd Floor, KP Road, செட்டிகுளம் சந்திப்பு, நாகர்கோவில், கன்னியாகுமரி மாவட்டம் - 629001.',
+        br1_time: 'காலை 9:30 - இரவு 8:30 (திங்கள் - சனி)',
+        mgr_label: 'நிர்வாகம்:',
+        br1_mgr: 'தலைமை நிர்வாகக் குழு',
+        br2_name: 'மணக்குடி',
+        br2_addr: '#1-101, முதல் மாடி, பார்க் எதிரில், மணக்குடி, புத்தளம் அஞ்சல் - 629602, கன்னியாகுமரி மாவட்டம்.',
+        br_time_std: 'காலை 9:30 - மாலை 6:00',
+        mgr_incharge: 'கிளை தலைவர்:',
+        br3_name: 'ஆண்டிவிளை',
+        br3_addr: '#7-141, தரை தளம், அன்னை திருமண மண்டபம் எதிரில், ஆண்டிவிளை, தென்தாமரைகுளம் அஞ்சல் - 629701, கன்னியாகுமரி மாவட்டம்.',
+        br3_time: 'காலை 9:00 - இரவு 7:00',
+        br4_name: 'இடலாக்குடி',
+        br4_addr: '#962, தரை தளம், கேப்ரோடு, அப்பலோ மெடிக்கல் அருகில், இடலாக்குடி, கோட்டாறு அஞ்சல் - 629002, கன்னியாகுமரி மாவட்டம்.',
+        br5_name: 'இருளப்பபுரம்',
+        br5_addr: '#24-171, தரை தளம், அக்‌ஷயா மண்டபம் அருகில், இருளப்பபுரம், கோட்டாறு அஞ்சல் - 629002, கன்னியாகுமரி மாவட்டம்.',
+        br6_name: 'கரும்பாட்டூர்',
+        br6_addr: '#3-316, தரை தளம், பால்ராஜ் டிபன் சென்டர் எதிரில், வடக்கு கரும்பாட்டூர், சாஸ்தான்கோயில் அஞ்சல் - 629704, கன்னியாகுமரி மாவட்டம்.',
+        br7_name: 'மயிலாடி',
+        br7_addr: '#8/71-2, முதல் மாடி, கூட்டுறவு சொசைட்டி எதிரில், மயிலாடி, மயிலாடி அஞ்சல் - 629402, கன்னியாகுமரி மாவட்டம்.',
+        br8_name: 'திங்கள்நகர்',
+        br8_addr: '#17-80, முதல் மாடி, ரவுண்டானா அருகில், திங்கள்நகர், நெய்யூர் அஞ்சல் - 629802, கன்னியாகுமரி மாவட்டம்.',
+        br9_name: 'மீனாட்சிபுரம்',
+        br9_addr: '#158B, தரை தளம், SBI ATM எதிரில், மீனாட்சிபுரம், நாகர்கோயில் அஞ்சல் - 629001, கன்னியாகுமரி மாவட்டம்.',
+        br10_name: 'கீழமணக்குடி',
+        br10_addr: '#492E, தரை தளம், ரவுண்டானா அருகில், கீழமணக்குடி, புத்தளம் அஞ்சல் - 629602, கன்னியாகுமரி மாவட்டம்.',
+        fr_badge: 'வணிகக் கூட்டாண்மை வாய்ப்பு',
+        fr_hero_title: 'முத்துசிஸ் கோல்டு கம்பெனி பிரான்சைசி (Franchise Partner)',
+        fr_hero_desc: 'தங்க நகை மற்றும் நகைக்கடன் நிதி வணிகத்தில் குறைந்த ரிஸ்க்குடன் நிலையான மாதாந்திர லாபம் ஈட்ட ஒரு பொன்னான வாய்ப்பு!',
+        fr_why_title: 'ஏன் முத்துசிஸ் உடன் இணைய வேண்டும்?',
+        fr_why_desc: '10+ வருட பிராண்ட் பலம் மற்றும் முழுமையான தொழில்நுட்ப ஆதரவு',
+        fr_p1_title: 'உயர்ந்த வருமானம்',
+        fr_p1_desc: 'ஸ்பாட் நகைக்கடன் மற்றும் பழைய தங்கம் வாங்கும் வணிகத்தில் உத்தரவாதமான வருவாய் வாய்ப்பு.',
+        fr_p2_title: 'முழு ஆட்டோமேஷன்',
+        fr_p2_desc: 'பில்லிங், லாக்கர் மேனேஜ்மென்ட், DLT SMS மற்றும் வாடிக்கையாளர் நோட்டிபிகேஷன் சாப்ட்வேர் வசதி.',
+        fr_p3_title: 'காரட் பரிசோதனை',
+        fr_p3_desc: 'ஹைட்ரோஸ்டேடிக் சோதனை உபகரணங்கள் மற்றும் ஊழியர்களுக்கான முழுமையான தொழிற்பயிற்சி.',
+        fr_p4_title: 'மார்க்கெட்டிங் ஆதரவு',
+        fr_p4_desc: 'டிஜிட்டல் விளம்பரங்கள், சமூக வலைத்தள பிரச்சாரம் மற்றும் பிராண்டிங் வழிகாட்டுதல்.',
+        fr_form_title: 'பிரான்சைசி உரிமைக்கு விண்ணப்பிக்கவும்',
+        fr_form_sub: 'கீழே உள்ள படிவத்தை பூர்த்தி செய்தால் எங்கள் நிறுவனத்தின் இயக்குநர் குழு தங்களை நேரில் சந்திக்கும்.',
+        lbl_name: 'தங்கள் பெயர்',
+        lbl_phone: 'மொபைல் எண்',
+        lbl_email: 'மின்னஞ்சல் முகவரி',
+        lbl_location: 'கிளை அமைக்க விரும்பும் ஊர் / பகுதி',
+        lbl_budget: 'முதலீட்டுத் திறன் (Investment Budget)',
+        opt_b1: 'ரூ. 15 முதல் 25 லட்சம் வரை (₹15L - ₹25L)',
+        opt_b2: 'ரூ. 25 முதல் 50 லட்சம் வரை (₹25L - ₹50L)',
+        opt_b3: 'ரூ. 50 லட்சத்திற்கு மேல் (Above ₹50L)',
+        lbl_experience: 'தங்களுக்கு நகைத் தொழில் அல்லது நிதித்துறையில் முன் அனுபவம் உள்ளதா?',
+        btn_submit_fr: 'விண்ணப்பத்தை அனுப்புக',
+        contact_heading: 'தொடர்பு கொள்ள (Contact Us)',
+        contact_tagline: 'முத்துசிஸ் கோல்டு கம்பெனி இயக்குநர் குழுவோடு நேரடித் தொடர்பு',
+        cnt_hq_title: 'தலைமை அலுவலக விவரங்கள்',
+        cnt_hq_addr: '# 435, 2nd Floor, KP Road, Chettikulam Junction, Nagercoil, Kanyakumari, Tamil Nadu - 629001.',
+        cnt_hq_time: 'திங்கள் - சனி: காலை 9:30 மணி முதல் இரவு 8:30 மணி வரை',
+        cnt_form_title: 'உடனடி விசாரணை படிவம்',
+        lbl_service_req: 'தேவைப்படும் சேவை',
+        opt_s1: 'ஸ்பாட் நகைக்கடன் (Jewel Loan)',
+        opt_s2: 'அடகு நகைகள் மீட்பு',
+        opt_s3: 'பழைய தங்கம் விற்பனை',
+        opt_s4: '916 ஆபரணங்கள் வாங்குதல்',
+        opt_s5: 'தங்க சேமிப்புத் திட்டம்',
+        opt_s6: 'பிரான்சைசி விசாரணை',
+        lbl_message: 'செய்தி / குறிப்பு',
+        btn_send_inquiry: 'விசாரணையை அனுப்புக',
+        modal_title: '<i class="fa-solid fa-shield-halved" style="color:var(--metallic-gold);"></i> முத்துசிஸ் ஆன்லைன் போர்ட்டல்கள்',
+        modal_sub: 'நீங்கள் செல்ல விரும்பும் தளத்தைத் தேர்ந்தெடுக்கவும்',
+        m_opt1_title: '1. தங்க சேமிப்புத் திட்ட லாகின்',
+        m_opt1_desc: 'வாடிக்கையாளர் மாதாந்திர சேமிப்புத் தளம்',
+        m_opt2_title: '2. நகை விற்பனை & அங்காடி',
+        m_opt2_desc: 'Jewellery Catalog & Online Shop',
+        ftr_col1_title: 'முத்துசிஸ் கோல்டு கம்பெனி',
+        ftr_col1_desc: 'MUTHUSISE GOLD PRODUCT PVT LTD (CIN: U47912TN2024PTC171143). 10+ ஆண்டுகளாக மக்களின் நன்மதிப்பைப் பெற்ற நம்பகமான நிறுவனம்.',
+        ftr_col2_title: 'முக்கிய சேவைகள்',
+        ftr_s1: 'உடனடி ஸ்பாட் நகைக்கடன்',
+        ftr_s2: 'அடகு நகைகள் மீட்பு',
+        ftr_s3: 'பழைய தங்கம் சிறந்த விலைக்கு வாங்குதல்',
+        ftr_s4: 'முத்துசிஸ் சேமிப்புத் திட்டங்கள்',
+        ftr_col3_title: 'டிஜிட்டல் போர்ட்டல்கள்',
+        ftr_p1: 'வாடிக்கையாளர் தங்க சேமிப்பு லாகின்',
+        ftr_p2: 'நகை விற்பனை அங்காடி',
+        ftr_col4_title: 'தொடர்புக்கு',
+        ftr_copy: '&copy; 2026 முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Product Private Limited). அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.'
+      },
+      en: {
+        langBtn: '<i class="fa-solid fa-globe"></i> தமிழ்',
+        top_trust: '<i class="fa-solid fa-gem" style="color:var(--metallic-gold)"></i> 10+ Years of Customer Trust & Integrity',
+        top_cust_login: '<i class="fa-solid fa-piggy-bank"></i> Customer Scheme Login',
+        brand_title: 'Muthusise Gold Company',
+        nav_home: 'Home',
+        nav_about: 'About Us',
+        nav_services: 'Services',
+        nav_schemes: 'Schemes',
+        nav_branches: 'Branches (10)',
+        nav_franchise: '<i class="fa-solid fa-handshake"></i> Franchise',
+        nav_login: '<i class="fa-solid fa-arrow-right-to-bracket"></i> Login Portals',
+        nav_contact: 'Contact Us',
+        hero_badge: '<i class="fa-solid fa-shield-halved"></i> Registered Entity (CIN: U47912TN2024PTC171143)',
+        hero_title: 'Muthusise Gold Company — The Trusted Destination for Your Gold',
+        hero_desc: "Serving with 10+ years of trust formerly as 'Indian Gold'. Premier 916 jewellery retail, instant gold loans, and pledge release services.",
+        btn_services: '<i class="fa-solid fa-list-check"></i> Our Services',
+        btn_franchise: '<i class="fa-solid fa-handshake"></i> Franchise Opportunities',
+        btn_scheme_login: '<i class="fa-solid fa-lock"></i> Online Scheme Login',
+        btn_branches: '<i class="fa-solid fa-store"></i> 10 Branches Network',
+        pillar1_title: '10+ Years Legacy',
+        pillar1_desc: '15 years handmade goldsmith craftsmanship & 10 years trusted finance operations.',
+        pillar2_title: 'Maximum Jewel Loan',
+        pillar2_desc: 'Lowest interest rates with maximum per-gram valuation and instant cash.',
+        pillar3_title: 'Precision Carat Testing',
+        pillar3_desc: '100% non-destructive hydrostatic specific gravity purity testing.',
+        pillar4_title: '10 Branches Network',
+        pillar4_desc: 'Convenient customer service locations across Kanyakumari district.',
+        portals_heading: '<i class="fa-solid fa-laptop-code" style="color:var(--metallic-gold);"></i> Muthusise Online Portals',
+        portals_sub: 'Direct access to customer savings and online jewellery showroom',
+        portal_scheme_title: 'Gold Scheme Portal',
+        portal_shop_title: 'Jewellery Shop & Catalog',
+        sec_services_title: 'Our Core Services',
+        sec_services_desc: 'Delivering unmatched customer value, transparency, and trust',
+        srv1_title: 'Spot Jewel Loan',
+        srv1_desc: 'Instant financial liquidity against gold ornaments at attractive lowest interest rates.',
+        srv2_title: 'Pledged Gold Release',
+        srv2_desc: 'We clear bank or NBFC pledged gold, convert at spot market rate, and settle net balance instantly.',
+        srv3_title: 'Scrap Gold Buying',
+        srv3_desc: 'Highest cash payout for old or broken gold ornaments based on live transparent market rates.',
+        btn_enquire: 'Enquire Now',
+        btn_contact_us: 'Contact Now',
+        btn_estimate: 'Get Valuation',
+        about_heading: 'About Us',
+        about_tagline: 'Craftsmanship Heritage • Corporate Compliance & Trust',
+        about_hist_title: 'Our Heritage & Leadership',
+        about_hist_p1: "<strong>Muthusise Gold Company</strong> is spearheaded by visionary leadership with over 15 years of master goldsmith craftsmanship. Having served patrons faithfully for over a decade as <strong>'Indian Gold'</strong>, the enterprise is formally incorporated under the Ministry of Corporate Affairs, Government of India.",
+        legal_title: '<i class="fa-solid fa-building-circle-check"></i> Statutory Corporate Credentials',
+        legal_name: 'Corporate Name:',
+        legal_cin: 'Corporate Identity No (CIN):',
+        legal_incorp: 'Incorporation Date:',
+        legal_reg_addr: 'Registered Office Address:',
+        legal_directors: 'Board of Directors:',
+        vision_title: '<i class="fa-solid fa-bullseye"></i> Vision',
+        vision_desc: 'To stand as South Tamil Nadu’s most dependable, high-tech, and transparent jewellery and gold financial institution.',
+        mission_title: '<i class="fa-solid fa-handshake"></i> Mission',
+        mission_desc: 'To provide true market valuation for every milligram of gold, non-destructive carat testing, and prompt financial support.',
+        services_heading: 'Our Services',
+        services_tagline: 'Specialized Gold Financial Solutions & Fine Jewellery',
+        srv_card1_title: 'Spot Jewel Loan',
+        srv_card1_desc: 'Fast loan processing within 5 minutes directly via cash or instant bank account transfer at minimal interest.',
+        srv_card2_title: '916 BIS Hallmark Jewellery',
+        srv_card2_desc: 'Handcrafted master collections including Thali chains, bangles, rings, and contemporary bridal jewellery.',
+        srv_card3_title: 'Pledged Gold Takeover',
+        srv_card3_desc: 'We assist customers facing auction risks by clearing bank loans and purchasing gold at live rates with surplus payout.',
+        srv_card4_title: 'Scrap Gold Purchasing',
+        srv_card4_desc: 'Fair, transparent gold purchasing with hydrostatic specific gravity testing without any melt loss or scratches.',
+        srv_card5_title: 'Gold Savings Schemes',
+        srv_card5_desc: 'Systematic monthly savings plans designed to purchase gold ornaments with zero making charges and zero wastage.',
+        srv_card6_title: 'Hydrostatic Purity Testing',
+        srv_card6_desc: 'State-of-the-art water density carat assessment ensuring exact karat purity without scraping or damaging jewellery.',
+        schemes_heading: 'Gold Savings Schemes',
+        schemes_tagline: 'Save Consistently • Accumulate Pure Gold with Ease',
+        scheme1_badge: 'Featured Plan',
+        scheme1_title: 'Muthusise 11-Month Gold Scheme',
+        scheme1_desc: 'Contribute from ₹1,000 monthly according to your convenience and take home pure 916 jewellery upon maturity.',
+        scheme1_point1: '100% Making & Wastage Charges Waived (Terms Apply)',
+        scheme1_point2: 'Instant DLT SMS payment receipts & passbook tracking',
+        scheme1_point3: 'Redeemable exclusively for BIS 916 Hallmarked Jewellery',
+        btn_scheme_open: '<i class="fa-solid fa-right-to-bracket"></i> Login to Scheme Portal',
+        btn_scheme_join: 'Open New Account',
+        scheme2_badge: 'Weight Basis',
+        scheme2_title: 'Flexi Gold Weight Scheme',
+        scheme2_desc: 'Your monthly remittance is directly converted to gold grams based on the day’s prevailing market gold rate.',
+        scheme2_point1: 'Complete protection against future gold price surges',
+        scheme2_point2: 'Redeemable for gold coins or desired jewellery upon completion',
+        btn_learn_more: 'Learn More',
+        branches_heading: 'Our Branch Network (10 Locations)',
+        branches_tagline: 'Conveniently serving you across 10 locations in Kanyakumari District',
+        br1_name: 'Head Office',
+        br1_addr: '#435, 2nd Floor, KP Road, Chettikulam Junction, Nagercoil, Kanyakumari Dist - 629001.',
+        br1_time: '9:30 AM - 8:30 PM (Mon - Sat)',
+        mgr_label: 'Administration:',
+        br1_mgr: 'Executive Management Team',
+        br2_name: 'Manakudi',
+        br2_addr: '#1-101, 1st Floor, Opp. Park, Manakudi, Puthalam PO - 629602, Kanyakumari Dist.',
+        br_time_std: '9:30 AM - 6:00 PM',
+        mgr_incharge: 'Branch In-charge:',
+        br3_name: 'Aundivilai',
+        br3_addr: '#7-141, Ground Floor, Opp. Annai Mandapam, Aundivilai, South ThamaraiKulam PO - 629701, Kanyakumari Dist.',
+        br3_time: '9:00 AM - 7:00 PM',
+        br4_name: 'Edalakudi',
+        br4_addr: '#962, Ground Floor, Cape Road, Near Apollo Medicals, Edalakudi, Kottar PO - 629002, Kanyakumari Dist.',
+        br5_name: 'Erulappapuram',
+        br5_addr: '#24-171, Ground Floor, Near Akshaya Mandapam, Erulappapuram, Kottar PO - 629002, Kanyakumari Dist.',
+        br6_name: 'Karumpattoor',
+        br6_addr: '#3-316, Ground Floor, Opp. Paulraj Tiffin Center, North Karumpattoor, Sasthankovil PO - 629704, Kanyakumari Dist.',
+        br7_name: 'Maiylaudi',
+        br7_addr: '#8/71-2, 1st Floor, Opp. Cooperative Society, Maiylaudi, Maiylaudi PO - 629402, Kanyakumari Dist.',
+        br8_name: 'Thingalnager',
+        br8_addr: '#17-80, 1st Floor, Near Roundana, Thingalnager, Neyyoor PO - 629802, Kanyakumari Dist.',
+        br9_name: 'Meenakshipuram',
+        br9_addr: '#158B, Ground Floor, Opp. SBI ATM, Meenakshipuram, Nagercoil PO - 629001, Kanyakumari Dist.',
+        br10_name: 'Keezhamanakudi',
+        br10_addr: '#492E, Ground Floor, Near Roundana, Keezhamanakudi, Puthalam PO - 629602, Kanyakumari Dist.',
+        fr_badge: 'Business Partnership',
+        fr_hero_title: 'Muthusise Gold Company Franchise Opportunity',
+        fr_hero_desc: 'Partner with a proven gold jewellery & financial enterprise with low operational risk and steady monthly returns!',
+        fr_why_title: 'Why Partner with Muthusise?',
+        fr_why_desc: '10+ years brand authority combined with full operational tech infrastructure',
+        fr_p1_title: 'High Profitability',
+        fr_p1_desc: 'Consistent monthly returns through jewel loans, scheme distribution, and gold transactions.',
+        fr_p2_title: 'Full Software Automation',
+        fr_p2_desc: 'Complete billing software, locker auditing, SMS alerts, and portfolio tracking systems.',
+        fr_p3_title: 'Hydrostatic Carat Training',
+        fr_p3_desc: 'Complete staff training and precision water-density testing equipment provided.',
+        fr_p4_title: 'Marketing & Brand Support',
+        fr_p4_desc: 'Extensive digital advertising, localized promotional campaigns, and brand collaterals.',
+        fr_form_title: 'Apply for Franchise Ownership',
+        fr_form_sub: 'Fill out the form below. Our corporate expansion directors will reach out directly.',
+        lbl_name: 'Full Name',
+        lbl_phone: 'Mobile Number',
+        lbl_email: 'Email Address',
+        lbl_location: 'Targeted City / Area for Branch',
+        lbl_budget: 'Investment Budget Range',
+        opt_b1: '₹15 Lakhs to ₹25 Lakhs',
+        opt_b2: '₹25 Lakhs to ₹50 Lakhs',
+        opt_b3: 'Above ₹50 Lakhs',
+        lbl_experience: 'Do you have prior experience in jewellery or finance?',
+        btn_submit_fr: 'Submit Franchise Application',
+        contact_heading: 'Contact Us',
+        contact_tagline: 'Direct Communication with Muthusise Gold Company Directorate',
+        cnt_hq_title: 'Head Office Address',
+        cnt_hq_addr: '# 435, 2nd Floor, KP Road, Chettikulam Junction, Nagercoil, Kanyakumari, Tamil Nadu - 629001.',
+        cnt_hq_time: 'Monday - Saturday: 9:30 AM to 8:30 PM',
+        cnt_form_title: 'Quick Inquiry Form',
+        lbl_service_req: 'Service Required',
+        opt_s1: 'Spot Jewel Loan',
+        opt_s2: 'Pledge Release Service',
+        opt_s3: 'Scrap Gold Selling',
+        opt_s4: '916 Jewellery Purchase',
+        opt_s5: 'Gold Savings Scheme',
+        opt_s6: 'Franchise Inquiry',
+        lbl_message: 'Message / Notes',
+        btn_send_inquiry: 'Send Inquiry',
+        modal_title: '<i class="fa-solid fa-shield-halved" style="color:var(--metallic-gold);"></i> Muthusise Online Portals',
+        modal_sub: 'Select the portal you wish to access',
+        m_opt1_title: '1. Gold Scheme Customer Portal',
+        m_opt1_desc: 'Manage monthly gold savings installments',
+        m_opt2_title: '2. Jewellery Catalog & Online Shop',
+        m_opt2_desc: 'Online Jewellery Store & Showcase',
+        ftr_col1_title: 'Muthusise Gold Company',
+        ftr_col1_desc: 'MUTHUSISE GOLD PRODUCT PVT LTD (CIN: U47912TN2024PTC171143). Delivering trust, hallmark purity, and fair finance for over 10 years.',
+        ftr_col2_title: 'Core Services',
+        ftr_s1: 'Spot Gold Loans',
+        ftr_s2: 'Pledged Gold Takeover',
+        ftr_s3: 'Scrap Gold Purchasing',
+        ftr_s4: 'Gold Savings Schemes',
+        ftr_col3_title: 'Digital Portals',
+        ftr_p1: 'Customer Gold Scheme Login',
+        ftr_p2: 'Online Jewellery Store',
+        ftr_col4_title: 'Contact Information',
+        ftr_copy: '&copy; 2026 Muthusise Gold Company (Muthusise Gold Product Private Limited). All Rights Reserved.'
+      }
+    };
+
+    let currentLang = localStorage.getItem('site_lang') || 'ta';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('site_lang', lang);
+      document.documentElement.lang = lang;
+
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(elem => {
+        const key = elem.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          elem.innerHTML = translations[lang][key];
+        }
+      });
+
+      const langToggleBtn = document.getElementById('langToggleBtn');
+      if (langToggleBtn && translations[lang].langBtn) {
+        langToggleBtn.innerHTML = translations[lang].langBtn;
+      }
+    }
+
+    function toggleLanguage() {
+      const nextLang = currentLang === 'ta' ? 'en' : 'ta';
+      setLanguage(nextLang);
+    }
+
+    // Tab Switching Function
     function activateTab(targetId) {
       const allTabs = document.querySelectorAll('.page-tab');
       allTabs.forEach(function(tab) {
@@ -1487,6 +1879,14 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
+      // Initialize language
+      setLanguage(currentLang);
+
+      const langToggleBtn = document.getElementById('langToggleBtn');
+      if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', toggleLanguage);
+      }
+
       // Tab Buttons Listener
       const clickableTargets = document.querySelectorAll('[data-target]');
       clickableTargets.forEach(function(elem) {
@@ -1525,7 +1925,6 @@
       if (heroLoginBtn) heroLoginBtn.addEventListener('click', openModal);
       if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 
-      // Close modal on outside click
       if (loginModal) {
         loginModal.addEventListener('click', function(e) {
           if (e.target === loginModal) {
@@ -1539,7 +1938,10 @@
       if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          alert('நன்றி! தங்கள் விசாரணை வெற்றிகரமாக பெறப்பட்டது. எங்கள் முத்துசிஸ் கோல்டு கம்பெனி நிர்வாகம் விரைவில் தங்களைத் தொடர்பு கொள்ளும்.');
+          const msg = currentLang === 'ta' 
+            ? 'நன்றி! தங்கள் விசாரணை வெற்றிகரமாக பெறப்பட்டது. எங்கள் முத்துசிஸ் கோல்டு கம்பெனி நிர்வாகம் விரைவில் தங்களைத் தொடர்பு கொள்ளும்.' 
+            : 'Thank you! Your inquiry has been received. Our team will contact you shortly.';
+          alert(msg);
           this.reset();
         });
       }
@@ -1549,7 +1951,10 @@
       if (franchiseForm) {
         franchiseForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          alert('முத்துசிஸ் பிரான்சைசி விண்ணப்பத்திற்கு நன்றி! எங்கள் வணிக விரிவாக்க இயக்குநர் குழு விரைவில் தங்களை நேரில் தொடர்பு கொள்ளும்.');
+          const msg = currentLang === 'ta' 
+            ? 'முத்துசிஸ் பிரான்சைசி விண்ணப்பத்திற்கு நன்றி! எங்கள் வணிக விரிவாக்க இயக்குநர் குழு விரைவில் தங்களை நேரில் தொடர்பு கொள்ளும்.' 
+            : 'Thank you for your franchise application! Our business expansion team will contact you directly.';
+          alert(msg);
           this.reset();
         });
       }
