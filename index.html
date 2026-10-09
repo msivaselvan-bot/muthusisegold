@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muthusise Gold Company | முத்துசிஸ் கோல்டு கம்பெனி</title>
   
+  <!-- Favicon / Logo on Tab -->
+  <link rel="icon" type="image/png" href="logo.png">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +82,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 5%;
+      padding: 8px 5%;
     }
     .brand-logo {
       display: flex;
@@ -88,21 +91,13 @@
       text-decoration: none;
       cursor: pointer;
     }
-    .logo-container {
-      width: 50px;
-      height: 50px;
+    .logo-img {
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
-      background: radial-gradient(circle, #fcf8e3 0%, #ebd793 60%, var(--metallic-gold) 100%);
-      border: 2.5px solid var(--primary-purple);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 3px 10px rgba(114, 58, 145, 0.25);
-      flex-shrink: 0;
-    }
-    .logo-container svg {
-      width: 32px;
-      height: 32px;
+      object-fit: contain;
+      box-shadow: 0 2px 8px rgba(114, 58, 145, 0.25);
+      border: 1.5px solid var(--metallic-gold);
     }
     .brand-text h1 {
       font-size: 1.25rem;
@@ -603,7 +598,7 @@
   <div class="top-bar">
     <div>
       <span class="info-item"><i class="fa-solid fa-certificate" style="color:var(--metallic-gold)"></i> CIN: U47912TN2024PTC171143 (Govt. of India Registered)</span>
-      <span class="info-item"><i class="fa-solid fa-gem" style="color:var(--metallic-gold)"></i> 15+ வருடங்கள் தொடரும் வாடிக்கையாளர் நம்பிக்கை</span>
+      <span class="info-item"><i class="fa-solid fa-gem" style="color:var(--metallic-gold)"></i> 10+ வருடங்கள் தொடரும் வாடிக்கையாளர் நம்பிக்கை</span>
     </div>
     <div>
       <span class="badge-pill"><i class="fa-solid fa-phone"></i> +91 78100 04040</span>
@@ -614,19 +609,8 @@
   <header>
     <div class="nav-container">
       <div class="brand-logo" data-target="home">
-        <!-- SVG Lotus & Gold Brand Logo -->
-        <div class="logo-container">
-          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="46" stroke="#723a91" stroke-width="4" fill="none"/>
-            <circle cx="50" cy="50" r="41" stroke="#d4af37" stroke-width="2" fill="none"/>
-            <path d="M50 20 C42 35 35 48 50 78 C65 48 58 35 50 20 Z" fill="#723a91"/>
-            <path d="M50 40 C38 48 20 54 28 72 C38 78 45 76 50 78 C42 66 40 54 50 40 Z" fill="#d4af37"/>
-            <path d="M50 40 C62 48 80 54 72 72 C62 78 55 76 50 78 C58 66 60 54 50 40 Z" fill="#d4af37"/>
-            <path d="M50 52 C44 58 32 64 36 76 C42 79 47 78 50 78 C46 70 45 62 50 52 Z" fill="#ff7a00"/>
-            <path d="M50 52 C56 58 68 64 64 76 C58 79 53 78 50 78 C54 70 55 62 50 52 Z" fill="#ff7a00"/>
-            <circle cx="50" cy="78" r="4" fill="#d4af37"/>
-          </svg>
-        </div>
+        <!-- Exact Brand Logo -->
+        <img src="logo.png" alt="Muthusise Gold Logo" class="logo-img">
         <div class="brand-text">
           <h1>முத்துசிஸ் கோல்டு கம்பெனி</h1>
           <p>MUTHUSISE GOLD COMPANY</p>
@@ -654,7 +638,7 @@
     <section class="hero">
       <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> அரசு பதிவுபெற்ற நிறுவனம் (CIN: U47912TN2024PTC171143)</span>
       <h2>முத்துசிஸ் கோல்டு கம்பெனி — உங்கள் தங்கத்திற்கான நம்பகமான முகவரி</h2>
-      <p>15+ ஆண்டுகளாக முந்தைய 'இந்தியன் கோல்டு' நற்பெயருடன் மக்களின் பேராதரவு பெற்ற நிறுவனம். புதிய 916 ஆபரண விற்பனை, வட்டியில் மூழ்கும் நகைகள் மீட்பு சேவை மற்றும் சேமிப்பு திட்டங்கள்.</p>
+      <p>10+ ஆண்டுகளாக முந்தைய 'இந்தியன் கோல்டு' நற்பெயருடன் மக்களின் பேராதரவு பெற்ற நிறுவனம். புதிய 916 ஆபரண விற்பனை, ஸ்பாட் நகைக்கடன் மற்றும் மூழ்கும் நகைகள் மீட்பு சேவை.</p>
       <div class="btn-group">
         <button class="btn btn-gold tab-btn" data-target="services"><i class="fa-solid fa-list-check"></i> எங்கள் சேவைகள்</button>
         <button class="btn btn-orange tab-btn" data-target="franchise"><i class="fa-solid fa-handshake"></i> பிரான்சைசி வாய்ப்புகள்</button>
@@ -667,7 +651,7 @@
       <div class="pillar-card">
         <i class="fa-solid fa-award"></i>
         <h3>10+ வருட அனுபவம்</h3>
-        <p>18 வருட தங்கம் சாரந்த நகை தயாரிப்பு & 15+ வருட நம்பகமான நிதி நிர்வாகம்.</p>
+        <p>15 வருட கைவினை நகை தயாரிப்பு & 10 வருட நம்பகமான நிதி நிர்வாகம்.</p>
       </div>
       <div class="pillar-card">
         <i class="fa-solid fa-hand-holding-dollar"></i>
@@ -681,8 +665,8 @@
       </div>
       <div class="pillar-card">
         <i class="fa-solid fa-store"></i>
-        <h3>12+ கிளைகளின் கட்டமைப்பு</h3>
-        <p>கன்னியாகுமரி மாவட்டம் முழுவதும் பரந்து விரிந்த வாடிக்கையாளர் சேவை. இப்போது தமிழகம் முழுவதும்.</p>
+        <h3>10 கிளைகளின் கட்டமைப்பு</h3>
+        <p>கன்னியாகுமரி மாவட்டம் முழுவதும் பரந்து விரிந்த வாடிக்கையாளர் சேவை.</p>
       </div>
     </div>
 
@@ -738,7 +722,7 @@
       <div style="background:white; padding: 35px; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); margin-bottom: 25px;">
         <h3 style="color:var(--primary-purple); margin-bottom: 15px;">எங்கள் வரலாறு & நிர்வாகம்</h3>
         <p style="margin-bottom: 15px; color: var(--text-muted);">
-          <strong>முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Company)</strong> 18 ஆண்டுகளுக்கும் மேலான கைவினைத் தங்க ஆபரண கலை அனுபவம் கொண்ட நிபுணத்துவ நிர்வாகத்தால் வழிநடத்தப்படுகிறது. கடந்த 15 ஆண்டுகளுக்கும் மேலாக <strong>'இந்தியன் கோல்டு'</strong> என்ற பெயரில் வாடிக்கையாளர்களின் அசைக்க முடியாத நம்பிக்கையைப் பெற்று, தற்போது கார்ப்பரேட் விவகாரங்கள் அமைச்சகத்தின் கீழ் (Ministry of Corporate Affairs) பதிவு செய்யப்பட்ட நிறுவனமாக விரிவடைந்துள்ளது.
+          <strong>முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Company)</strong> 15 ஆண்டுகளுக்கும் மேலான கைவினைத் தங்க ஆபரண கலை அனுபவம் கொண்ட நிபுணத்துவ நிர்வாகத்தால் வழிநடத்தப்படுகிறது. கடந்த 10 ஆண்டுகளுக்கும் மேலாக <strong>'இந்தியன் கோல்டு'</strong> என்ற பெயரில் வாடிக்கையாளர்களின் அசைக்க முடியாத நம்பிக்கையைப் பெற்று, தற்போது கார்ப்பரேட் விவகாரங்கள் அமைச்சகத்தின் கீழ் (Ministry of Corporate Affairs) பதிவு செய்யப்பட்ட நிறுவனமாக விரிவடைந்துள்ளது.
         </p>
         
         <div class="legal-card">
@@ -865,14 +849,14 @@
         <h3><i class="fa-solid fa-building-flag"></i> 1. நாகர்கோவில் (தலைமை கிளை)</h3>
         <p><i class="fa-solid fa-location-dot"></i> # 435, 2nd Floor, KP Road, செட்டிகுளம் சந்திப்பு, நாகர்கோவில் - 629001.</p>
         <p><i class="fa-solid fa-phone"></i> +91 78100 04040 / 98434 12624</p>
-        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - மாலை 6:30</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:30</p>
       </div>
 
       <div class="branch-card">
-        <h3><i class="fa-solid fa-store"></i> 2. திங்கள்நகர்)</h3>
+        <h3><i class="fa-solid fa-store"></i> 2. திங்கள்நகர் (திங்கள்கடை)</h3>
         <p><i class="fa-solid fa-location-dot"></i> பஸ் நிலையம் அருகில், திங்கள்நகர், கன்னியாகுமரி மாவட்டம்.</p>
         <p><i class="fa-solid fa-phone"></i> +91 99445 75800</p>
-        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - மாலை 6:00</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:30</p>
       </div>
 
       <div class="branch-card">
@@ -945,7 +929,7 @@
       
       <div class="section-title">
         <h2>ஏன் முத்துசிஸ் உடன் இணைய வேண்டும்?</h2>
-        <p>15+ வருட பிராண்ட் பலம் மற்றும் முழுமையான தொழில்நுட்ப ஆதரவு</p>
+        <p>10+ வருட பிராண்ட் பலம் மற்றும் முழுமையான தொழில்நுட்ப ஆதரவு</p>
       </div>
 
       <div class="franchise-steps">
@@ -1080,7 +1064,7 @@
     <div class="footer-content">
       <div class="footer-col">
         <h4>முத்துசிஸ் கோல்டு கம்பெனி</h4>
-        <p>MUTHUSISE GOLD PRODUCT PVT LTD (CIN: U47912TN2024PTC171143). 15+ ஆண்டுகளாக மக்களின் நன்மதிப்பைப் பெற்ற நம்பகமான நிறுவனம்.</p>
+        <p>MUTHUSISE GOLD PRODUCT PVT LTD (CIN: U47912TN2024PTC171143). 10+ ஆண்டுகளாக மக்களின் நன்மதிப்பைப் பெற்ற நம்பகமான நிறுவனம்.</p>
       </div>
       <div class="footer-col">
         <h4>முக்கிய சேவைகள்</h4>
@@ -1112,45 +1096,36 @@
   </footer>
 
   <script>
-    // Tab Switching Function
     function activateTab(targetId) {
-      // Hide all tabs
       const allTabs = document.querySelectorAll('.page-tab');
       allTabs.forEach(function(tab) {
         tab.classList.remove('active-tab');
       });
 
-      // Deactivate all header nav buttons
       const allNavBtns = document.querySelectorAll('#navLinks .tab-btn');
       allNavBtns.forEach(function(btn) {
         btn.classList.remove('active');
       });
 
-      // Show selected tab
       const targetTab = document.getElementById('tab-' + targetId);
       if (targetTab) {
         targetTab.classList.add('active-tab');
       }
 
-      // Highlight active header button
       const activeBtn = document.querySelector('#navLinks .tab-btn[data-target="' + targetId + '"]');
       if (activeBtn) {
         activeBtn.classList.add('active');
       }
 
-      // Close mobile menu if open
       const navLinks = document.getElementById('navLinks');
       if (navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
       }
 
-      // Scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Attach click listeners to all tab buttons across the page
     document.addEventListener('DOMContentLoaded', function() {
-      // Handle all elements with data-target attribute
       const clickableTargets = document.querySelectorAll('[data-target]');
       clickableTargets.forEach(function(elem) {
         elem.addEventListener('click', function(e) {
@@ -1162,7 +1137,6 @@
         });
       });
 
-      // Mobile Menu Toggle
       const menuToggle = document.getElementById('menuToggle');
       const navLinks = document.getElementById('navLinks');
       if (menuToggle && navLinks) {
@@ -1171,7 +1145,6 @@
         });
       }
 
-      // Forms Submission handling
       const contactForm = document.getElementById('contactForm');
       if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
