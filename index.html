@@ -89,7 +89,7 @@
     }
 
     /* ======================================================== */
-    /* LIVE GOLD RATE TICKER (NEW SCROLLING STRIP) */
+    /* LIVE GOLD RATE TICKER (SCROLLING STRIP) */
     /* ======================================================== */
     .ticker-wrap {
       display: flex;
@@ -129,7 +129,7 @@
       animation: tickerAnimation 30s linear infinite;
     }
     .ticker-content:hover {
-      animation-play-state: paused; /* Pause when user hovers to read */
+      animation-play-state: paused;
     }
     @keyframes tickerAnimation {
       0% { transform: translateX(0); }
@@ -896,7 +896,7 @@
     <div class="ticker-scroll">
       <!-- 2 identical sets for seamless continuous marquee loop -->
       <div class="ticker-content" id="goldRateMarquee">
-        <!-- Injected via JavaScript below -->
+        <!-- Injected dynamically via JavaScript -->
       </div>
     </div>
   </div>
@@ -1551,21 +1551,52 @@
     </div>
   </footer>
 
+  <!-- ======================================================== -->
+  <!-- JAVASCRIPT: SUPABASE LIVE RATES & INTERACTION LOGIC -->
+  <!-- ======================================================== -->
   <script>
-    // ========================================================
-    // தினசரி தங்க விலை விபரங்கள் (DAILY RATES CONFIGURATION)
-    // நீங்கள் தினமும் இந்த விலைகளை மட்டும் மாற்றினால் போதும்!
-    // ========================================================
-    const TODAY_RATES = {
-      gold22k_1g: "₹13,850",     // 22K (916) 1 கிராம்
-      gold22k_8g: "₹1,10,800",    // 22K (916) 1 பவுன்
-      gold24k_1g: "₹14,900",     // 24K சுத்த தங்கம் 1 கிராம்
-      silver_1g: "₹299.00",      // வெள்ளி 1 கிராம்
-      silver_1kg: "₹2,99,000",    // வெள்ளி 1 கிலோ
-      jewelLoanMax: "₹10,600/g"  // நகைக்கடன் கிராமிற்கு
+    // உங்கள் Supabase திட்டத்தின் சரியான URL மற்றும் Anon Key இணைக்கப்பட்டுள்ளது
+    const SUPABASE_URL = "https://gxdmupqopfocmmcxxkbv.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4ZG11cHFvcGZvY21tY3h4a2J2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2ODc4NDEsImV4cCI6MjEwNDI2Mzg0MX0.BU3Cjtow8zzMQukTxXo4J-ulJW5M3k1pnX3Dd204u1M";
+
+    // ஆரம்ப இருப்பு விலைகள்
+    let TODAY_RATES = {
+      gold22k_1g: "₹7,150",
+      gold22k_8g: "₹57,200",
+      gold24k_1g: "₹7,790",
+      silver_1g: "₹99.00",
+      silver_1kg: "₹99,000",
+      jewelLoanMax: "₹5,600/g"
     };
 
-    // Internationalization (i18n) Translations
+    // Supabase-ல் இருந்து நேரலை விலைகளைப் பெறும் ஃபங்ஷன்
+    async function fetchLiveRatesFromSupabase() {
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/daily_rates?id=eq.1&select=*`, {
+          headers: {
+            "apikey": SUPABASE_ANON_KEY,
+            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`
+          }
+        });
+        const data = await response.json();
+        if (data && data.length > 0) {
+          const row = data[0];
+          TODAY_RATES = {
+            gold22k_1g: `₹${Number(row.gold_22k_1g).toLocaleString('en-IN')}`,
+            gold22k_8g: `₹${Number(row.gold_22k_8g).toLocaleString('en-IN')}`,
+            gold24k_1g: `₹${Number(row.gold_24k_1g).toLocaleString('en-IN')}`,
+            silver_1g: `₹${Number(row.silver_1g).toFixed(2)}`,
+            silver_1kg: `₹${Number(row.silver_1kg).toLocaleString('en-IN')}`,
+            jewelLoanMax: `₹${Number(row.jewel_loan_max).toLocaleString('en-IN')}/g`
+          };
+          renderTickerContent(currentLang);
+        }
+      } catch (err) {
+        console.log("Supabase fetch fallback to defaults:", err);
+      }
+    }
+
+    // Translations Dictionary
     const translations = {
       ta: {
         langBtn: '<i class="fa-solid fa-globe"></i> English',
@@ -1933,7 +1964,6 @@
 
     let currentLang = localStorage.getItem('site_lang') || 'ta';
 
-    // Renders the ticker text dynamically based on language and rates
     function renderTickerContent(lang) {
       const t = translations[lang];
       const singleSet = `
@@ -1950,13 +1980,11 @@
         <div class="rate-item"><span class="tag">${t.t_loan_val}</span> <span class="val">${TODAY_RATES.jewelLoanMax}</span></div>
         <span class="rate-sep">✦</span>
       `;
-      // Duplicate set twice so marquee scrolls continuously without blank gaps
       const marqueeContainer = document.getElementById('goldRateMarquee');
       if (marqueeContainer) {
         marqueeContainer.innerHTML = singleSet + singleSet;
       }
 
-      // Display Today's Date dynamically
       const today = new Date();
       const options = { day: 'numeric', month: 'short', year: 'numeric' };
       const dateElem = document.getElementById('tickerDate');
@@ -1983,7 +2011,6 @@
         langToggleBtn.innerHTML = translations[lang].langBtn;
       }
 
-      // Re-render ticker with current language labels
       renderTickerContent(lang);
     }
 
@@ -1992,7 +2019,6 @@
       setLanguage(nextLang);
     }
 
-    // Tab Switching Function
     function activateTab(targetId) {
       const allTabs = document.querySelectorAll('.page-tab');
       allTabs.forEach(function(tab) {
@@ -2023,15 +2049,16 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      // Initialize language & ticker
       setLanguage(currentLang);
+      
+      // பக்கம் லோட் ஆனதும் Supabase-ல் இருந்து நேரடி விலைகளைப் பெறுகிறோம்
+      fetchLiveRatesFromSupabase();
 
       const langToggleBtn = document.getElementById('langToggleBtn');
       if (langToggleBtn) {
         langToggleBtn.addEventListener('click', toggleLanguage);
       }
 
-      // Tab Buttons Listener
       const clickableTargets = document.querySelectorAll('[data-target]');
       clickableTargets.forEach(function(elem) {
         elem.addEventListener('click', function(e) {
@@ -2043,7 +2070,6 @@
         });
       });
 
-      // Mobile Menu Toggle
       const menuToggle = document.getElementById('menuToggle');
       const navLinks = document.getElementById('navLinks');
       if (menuToggle && navLinks) {
@@ -2052,7 +2078,6 @@
         });
       }
 
-      // Modal Handling
       const loginModal = document.getElementById('loginModal');
       const openModalBtn = document.getElementById('openModalBtn');
       const heroLoginBtn = document.getElementById('heroLoginBtn');
@@ -2077,7 +2102,6 @@
         });
       }
 
-      // Contact Form
       const contactForm = document.getElementById('contactForm');
       if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -2090,7 +2114,6 @@
         });
       }
 
-      // Franchise Form
       const franchiseForm = document.getElementById('franchiseForm');
       if (franchiseForm) {
         franchiseForm.addEventListener('submit', function(e) {
