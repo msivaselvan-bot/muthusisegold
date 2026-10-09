@@ -47,12 +47,12 @@
     .top-bar {
       background: linear-gradient(90deg, var(--primary-purple-dark), var(--primary-purple));
       color: #fff;
-      padding: 7px 5%;
+      padding: 6px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.85rem;
-      border-bottom: 2px solid var(--metallic-gold);
+      font-size: 0.82rem;
+      border-bottom: 1.5px solid rgba(212, 175, 55, 0.4);
     }
     .top-bar .info-item {
       display: inline-flex;
@@ -68,7 +68,7 @@
     .quick-login-link {
       color: #fff;
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       background: rgba(255,255,255,0.15);
       padding: 2px 10px;
       border-radius: 12px;
@@ -82,10 +82,81 @@
       background: rgba(212, 175, 55, 0.25);
       border: 1px solid var(--metallic-gold);
       color: #fff;
-      padding: 3px 12px;
+      padding: 2px 10px;
       border-radius: 20px;
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
+    }
+
+    /* ======================================================== */
+    /* LIVE GOLD RATE TICKER (NEW SCROLLING STRIP) */
+    /* ======================================================== */
+    .ticker-wrap {
+      display: flex;
+      align-items: center;
+      background: #200a35;
+      color: #ffffff;
+      height: 42px;
+      overflow: hidden;
+      border-bottom: 2.5px solid var(--metallic-gold);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .ticker-label {
+      background: linear-gradient(135deg, var(--metallic-gold) 0%, #b8860b 100%);
+      color: #200a35;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 0 18px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      z-index: 5;
+      box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .ticker-scroll {
+      flex-grow: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+    }
+    .ticker-content {
+      display: inline-flex;
+      align-items: center;
+      animation: tickerAnimation 30s linear infinite;
+    }
+    .ticker-content:hover {
+      animation-play-state: paused; /* Pause when user hovers to read */
+    }
+    @keyframes tickerAnimation {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .rate-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 24px;
+      font-size: 0.88rem;
+    }
+    .rate-item .tag {
+      color: #d8b8f2;
+      font-weight: 500;
+    }
+    .rate-item .val {
+      color: #ffd700;
+      font-weight: 700;
+      background: rgba(212, 175, 55, 0.15);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .rate-sep {
+      color: rgba(212, 175, 55, 0.4);
+      margin: 0 10px;
     }
 
     /* Header */
@@ -817,6 +888,19 @@
     </div>
   </div>
 
+  <!-- LIVE GOLD RATE SCROLLING TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-label">
+      <i class="fa-solid fa-bolt" style="color:#d4af37;"></i> <span data-i18n="ticker_live_badge">நேரலை விலை விகிதம்</span> (<span id="tickerDate"></span>)
+    </div>
+    <div class="ticker-scroll">
+      <!-- 2 identical sets for seamless continuous marquee loop -->
+      <div class="ticker-content" id="goldRateMarquee">
+        <!-- Injected via JavaScript below -->
+      </div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header>
     <div class="nav-container">
@@ -842,8 +926,6 @@
         <li><button class="tab-btn nav-btn-franchise" data-target="franchise" data-i18n="nav_franchise"><i class="fa-solid fa-handshake"></i> பிரான்சைசி</button></li>
         <li><button class="nav-btn-login" id="openModalBtn" data-i18n="nav_login"><i class="fa-solid fa-arrow-right-to-bracket"></i> உள்நுழைவு</button></li>
         <li><button class="tab-btn nav-btn-contact" data-target="contact" data-i18n="nav_contact">தொடர்புக்கு</button></li>
-        
-        <!-- Language Switcher Button -->
         <li><button id="langToggleBtn" class="lang-switcher-btn"><i class="fa-solid fa-globe"></i> English</button></li>
       </ul>
     </div>
@@ -1470,12 +1552,32 @@
   </footer>
 
   <script>
+    // ========================================================
+    // தினசரி தங்க விலை விபரங்கள் (DAILY RATES CONFIGURATION)
+    // நீங்கள் தினமும் இந்த விலைகளை மட்டும் மாற்றினால் போதும்!
+    // ========================================================
+    const TODAY_RATES = {
+      gold22k_1g: "₹7,150",     // 22K (916) 1 கிராம்
+      gold22k_8g: "₹57,200",    // 22K (916) 1 பவுன்
+      gold24k_1g: "₹7,790",     // 24K சுத்த தங்கம் 1 கிராம்
+      silver_1g: "₹99.00",      // வெள்ளி 1 கிராம்
+      silver_1kg: "₹99,000",    // வெள்ளி 1 கிலோ
+      jewelLoanMax: "₹5,600/g"  // நகைக்கடன் கிராமிற்கு
+    };
+
     // Internationalization (i18n) Translations
     const translations = {
       ta: {
         langBtn: '<i class="fa-solid fa-globe"></i> English',
         top_trust: '<i class="fa-solid fa-gem" style="color:var(--metallic-gold)"></i> 10+ வருடங்கள் தொடரும் வாடிக்கையாளர் நம்பிக்கை',
         top_cust_login: '<i class="fa-solid fa-piggy-bank"></i> வாடிக்கையாளர் லாகின்',
+        ticker_live_badge: 'நேரலை விலை விகிதம்',
+        t_gold22k: '22K தங்கம் (1g):',
+        t_gold22k_8g: '22K தங்கம் (1 பவுன்):',
+        t_gold24k: '24K தங்கம் (1g):',
+        t_silver: 'வெள்ளி (1g):',
+        t_silver_kg: 'வெள்ளி (1kg):',
+        t_loan_val: 'நகைக்கடன் கிராமிற்கு:',
         brand_title: 'முத்துசிஸ் கோல்டு கம்பெனி',
         nav_home: 'Home',
         nav_about: 'எங்களைப் பற்றி',
@@ -1650,6 +1752,13 @@
         langBtn: '<i class="fa-solid fa-globe"></i> தமிழ்',
         top_trust: '<i class="fa-solid fa-gem" style="color:var(--metallic-gold)"></i> 10+ Years of Customer Trust & Integrity',
         top_cust_login: '<i class="fa-solid fa-piggy-bank"></i> Customer Scheme Login',
+        ticker_live_badge: 'Live Gold Rates',
+        t_gold22k: '22K Gold (1g):',
+        t_gold22k_8g: '22K Sovereign (8g):',
+        t_gold24k: '24K Pure (1g):',
+        t_silver: 'Silver (1g):',
+        t_silver_kg: 'Silver (1kg):',
+        t_loan_val: 'Loan Per Gram:',
         brand_title: 'Muthusise Gold Company',
         nav_home: 'Home',
         nav_about: 'About Us',
@@ -1824,6 +1933,38 @@
 
     let currentLang = localStorage.getItem('site_lang') || 'ta';
 
+    // Renders the ticker text dynamically based on language and rates
+    function renderTickerContent(lang) {
+      const t = translations[lang];
+      const singleSet = `
+        <div class="rate-item"><span class="tag">${t.t_gold22k}</span> <span class="val">${TODAY_RATES.gold22k_1g}</span></div>
+        <span class="rate-sep">✦</span>
+        <div class="rate-item"><span class="tag">${t.t_gold22k_8g}</span> <span class="val">${TODAY_RATES.gold22k_8g}</span></div>
+        <span class="rate-sep">✦</span>
+        <div class="rate-item"><span class="tag">${t.t_gold24k}</span> <span class="val">${TODAY_RATES.gold24k_1g}</span></div>
+        <span class="rate-sep">✦</span>
+        <div class="rate-item"><span class="tag">${t.t_silver}</span> <span class="val">${TODAY_RATES.silver_1g}</span></div>
+        <span class="rate-sep">✦</span>
+        <div class="rate-item"><span class="tag">${t.t_silver_kg}</span> <span class="val">${TODAY_RATES.silver_1kg}</span></div>
+        <span class="rate-sep">✦</span>
+        <div class="rate-item"><span class="tag">${t.t_loan_val}</span> <span class="val">${TODAY_RATES.jewelLoanMax}</span></div>
+        <span class="rate-sep">✦</span>
+      `;
+      // Duplicate set twice so marquee scrolls continuously without blank gaps
+      const marqueeContainer = document.getElementById('goldRateMarquee');
+      if (marqueeContainer) {
+        marqueeContainer.innerHTML = singleSet + singleSet;
+      }
+
+      // Display Today's Date dynamically
+      const today = new Date();
+      const options = { day: 'numeric', month: 'short', year: 'numeric' };
+      const dateElem = document.getElementById('tickerDate');
+      if (dateElem) {
+        dateElem.textContent = today.toLocaleDateString(lang === 'ta' ? 'ta-IN' : 'en-IN', options);
+      }
+    }
+
     function setLanguage(lang) {
       currentLang = lang;
       localStorage.setItem('site_lang', lang);
@@ -1841,6 +1982,9 @@
       if (langToggleBtn && translations[lang].langBtn) {
         langToggleBtn.innerHTML = translations[lang].langBtn;
       }
+
+      // Re-render ticker with current language labels
+      renderTickerContent(lang);
     }
 
     function toggleLanguage() {
@@ -1879,7 +2023,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      // Initialize language
+      // Initialize language & ticker
       setLanguage(currentLang);
 
       const langToggleBtn = document.getElementById('langToggleBtn');
@@ -1951,10 +2095,9 @@
       if (franchiseForm) {
         franchiseForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          const msg = currentLang === 'ta' 
+          alert(currentLang === 'ta' 
             ? 'முத்துசிஸ் பிரான்சைசி விண்ணப்பத்திற்கு நன்றி! எங்கள் வணிக விரிவாக்க இயக்குநர் குழு விரைவில் தங்களை நேரில் தொடர்பு கொள்ளும்.' 
-            : 'Thank you for your franchise application! Our business expansion team will contact you directly.';
-          alert(msg);
+            : 'Thank you for your franchise application! Our business expansion team will contact you directly.');
           this.reset();
         });
       }
