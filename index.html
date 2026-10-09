@@ -10,21 +10,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
       --primary-purple: #723a91;
-      --primary-purple-dark: #53246c;
+      --primary-purple-dark: #50236a;
       --metallic-gold: #d4af37;
       --gold-light: #fef9e7;
       --accent-orange: #ff7a00;
-      --text-dark: #1f1f2e;
+      --text-dark: #1e1e2d;
       --text-muted: #5e6278;
       --bg-cream: #faf8f5;
       --white: #ffffff;
-      --border-color: #eeddb2;
+      --border-color: #ebdcb9;
     }
 
     * {
@@ -44,29 +44,30 @@
     .top-bar {
       background: linear-gradient(90deg, var(--primary-purple-dark), var(--primary-purple));
       color: #fff;
-      padding: 8px 5%;
+      padding: 7px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       border-bottom: 2px solid var(--metallic-gold);
     }
     .top-bar .info-item {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-right: 20px;
+      margin-right: 18px;
     }
-    .gold-rate-pill {
-      background: rgba(212, 175, 55, 0.2);
+    .badge-pill {
+      background: rgba(212, 175, 55, 0.25);
       border: 1px solid var(--metallic-gold);
       color: #fff;
       padding: 3px 12px;
       border-radius: 20px;
       font-weight: 600;
+      font-size: 0.8rem;
     }
 
-    /* Header & Nav */
+    /* Header */
     header {
       background: var(--white);
       box-shadow: 0 4px 15px rgba(0,0,0,0.06);
@@ -78,35 +79,38 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 5%;
+      padding: 10px 5%;
     }
     .brand-logo {
       display: flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
+      cursor: pointer;
     }
-    .logo-badge {
-      width: 50px;
-      height: 50px;
-      background: radial-gradient(circle, var(--metallic-gold) 0%, var(--primary-purple) 90%);
+    .logo-container {
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
+      background: radial-gradient(circle, #fcf8e3 0%, #ebd793 60%, var(--metallic-gold) 100%);
+      border: 2.5px solid var(--primary-purple);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-size: 1.5rem;
-      border: 2px solid var(--metallic-gold);
-      box-shadow: 0 2px 8px rgba(114, 58, 145, 0.3);
+      box-shadow: 0 3px 10px rgba(114, 58, 145, 0.25);
+    }
+    .logo-container svg {
+      width: 34px;
+      height: 34px;
     }
     .brand-text h1 {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       color: var(--primary-purple);
       font-weight: 700;
       line-height: 1.2;
     }
     .brand-text p {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--metallic-gold);
       font-weight: 600;
       letter-spacing: 0.5px;
@@ -116,14 +120,14 @@
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 8px;
+      gap: 4px;
     }
     .nav-links a {
       text-decoration: none;
       color: var(--text-dark);
       font-weight: 600;
-      font-size: 0.95rem;
-      padding: 8px 16px;
+      font-size: 0.9rem;
+      padding: 8px 14px;
       border-radius: 8px;
       transition: all 0.3s ease;
       cursor: pointer;
@@ -132,33 +136,36 @@
       background: var(--primary-purple);
       color: var(--white);
     }
-    .nav-btn {
-      background: var(--accent-orange);
+    .nav-btn-franchise {
+      background: var(--metallic-gold) !important;
+      color: var(--primary-purple-dark) !important;
+      font-weight: 700 !important;
+    }
+    .nav-btn-contact {
+      background: var(--accent-orange) !important;
       color: white !important;
-      padding: 10px 20px !important;
-      border-radius: 25px !important;
-      box-shadow: 0 4px 10px rgba(255, 122, 0, 0.3);
+      border-radius: 20px !important;
     }
 
     /* Tab Page Handling */
     .page-tab {
       display: none;
-      animation: fadeIn 0.4s ease-in-out;
+      animation: fadeIn 0.35s ease-in-out;
     }
     .page-tab.active-tab {
       display: block;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, rgba(114, 58, 145, 0.95), rgba(83, 36, 108, 0.9)), 
+      background: linear-gradient(135deg, rgba(80, 35, 106, 0.94), rgba(114, 58, 145, 0.88)), 
                   url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1500&q=80') center/cover;
       color: white;
-      padding: 80px 5% 90px;
+      padding: 70px 5% 85px;
       text-align: center;
       position: relative;
     }
@@ -166,25 +173,24 @@
       display: inline-block;
       background: var(--metallic-gold);
       color: var(--primary-purple-dark);
-      padding: 6px 18px;
+      padding: 5px 18px;
       border-radius: 30px;
       font-weight: 700;
-      font-size: 0.9rem;
-      margin-bottom: 20px;
-      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin-bottom: 18px;
     }
     .hero h2 {
-      font-size: 2.6rem;
+      font-size: 2.5rem;
       font-weight: 700;
-      max-width: 850px;
+      max-width: 900px;
       margin: 0 auto 15px;
       line-height: 1.3;
     }
     .hero p {
-      font-size: 1.15rem;
-      max-width: 720px;
+      font-size: 1.1rem;
+      max-width: 750px;
       margin: 0 auto 30px;
-      color: #f3e9f8;
+      color: #f7ecfa;
     }
     .btn-group {
       display: flex;
@@ -193,21 +199,29 @@
       flex-wrap: wrap;
     }
     .btn {
-      padding: 12px 28px;
+      padding: 12px 26px;
       border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
       transition: all 0.3s;
       border: none;
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
     .btn-gold {
       background: var(--metallic-gold);
       color: var(--primary-purple-dark);
     }
     .btn-gold:hover {
-      background: #c39e2e;
+      background: #c29d2b;
+      transform: translateY(-2px);
+    }
+    .btn-orange {
+      background: var(--accent-orange);
+      color: #fff;
+    }
+    .btn-orange:hover {
+      background: #e66e00;
       transform: translateY(-2px);
     }
     .btn-outline {
@@ -220,30 +234,30 @@
       color: var(--primary-purple);
     }
 
-    /* Trust Highlights / 4 Pillars */
+    /* Pillars */
     .pillars-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
-      margin: -40px 5% 50px;
+      margin: -35px 5% 50px;
       position: relative;
       z-index: 20;
     }
     .pillar-card {
       background: white;
-      padding: 24px;
+      padding: 22px;
       border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+      box-shadow: 0 5px 18px rgba(0,0,0,0.06);
       text-align: center;
       border-top: 4px solid var(--metallic-gold);
     }
     .pillar-card i {
       font-size: 2.2rem;
       color: var(--primary-purple);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .pillar-card h3 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--primary-purple);
       margin-bottom: 6px;
     }
@@ -252,13 +266,14 @@
       color: var(--text-muted);
     }
 
-    /* Section Styles */
+    /* Titles */
     .section-title {
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 40px;
+      padding: 0 20px;
     }
     .section-title h2 {
-      font-size: 2.1rem;
+      font-size: 2rem;
       color: var(--primary-purple);
       position: relative;
       display: inline-block;
@@ -271,7 +286,7 @@
       left: 50%;
       transform: translateX(-50%);
       width: 70px;
-      height: 3px;
+      height: 3.5px;
       background: var(--metallic-gold);
       border-radius: 2px;
     }
@@ -291,7 +306,7 @@
       background: white;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 5px 18px rgba(0,0,0,0.05);
       border: 1px solid var(--border-color);
       transition: transform 0.3s;
     }
@@ -301,127 +316,167 @@
     .service-icon-banner {
       background: linear-gradient(135deg, var(--primary-purple), var(--primary-purple-dark));
       color: var(--metallic-gold);
-      padding: 30px;
+      padding: 26px;
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2.4rem;
     }
     .service-body {
       padding: 24px;
     }
     .service-body h3 {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       color: var(--primary-purple);
       margin-bottom: 10px;
     }
-    .service-body ul {
-      list-style: none;
-      margin: 15px 0 20px;
-    }
-    .service-body ul li {
+    .service-body p {
       font-size: 0.9rem;
       color: var(--text-muted);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .service-body ul li i {
-      color: #27ae60;
+      margin-bottom: 12px;
     }
 
-    /* Schemes Section */
+    /* Schemes */
     .scheme-box {
       background: white;
-      border-radius: 16px;
+      border-radius: 14px;
       padding: 30px;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       border-left: 6px solid var(--metallic-gold);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    }
-    .scheme-badge {
-      display: inline-block;
-      background: var(--gold-light);
-      color: var(--primary-purple-dark);
-      border: 1px solid var(--metallic-gold);
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      margin-bottom: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
-    /* Branches Grid */
+    /* Branches 10-Grid */
     .branches-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 22px;
       padding: 0 5% 50px;
     }
     .branch-card {
       background: white;
       border-radius: 14px;
-      padding: 24px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      padding: 22px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
       border: 1px solid var(--border-color);
+      position: relative;
+    }
+    .branch-card.hq-branch {
+      border: 2px solid var(--primary-purple);
+      background: #faf6fd;
+    }
+    .branch-tag {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--metallic-gold);
+      color: var(--primary-purple-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 12px;
     }
     .branch-card h3 {
       color: var(--primary-purple);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-size: 1.15rem;
     }
     .branch-card p {
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       display: flex;
-      gap: 10px;
-    }
-    .branch-card .btn-map {
-      display: inline-block;
-      margin-top: 10px;
-      color: var(--primary-purple);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.9rem;
+      gap: 8px;
     }
 
-    /* Contact Section */
+    /* Franchise Section */
+    .franchise-hero {
+      background: linear-gradient(135deg, #2b113a, var(--primary-purple));
+      color: white;
+      padding: 50px 5%;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .franchise-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .f-step-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+    .f-step-card .num {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-purple);
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    /* Forms */
     .contact-wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 30px;
       padding: 0 5% 60px;
     }
-    .contact-form-box {
+    .form-box {
       background: white;
       padding: 35px;
       border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
       border: 1px solid var(--border-color);
     }
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .form-group label {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       font-weight: 600;
       color: var(--primary-purple);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
     .form-group input, .form-group select, .form-group textarea {
       width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
+      padding: 11px 14px;
+      border: 1px solid #d1d5db;
       border-radius: 8px;
       outline: none;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
     }
     .form-group input:focus, .form-group textarea:focus {
       border-color: var(--primary-purple);
+    }
+
+    /* Legal Verification Card */
+    .legal-card {
+      background: #fdfbf7;
+      border: 1.5px dashed var(--metallic-gold);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 25px;
+    }
+    .legal-card h4 {
+      color: var(--primary-purple);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    .legal-card ul {
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--text-dark);
+    }
+    .legal-card ul li {
+      margin-bottom: 5px;
     }
 
     /* WhatsApp Float */
@@ -431,14 +486,14 @@
       right: 25px;
       background: #25d366;
       color: white;
-      width: 60px;
-      height: 60px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 2rem;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
       z-index: 1000;
       text-decoration: none;
       transition: transform 0.3s;
@@ -452,7 +507,7 @@
       background: var(--primary-purple-dark);
       color: white;
       padding: 50px 5% 20px;
-      border-top: 3px solid var(--metallic-gold);
+      border-top: 4px solid var(--metallic-gold);
     }
     .footer-content {
       display: grid;
@@ -462,23 +517,23 @@
     }
     .footer-col h4 {
       color: var(--metallic-gold);
-      margin-bottom: 16px;
-      font-size: 1.1rem;
+      margin-bottom: 14px;
+      font-size: 1.05rem;
     }
     .footer-col p, .footer-col ul li {
-      font-size: 0.88rem;
-      color: #dfd4e6;
-      margin-bottom: 8px;
+      font-size: 0.86rem;
+      color: #dfd3e7;
+      margin-bottom: 7px;
     }
     .footer-bottom {
       text-align: center;
       border-top: 1px solid rgba(255,255,255,0.1);
       padding-top: 20px;
-      font-size: 0.85rem;
-      color: #c9bed2;
+      font-size: 0.82rem;
+      color: #cbbdd5;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .top-bar { display: none; }
       .nav-links { display: none; }
       .hero h2 { font-size: 1.8rem; }
@@ -488,37 +543,49 @@
 </head>
 <body>
 
-  <!-- Top Notification Bar -->
+  <!-- Top Bar -->
   <div class="top-bar">
     <div>
+      <span class="info-item"><i class="fa-solid fa-certificate" style="color:var(--metallic-gold)"></i> CIN: U47912TN2024PTC171143 (Govt. of India Registered)</span>
       <span class="info-item"><i class="fa-solid fa-gem" style="color:var(--metallic-gold)"></i> 10+ வருடங்கள் தொடரும் வாடிக்கையாளர் நம்பிக்கை</span>
-      <span class="info-item"><i class="fa-solid fa-location-dot" style="color:var(--metallic-gold)"></i> கன்னியாகுமரி மாவட்டம் & தமிழ்நாடு</span>
     </div>
     <div>
-      <span class="gold-rate-pill"><i class="fa-solid fa-coins"></i> BIS 916 ஹால்மார்க் தரம்</span>
+      <span class="badge-pill"><i class="fa-solid fa-phone"></i> +91 78100 04040</span>
     </div>
   </div>
 
   <!-- Header -->
   <header>
     <div class="nav-container">
-      <a href="#" class="brand-logo" onclick="switchTab('home')">
-        <div class="logo-badge">
-          <i class="fa-solid fa-feather-pointed"></i>
+      <div class="brand-logo" onclick="switchTab('home')">
+        <!-- SVG Lotus & Gold Brand Logo -->
+        <div class="logo-container">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="46" stroke="#723a91" stroke-width="4" fill="none"/>
+            <circle cx="50" cy="50" r="41" stroke="#d4af37" stroke-width="2" fill="none"/>
+            <!-- Stylized Lotus petals in purple & gold -->
+            <path d="M50 20 C42 35 35 48 50 78 C65 48 58 35 50 20 Z" fill="#723a91"/>
+            <path d="M50 40 C38 48 20 54 28 72 C38 78 45 76 50 78 C42 66 40 54 50 40 Z" fill="#d4af37"/>
+            <path d="M50 40 C62 48 80 54 72 72 C62 78 55 76 50 78 C58 66 60 54 50 40 Z" fill="#d4af37"/>
+            <path d="M50 52 C44 58 32 64 36 76 C42 79 47 78 50 78 C46 70 45 62 50 52 Z" fill="#ff7a00"/>
+            <path d="M50 52 C56 58 68 64 64 76 C58 79 53 78 50 78 C54 70 55 62 50 52 Z" fill="#ff7a00"/>
+            <circle cx="50" cy="78" r="4" fill="#d4af37"/>
+          </svg>
         </div>
         <div class="brand-text">
           <h1>முத்துசிஸ் கோல்டு கம்பெனி</h1>
           <p>MUTHUSISE GOLD COMPANY</p>
         </div>
-      </a>
+      </div>
       
       <ul class="nav-links">
         <li><a onclick="switchTab('home')" id="nav-home" class="active">Home</a></li>
         <li><a onclick="switchTab('about')" id="nav-about">எங்களைப் பற்றி</a></li>
         <li><a onclick="switchTab('services')" id="nav-services">சேவைகள்</a></li>
         <li><a onclick="switchTab('schemes')" id="nav-schemes">திட்டங்கள்</a></li>
-        <li><a onclick="switchTab('branches')" id="nav-branches">கிளைகள்</a></li>
-        <li><a onclick="switchTab('contact')" id="nav-contact" class="nav-btn">தொடர்புக்கு</a></li>
+        <li><a onclick="switchTab('branches')" id="nav-branches">கிளைகள் (10)</a></li>
+        <li><a onclick="switchTab('franchise')" id="nav-franchise" class="nav-btn-franchise"><i class="fa-solid fa-handshake"></i> பிரான்சைசி</a></li>
+        <li><a onclick="switchTab('contact')" id="nav-contact" class="nav-btn-contact">தொடர்புக்கு</a></li>
       </ul>
     </div>
   </header>
@@ -526,12 +593,13 @@
   <!-- TAB 1: HOME PAGE -->
   <main id="tab-home" class="page-tab active-tab">
     <section class="hero">
-      <span class="hero-badge">பாரம்பரிய கைவினைத் திறன் & நவீனப் பாதுகாப்பு</span>
-      <h2>உங்கள் தங்கத்திற்கான முழுமையான மதிப்பு மற்றும் நம்பகமான நிதிச் சேவைகள்</h2>
-      <p>10 ஆண்டுகளுக்கும் மேலான எங்களின் அனுபவத்துடன் — புதிய 916 ஆபரண விற்பனை, உடனடி ஸ்பாட் நகைக்கடன் மற்றும் அடகு நகைகள் மீட்பு சேவை.</p>
+      <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> அரசு பதிவுபெற்ற நிறுவனம் (CIN: U47912TN2024PTC171143)</span>
+      <h2>முத்துசிஸ் கோல்டு கம்பெனி — உங்கள் தங்கத்திற்கான நம்பகமான முகவரி</h2>
+      <p>10+ ஆண்டுகளாக முந்தைய 'இந்தியன் கோல்டு' நற்பெயருடன் மக்களின் பேராதரவு பெற்ற நிறுவனம். புதிய 916 ஆபரண விற்பனை, ஸ்பாட் நகைக்கடன் மற்றும் மூழ்கும் நகைகள் மீட்பு சேவை.</p>
       <div class="btn-group">
         <button class="btn btn-gold" onclick="switchTab('services')">எங்கள் சேவைகள்</button>
-        <button class="btn btn-outline" onclick="switchTab('schemes')">சேமிப்புத் திட்டங்கள்</button>
+        <button class="btn btn-orange" onclick="switchTab('franchise')">பிரான்சைசி வாய்ப்புகள்</button>
+        <button class="btn btn-outline" onclick="switchTab('branches')">அருகிலுள்ள கிளை</button>
       </div>
     </section>
 
@@ -540,29 +608,29 @@
       <div class="pillar-card">
         <i class="fa-solid fa-award"></i>
         <h3>10+ வருட அனுபவம்</h3>
-        <p>முன்னாள் இந்தியன் கோல்டு நற்பெயருடன் தங்களின் மேலான ஆதரவோடு இயங்கும் நிறுவனம்.</p>
+        <p>15 வருட கைவினை நகை தயாரிப்பு & 10 வருட நம்பகமான நிதி நிர்வாகம்.</p>
       </div>
       <div class="pillar-card">
         <i class="fa-solid fa-hand-holding-dollar"></i>
         <h3>அதிகபட்ச நகைக்கடன்</h3>
-        <p>குறைந்த வட்டியில் கிராமிற்கு மார்க்கெட் மதிப்பிற்கு ஏற்ப அதிகபட்ச கடன் தொகை.</p>
+        <p>குறைந்த வட்டியில் கிராமிற்கு மார்க்கெட் மதிப்பிற்கேற்ப உடனடிப் பணம்.</p>
       </div>
       <div class="pillar-card">
         <i class="fa-solid fa-scale-balanced"></i>
-        <h3>நேர்மையான மதிப்பீடு</h3>
-        <p>ஹைட்ரோஸ்டேடிக் முறையில் 100% துல்லியமான மற்றும் ஒளிவுமறைவற்ற தரம் அறிதல்.</p>
+        <h3>துல்லிய சோதனை</h3>
+        <p>ஹைட்ரோஸ்டேடிக் முறையில் 100% நேர்மையான மற்றும் சேதமற்ற காரட் ஆய்வு.</p>
       </div>
       <div class="pillar-card">
-        <i class="fa-solid fa-shield-halved"></i>
-        <h3>உயரிய பாதுகாப்பு</h3>
-        <p>உங்கள் தங்க நகைகளுக்கு நவீன லாக்கர் பாதுகாப்பு மற்றும் காப்பீட்டு வசதி.</p>
+        <i class="fa-solid fa-store"></i>
+        <h3>10 கிளைகளின் கட்டமைப்பு</h3>
+        <p>கன்னியாகுமரி மாவட்டம் முழுவதும் பரந்து விரிந்த வாடிக்கையாளர் சேவை.</p>
       </div>
     </div>
 
     <!-- Quick Services Preview -->
     <div class="section-title">
       <h2>எங்களின் முதன்மைச் சேவைகள்</h2>
-      <p>வாடிக்கையாளர்களின் தேவைகளை அறிந்து வழங்கப்படும் நம்பகமான சேவைகள்</p>
+      <p>வாடிக்கையாளர்களின் திருப்தி மற்றும் வெளிப்படைத்தன்மையே எங்களின் மூலதனம்</p>
     </div>
     
     <div class="services-grid">
@@ -571,11 +639,6 @@
         <div class="service-body">
           <h3>ஸ்பாட் நகைக்கடன் (Jewel Loan)</h3>
           <p>அவசர பணத் தேவைகளுக்கு உடனடியாக நகைகளை அடகு வைத்து அதிகபட்ச கடன் பெறும் வசதி.</p>
-          <ul>
-            <li><i class="fa-solid fa-circle-check"></i> மிகக் குறைந்த வட்டி விகிதம்</li>
-            <li><i class="fa-solid fa-circle-check"></i> 5 நிமிடங்களில் ரொக்கம்/வங்கி பரிமாற்றம்</li>
-            <li><i class="fa-solid fa-circle-check"></i> மறைமுக கட்டணங்கள் ஏதுமில்லை</li>
-          </ul>
           <button class="btn btn-gold" style="width:100%;" onclick="switchTab('contact')">விசாரிக்க</button>
         </div>
       </div>
@@ -584,12 +647,7 @@
         <div class="service-icon-banner"><i class="fa-solid fa-unlock-keyhole"></i></div>
         <div class="service-body">
           <h3>அடகு நகைகள் மீட்பு</h3>
-          <p>வங்கிகள் அல்லது பிற நிதி நிறுவனங்களில் மூழ்கும் நிலையில் உள்ள உங்கள் நகைகளை நாங்களே மீட்டு தருகிறோம்.</p>
-          <ul>
-            <li><i class="fa-solid fa-circle-check"></i> முழுத் தொகையையும் செலுத்தி மீட்டல்</li>
-            <li><i class="fa-solid fa-circle-check"></i> மார்க்கெட் விலைக்கு விற்று மீதித் தொகை உடனே</li>
-            <li><i class="fa-solid fa-circle-check"></i> எளிய மற்றும் பாதுகாப்பான நடைமுறை</li>
-          </ul>
+          <p>வங்கிகள் அல்லது பிற நிதி நிறுவனங்களில் மூழ்கும் நிலையில் உள்ள உங்கள் நகைகளை நாங்களே பணம்கொடுத்து மீட்டுத் தருகிறோம்.</p>
           <button class="btn btn-gold" style="width:100%;" onclick="switchTab('contact')">தொடர்பு கொள்ள</button>
         </div>
       </div>
@@ -598,12 +656,7 @@
         <div class="service-icon-banner"><i class="fa-solid fa-gem"></i></div>
         <div class="service-body">
           <h3>பழைய தங்கம் சிறந்த விலைக்கு வாங்குதல்</h3>
-          <p>உங்கள் பழைய மற்றும் உடைந்த தங்க நகைகளுக்கு மார்க்கெட் நிலவரப்படி உச்சபட்ச விலை.</p>
-          <ul>
-            <li><i class="fa-solid fa-circle-check"></i> ஸ்பெசிபிக் கிராவிட்டி துல்லிய சோதனை</li>
-            <li><i class="fa-solid fa-circle-check"></i> உடனடி ஸ்பாட் பேமென்ட்</li>
-            <li><i class="fa-solid fa-circle-check"></i> வெளிப்படையான காரட் கணக்கீடு</li>
-          </ul>
+          <p>பழைய மற்றும் உடைந்த நகைகளுக்கு உடனடி ரொக்கம். மார்க்கெட் நிலவரப்படி உச்சபட்ச விலை.</p>
           <button class="btn btn-gold" style="width:100%;" onclick="switchTab('contact')">மதிப்பீடு செய்ய</button>
         </div>
       </div>
@@ -612,29 +665,38 @@
 
   <!-- TAB 2: ABOUT US -->
   <main id="tab-about" class="page-tab">
-    <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 40px;">
+    <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 35px;">
       <h2>எங்களைப் பற்றி (About Us)</h2>
-      <p style="color:var(--metallic-gold)">பாரம்பரியத்தின் பெருமை • வாடிக்கையாளரின் நம்பிக்கை</p>
+      <p style="color:var(--metallic-gold)">பாரம்பரியத்தின் பெருமை • கார்ப்பரேட் சட்டப்படியான நம்பகத்தன்மை</p>
     </div>
-    <div style="max-width: 900px; margin: 0 auto 50px; padding: 0 20px;">
+    <div style="max-width: 920px; margin: 0 auto 50px; padding: 0 20px;">
       <div style="background:white; padding: 35px; border-radius: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); margin-bottom: 25px;">
-        <h3 style="color:var(--primary-purple); margin-bottom: 15px;">எங்கள் வணிகப் பயணம்</h3>
+        <h3 style="color:var(--primary-purple); margin-bottom: 15px;">எங்கள் வரலாறு & நிர்வாகம்</h3>
         <p style="margin-bottom: 15px; color: var(--text-muted);">
-          <strong>முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Company)</strong> 15 ஆண்டுகளுக்கும் மேலான கைவினைத் தங்க நகை தயாரிப்பு மற்றும் வியாபார அனுபவம் கொண்ட நிர்வாகத்தால் வழிநடத்தப்படுகிறது. கடந்த 10 ஆண்டுகளுக்கும் மேலாக <strong>'இந்தியன் கோல்டு'</strong> என்ற பெயரில் வாடிக்கையாளர்களின் பேரன்போடும் பேராதரவோடும் வெற்றிகரமாக இயங்கி, தற்போது பதிவுசெய்யப்பட்ட நிறுவனமாக விரிவடைந்துள்ளது.
+          <strong>முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Company)</strong> 15 ஆண்டுகளுக்கும் மேலான கைவினைத் தங்க ஆபரண கலை அனுபவம் கொண்ட நிபுணத்துவ நிர்வாகத்தால் வழிநடத்தப்படுகிறது. கடந்த 10 ஆண்டுகளுக்கும் மேலாக <strong>'இந்தியன் கோல்டு'</strong> என்ற பெயரில் வாடிக்கையாளர்களின் அசைக்க முடியாத நம்பிக்கையைப் பெற்று, தற்போது கார்ப்பரேட் விவகாரங்கள் அமைச்சகத்தின் கீழ் (Ministry of Corporate Affairs) பதிவு செய்யப்பட்ட நிறுவனமாக விரிவடைந்துள்ளது.
         </p>
-        <p style="color: var(--text-muted);">
-          வாடிக்கையாளரின் ஒவ்வொரு மில்லி கிராம் தங்கத்திற்கும் சரியான மார்க்கெட் மதிப்பையும், தரம் மற்றும் பாதுகாப்பில் துளியும் சமரசமற்ற சேவையையும் வழங்குவதே எங்களின் முதன்மையான நோக்கம்.
-        </p>
+        
+        <!-- Corporate Registration Details Box -->
+        <div class="legal-card">
+          <h4><i class="fa-solid fa-building-circle-check"></i> சட்டப்பூர்வ நிறுவன பதிவு விபரங்கள்</h4>
+          <ul>
+            <li><strong>நிறுவனப் பெயர்:</strong> MUTHUSISE GOLD PRODUCT PRIVATE LIMITED</li>
+            <li><strong>கார்ப்பரேட் அடையாள எண் (CIN):</strong> U47912TN2024PTC171143</li>
+            <li><strong>நிறுவப்பட்ட தேதி:</strong> 19 ஜூன் 2024 (Incorporated under Companies Act)</li>
+            <li><strong>பதிவு அலுவலக முகவரி:</strong> 435, 2nd Floor, KP Road, Chettikulam Junction, Nagercoil, Kanyakumari, Tamil Nadu - 629001.</li>
+            <li><strong>நிர்வாக இயக்குநர்கள்:</strong> Siva Selvan Muthu Swamy (MD & CEO) | Anuja Paulraj (Director)</li>
+          </ul>
+        </div>
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
         <div style="background:white; padding: 25px; border-radius: 12px; border-left: 4px solid var(--primary-purple);">
-          <h4 style="color:var(--primary-purple);"><i class="fa-solid fa-bullseye"></i> எங்கள் பார்வை (Vision)</h4>
-          <p style="font-size:0.9rem; color:var(--text-muted); margin-top:8px;">தென் தமிழகத்தின் மிக நம்பகமான, நவீன மற்றும் வெளிப்படையான தங்க ஆபரண மற்றும் நிதிச் சேவை நிறுவனமாக நிலைத்திருப்பது.</p>
+          <h4 style="color:var(--primary-purple);"><i class="fa-solid fa-bullseye"></i> பார்வை (Vision)</h4>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-top:8px;">தென் தமிழகத்தின் மிக வெளிப்படையான, உயர் தொழில்நுட்பத் தரத்துடன் கூடிய தங்க ஆபரண மற்றும் நிதிச் சேவை நிறுவனமாக நிலைத்திருப்பது.</p>
         </div>
         <div style="background:white; padding: 25px; border-radius: 12px; border-left: 4px solid var(--metallic-gold);">
-          <h4 style="color:var(--primary-purple);"><i class="fa-solid fa-handshake"></i> எங்கள் நோக்கம் (Mission)</h4>
-          <p style="font-size:0.9rem; color:var(--text-muted); margin-top:8px;">நியாயமான விலை, வெளிப்படையான தங்க மதிப்பீடு மற்றும் ஏழை எளிய மக்களின் அவசர நிதித் தேவைகளுக்கு விரைவான ஆதரவு அளிப்பது.</p>
+          <h4 style="color:var(--primary-purple);"><i class="fa-solid fa-handshake"></i> நோக்கம் (Mission)</h4>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-top:8px;">ஒவ்வொரு வாடிக்கையாளரின் தங்கத்திற்கும் சரியான மார்க்கெட் மதிப்பையும், துல்லியமான காரட் சோதனையையும், உடனடி நிதி உதவியையும் வழங்குவது.</p>
         </div>
       </div>
     </div>
@@ -642,51 +704,51 @@
 
   <!-- TAB 3: SERVICES -->
   <main id="tab-services" class="page-tab">
-    <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 40px;">
-      <h2>எங்கள் சேவைகள் (Our Services)</h2>
-      <p style="color:var(--metallic-gold)">தங்கத்திற்கு முழு மதிப்பளிக்கும் சிறப்புச் சேவைகள்</p>
+    <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 35px;">
+      <h2>எங்கள் சேவைகள் (Services)</h2>
+      <p style="color:var(--metallic-gold)">தங்கத்திற்கு முழு மதிப்பளிக்கும் சிறப்பு நிதி & ஆபரணச் சேவைகள்</p>
     </div>
     <div class="services-grid">
       <div class="service-card">
+        <div class="service-icon-banner"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <div class="service-body">
+          <h3>ஸ்பாட் நகைக்கடன்</h3>
+          <p>குறைந்த வட்டியில் உடனடி கடன். மார்க்கெட் மதிப்பிற்கு ஏற்ப அதிகபட்ச நிதி உதவி 5 நிமிடங்களில் ரொக்கம்/வங்கி பரிமாற்றம் மூலம் கிடைக்கும்.</p>
+        </div>
+      </div>
+      <div class="service-card">
         <div class="service-icon-banner"><i class="fa-solid fa-ring"></i></div>
         <div class="service-body">
-          <h3>BIS 916 ஹால்மார்க் ஆபரணங்கள்</h3>
-          <p>பாரம்பரிய முறைப்படி கைவினைஞர்களால் உருவாக்கப்பட்ட நேர்த்தியான தாலி கொடிகள், வளையல்கள், மோதிரங்கள் மற்றும் ஆரங்கள்.</p>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon-banner"><i class="fa-solid fa-money-bill-trend-up"></i></div>
-        <div class="service-body">
-          <h3>உடனடி நகைக்கடன்</h3>
-          <p>குறைந்த வட்டியில் அதிகபட்ச கடன் தொகை. வாடிக்கையாளரின் அவசரத்திற்கு கை கொடுக்கும் எளிதான நடைமுறை.</p>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon-banner"><i class="fa-solid fa-scale-unbalanced"></i></div>
-        <div class="service-body">
-          <h3>பழைய தங்கம் கொள்முதல்</h3>
-          <p>பழைய நகைகள், உடைந்த நகைகளுக்கு உடனடி ரொக்கம். மார்க்கெட் நிலவரத்திற்கேற்ப மிகச்சிறந்த விலை.</p>
+          <h3>916 BIS ஹால்மார்க் நகைகள்</h3>
+          <p>பாரம்பரிய முறைப்படி தயாரிக்கப்படும் தாலி கொடிகள், வளையல்கள், மோதிரங்கள் மற்றும் புதிய நவீன திருமண நகை கலெக்ஷன்கள்.</p>
         </div>
       </div>
       <div class="service-card">
         <div class="service-icon-banner"><i class="fa-solid fa-building-columns"></i></div>
         <div class="service-body">
           <h3>அடகு நகைகள் மீட்பு</h3>
-          <p>வட்டி கட்ட முடியாமல் இருக்கும் அடகு நகைகளை நாங்களே பணம்கொடுத்து மீட்டு, மார்க்கெட் விலைக்கு மாற்றி மீதித் தொகையை உங்களுக்கு உடனே தருகிறோம்.</p>
+          <p>வட்டி கட்ட முடியாமல் ஏலத்திற்கு செல்லும் நிலையில் உள்ள உங்கள் நகைகளை நாங்களே பணம்கொடுத்து மீட்டு, மார்க்கெட் விலைக்கு மாற்றி மீதித் தொகையை உங்களுக்கு உடனே தருகிறோம்.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon-banner"><i class="fa-solid fa-scale-unbalanced"></i></div>
+        <div class="service-body">
+          <h3>பழைய தங்கம் கொள்முதல்</h3>
+          <p>உடைந்த மற்றும் பழைய நகைகளை விற்கும்போது எந்தவித கழிவும் இன்றி நேரடி ஸ்பெசிபிக் கிராவிட்டி முறையில் பரிசோதித்து மார்க்கெட் உச்சபட்ச ரொக்கம்.</p>
         </div>
       </div>
       <div class="service-card">
         <div class="service-icon-banner"><i class="fa-solid fa-piggy-bank"></i></div>
         <div class="service-body">
           <h3>தங்க சேமிப்புத் திட்டங்கள்</h3>
-          <p>மாதாந்திர எளிய தவணைகளில் சேமித்து, செய்கூலி சேதாரமின்றி நகைகளை வாங்கும் அற்புதமான திட்டங்கள்.</p>
+          <p>சிறுகச் சிறுகச் சேமித்து செய்கூலி, சேதாரம் இன்றி புதிய நகைகளை வாங்கும் எளிய மாதாந்திர சேமிப்புத் திட்டங்கள்.</p>
         </div>
       </div>
       <div class="service-card">
         <div class="service-icon-banner"><i class="fa-solid fa-microscope"></i></div>
         <div class="service-body">
-          <h3>ஹைட்ரோஸ்டேடிக் தங்கப் பரிசோதனை</h3>
-          <p>அதிநவீன ஸ்பெசிபிக் கிராவிட்டி முறையில் நகையை சேதப்படுத்தாமல் துல்லியமாக தரம் பார்க்கும் வசதி.</p>
+          <h3>ஹைட்ரோஸ்டேடிக் காரட் டெஸ்டிங்</h3>
+          <p>நகைகளை உருக்காமல், கீறாமல் தண்ணீரின் ஒப்படர்த்தி முறைப்படி துல்லியமாக காரட் அளவை அறியும் நவீன தொழில்நுட்ப சேவை.</p>
         </div>
       </div>
     </div>
@@ -694,31 +756,31 @@
 
   <!-- TAB 4: SCHEMES -->
   <main id="tab-schemes" class="page-tab">
-    <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 40px;">
+    <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 35px;">
       <h2>தங்கச் சேமிப்புத் திட்டங்கள் (Savings Schemes)</h2>
       <p style="color:var(--metallic-gold)">சிறுகச் சிறுகச் சேமிப்போம் • சீர்மிகு தங்கம் பெறுவோம்</p>
     </div>
     <div style="max-width: 900px; margin: 0 auto 50px; padding: 0 20px;">
       
       <div class="scheme-box">
-        <span class="scheme-badge">பிரபலமான திட்டம்</span>
-        <h3 style="color:var(--primary-purple); font-size:1.4rem;">முத்துசிஸ் 11 மாத தங்க சேமிப்புத் திட்டம்</h3>
-        <p style="color:var(--text-muted); margin: 8px 0 15px;">மாதம்தோறும் ஒரு குறிப்பிட்ட தொகையை (ரூ. 1000 முதல்) சேமித்து, திட்ட நிறைவில் உங்கள் கனவு ஆபரணங்களை தேர்வு செய்யுங்கள்.</p>
+        <span style="background:var(--gold-light); color:var(--primary-purple); padding:4px 12px; border-radius:20px; font-weight:700; font-size:0.85rem; border:1px solid var(--metallic-gold);">முக்கிய திட்டம்</span>
+        <h3 style="color:var(--primary-purple); font-size:1.35rem; margin-top:10px;">முத்துசிஸ் 11 மாத தங்க சேமிப்புத் திட்டம்</h3>
+        <p style="color:var(--text-muted); margin: 8px 0 15px;">மாதம்தோறும் ரூ. 1000 முதல் உங்கள் வசதிக்கேற்ப சேமித்து, திட்ட நிறைவில் உங்கள் குடும்பத்தின் சுபகாரியங்களுக்கு அழகிய 916 நகைகளாகப் பெறுங்கள்.</p>
         <ul style="list-style: none; margin-bottom: 15px;">
-          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> <strong>முழு செய்கூலி மற்றும் சேதாரம் தள்ளுபடி</strong> (விதிமுறைகளுக்கு உட்பட்டு)</li>
-          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> மாதாந்திர பணம் செலுத்துவதற்கு உடனடி SMS ரசீது</li>
-          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> 100% BIS 916 ஹால்மார்க் நகைகளாகப் பெறும் வசதி</li>
+          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> <strong>முழு செய்கூலி மற்றும் சேதாரம் தள்ளுபடி</strong> (நிபந்தனைகளுக்கு உட்பட்டு)</li>
+          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> மாதாந்திர தவணைகளுக்கு உடனடி DLT SMS ரசீது மற்றும் பாஸ்புக் வரவு</li>
+          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> 100% BIS 916 ஹால்மார்க் தரமான தங்க நகைகள்</li>
         </ul>
-        <button class="btn btn-gold" onclick="switchTab('contact')">இத்திட்டத்தில் இணையுங்கள்</button>
+        <button class="btn btn-gold" onclick="switchTab('contact')">இத்திட்டத்தில் சேர விண்ணப்பிக்க</button>
       </div>
 
       <div class="scheme-box">
-        <span class="scheme-badge">எடை அடிப்படையிலான திட்டம்</span>
-        <h3 style="color:var(--primary-purple); font-size:1.4rem;">தங்க கிராம் சேமிப்புத் திட்டம் (Flexi Gold Weight)</h3>
-        <p style="color:var(--text-muted); margin: 8px 0 15px;">பணம் செலுத்தும் நாளின் மார்க்கெட் விலைக்கு ஏற்ப உங்கள் கணக்கில் தங்கம் கிராமாக வரவு வைக்கப்படும்.</p>
+        <span style="background:var(--gold-light); color:var(--primary-purple); padding:4px 12px; border-radius:20px; font-weight:700; font-size:0.85rem; border:1px solid var(--metallic-gold);">எடை சேமிப்பு</span>
+        <h3 style="color:var(--primary-purple); font-size:1.35rem; margin-top:10px;">ஃப்ளெக்ஸி கோல்டு வெயிட் திட்டம் (Gold Weight Scheme)</h3>
+        <p style="color:var(--text-muted); margin: 8px 0 15px;">நீங்கள் செலுத்தும் தொகையை அன்றைய தங்க விலைக்கு ஏற்ப கிராமாக மாற்றிக்கொள்ளும் முறை.</p>
         <ul style="list-style: none; margin-bottom: 15px;">
-          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> தங்க விலை உயர்வினால் ஏற்படும் இழப்பில் இருந்து முழுப் பாதுகாப்பு</li>
-          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> எப்போது வேண்டுமானாலும் உங்கள் சேமிப்பை தங்க நாணயங்களாகவோ நகைகளாகவோ மாற்றலாம்</li>
+          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> தங்க விலை உயர்வினால் ஏற்படும் இழப்பிலிருந்து முழுப் பாதுகாப்பு</li>
+          <li style="margin-bottom: 6px;"><i class="fa-solid fa-check" style="color:var(--accent-orange)"></i> முதிர்வின் போது தங்க நாணயங்கள் அல்லது விரும்பிய ஆபரணங்களாகப் பெற்றுக்கொள்ளலாம்</li>
         </ul>
         <button class="btn btn-gold" onclick="switchTab('contact')">விவரங்கள் அறிய</button>
       </div>
@@ -726,61 +788,203 @@
     </div>
   </main>
 
-  <!-- TAB 5: BRANCHES -->
+  <!-- TAB 5: BRANCHES (10 LOCATIONS) -->
   <main id="tab-branches" class="page-tab">
-    <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 40px;">
-      <h2>எங்கள் கிளைகள் (Our Branch Network)</h2>
-      <p style="color:var(--metallic-gold)">உங்களுக்கு மிக அருகில் உங்கள் முத்துசிஸ் கோல்டு கம்பெனி</p>
+    <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 35px;">
+      <h2>எங்கள் கிளைகள் (Our 10 Branch Network)</h2>
+      <p style="color:var(--metallic-gold)">கன்னியாகுமரி மாவட்டம் முழுவதும் 10 இடங்களில் உங்கள் சேவையில்</p>
     </div>
     
     <div class="branches-grid">
-      <!-- Main Branch Nagercoil -->
-      <div class="branch-card">
-        <h3><i class="fa-solid fa-building-flag"></i> நாகர்கோவில் (தலைமை அலுவலகம்)</h3>
-        <p><i class="fa-solid fa-location-dot"></i> மெயின் ரோடு / நகர் மையம், நாகர்கோவில், கன்னியாகுமரி மாவட்டம்.</p>
-        <p><i class="fa-solid fa-phone"></i> தொடர்பு: +91 98434 12624</p>
-        <p><i class="fa-solid fa-clock"></i> நேரம்: காலை 9:30 - இரவு 8:30</p>
-        <a href="https://maps.google.com" target="_blank" class="btn-map"><i class="fa-solid fa-diamond-turn-right"></i> Google Maps-ல் பார்க்க</a>
+      <!-- 1. Head Office Nagercoil -->
+      <div class="branch-card hq-branch">
+        <span class="branch-tag">HEAD OFFICE</span>
+        <h3><i class="fa-solid fa-building-flag"></i> 1. நாகர்கோவில் (தலைமை கிளை)</h3>
+        <p><i class="fa-solid fa-location-dot"></i> # 435, 2nd Floor, KP Road, செட்டிகுளம் சந்திப்பு, நாகர்கோவில் - 629001.</p>
+        <p><i class="fa-solid fa-phone"></i> +91 78100 04040 / 98434 12624</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:30</p>
       </div>
 
-      <!-- Thingalnagar Branch -->
+      <!-- 2. Thingalnagar -->
       <div class="branch-card">
-        <h3><i class="fa-solid fa-store"></i> திங்கள்நகர் (திங்கள்கடை) கிளை</h3>
+        <h3><i class="fa-solid fa-store"></i> 2. திங்கள்நகர் (திங்கள்கடை)</h3>
         <p><i class="fa-solid fa-location-dot"></i> பஸ் நிலையம் அருகில், திங்கள்நகர், கன்னியாகுமரி மாவட்டம்.</p>
-        <p><i class="fa-solid fa-phone"></i> தொடர்பு: +91 99445 75800</p>
-        <p><i class="fa-solid fa-clock"></i> நேரம்: காலை 9:30 - இரவு 8:30</p>
-        <a href="https://maps.google.com" target="_blank" class="btn-map"><i class="fa-solid fa-diamond-turn-right"></i> Google Maps-ல் பார்க்க</a>
+        <p><i class="fa-solid fa-phone"></i> +91 99445 75800</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:30</p>
       </div>
 
-      <!-- Andivilai Branch -->
+      <!-- 3. Andivilai -->
       <div class="branch-card">
-        <h3><i class="fa-solid fa-shop"></i> ஆண்டிவிளை கிளை</h3>
+        <h3><i class="fa-solid fa-store"></i> 3. ஆண்டிவிளை கிளை</h3>
         <p><i class="fa-solid fa-location-dot"></i> ஆண்டிவிளை, தென்தாமரைகுளம் அஞ்சல், கன்னியாகுமரி மாவட்டம்.</p>
-        <p><i class="fa-solid fa-phone"></i> தொடர்பு: +91 63838 67658</p>
-        <p><i class="fa-solid fa-clock"></i> நேரம்: காலை 9:30 - இரவு 8:00</p>
-        <a href="https://maps.google.com" target="_blank" class="btn-map"><i class="fa-solid fa-diamond-turn-right"></i> Google Maps-ல் பார்க்க</a>
+        <p><i class="fa-solid fa-phone"></i> +91 63838 67658</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:00</p>
+      </div>
+
+      <!-- 4. Thuckalay -->
+      <div class="branch-card">
+        <h3><i class="fa-solid fa-store"></i> 4. தக்கலை கிளை</h3>
+        <p><i class="fa-solid fa-location-dot"></i> மெயின் ரோடு, தக்கலை, கன்னியாகுமரி மாவட்டம்.</p>
+        <p><i class="fa-solid fa-phone"></i> +91 78100 04040</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:00</p>
+      </div>
+
+      <!-- 5. Marthandam -->
+      <div class="branch-card">
+        <h3><i class="fa-solid fa-store"></i> 5. மார்த்தாண்டம் கிளை</h3>
+        <p><i class="fa-solid fa-location-dot"></i> பஸ் ஸ்டாண்ட் ரோடு, மார்த்தாண்டம், கன்னியாகுமரி மாவட்டம்.</p>
+        <p><i class="fa-solid fa-phone"></i> +91 78100 04040</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:30</p>
+      </div>
+
+      <!-- 6. Colachel -->
+      <div class="branch-card">
+        <h3><i class="fa-solid fa-store"></i> 6. குளச்சல் கிளை</h3>
+        <p><i class="fa-solid fa-location-dot"></i> பீச் ரோடு, குளச்சல், கன்னியாகுமரி மாவட்டம்.</p>
+        <p><i class="fa-solid fa-phone"></i> +91 78100 04040</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:00</p>
+      </div>
+
+      <!-- 7. Boothapandi -->
+      <div class="branch-card">
+        <h3><i class="fa-solid fa-store"></i> 7. பூதப்பாண்டி கிளை</h3>
+        <p><i class="fa-solid fa-location-dot"></i> மெயின் பஜார், பூதப்பாண்டி, கன்னியாகுமரி மாவட்டம்.</p>
+        <p><i class="fa-solid fa-phone"></i> +91 78100 04040</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:00</p>
+      </div>
+
+      <!-- 8. Kanyakumari -->
+      <div class="branch-card">
+        <h3><i class="fa-solid fa-store"></i> 8. கன்னியாகுமரி கிளை</h3>
+        <p><i class="fa-solid fa-location-dot"></i> மெயின் ரோடு, கன்னியாகுமரி டவுன்.</p>
+        <p><i class="fa-solid fa-phone"></i> +91 78100 04040</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:30</p>
+      </div>
+
+      <!-- 9. Karungal -->
+      <div class="branch-card">
+        <h3><i class="fa-solid fa-store"></i> 9. கருங்கல் கிளை</h3>
+        <p><i class="fa-solid fa-location-dot"></i> சந்திப்பு ரோடு, கருங்கல், கன்னியாகுமரி மாவட்டம்.</p>
+        <p><i class="fa-solid fa-phone"></i> +91 78100 04040</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:00</p>
+      </div>
+
+      <!-- 10. Anjugramam -->
+      <div class="branch-card">
+        <h3><i class="fa-solid fa-store"></i> 10. அஞ்சுகிராமம் கிளை</h3>
+        <p><i class="fa-solid fa-location-dot"></i> ஜங்ஷன் மெயின் ரோடு, அஞ்சுகிராமம், கன்னியாகுமரி மாவட்டம்.</p>
+        <p><i class="fa-solid fa-phone"></i> +91 78100 04040</p>
+        <p><i class="fa-solid fa-clock"></i> காலை 9:30 - இரவு 8:00</p>
       </div>
     </div>
   </main>
 
-  <!-- TAB 6: CONTACT US -->
+  <!-- TAB 6: FRANCHISE (NEW PAGE) -->
+  <main id="tab-franchise" class="page-tab">
+    <div class="franchise-hero">
+      <span class="hero-badge" style="background:#ff7a00; color:white;">வணிகக் கூட்டாண்மை வாய்ப்பு</span>
+      <h2 style="font-size:2.2rem; margin-top:10px;">முத்துசிஸ் கோல்டு கம்பெனி பிரான்சைசி (Franchise Partner)</h2>
+      <p style="max-width:750px; margin:10px auto; color:#faeefa;">தங்க நகை மற்றும் நகைக்கடன் நிதி வணிகத்தில் குறைந்த ரிஸ்க்குடன் நிலையான மாதாந்திர லாபம் ஈட்ட ஒரு பொன்னான வாய்ப்பு!</p>
+    </div>
+
+    <div style="max-width: 950px; margin: 0 auto 60px; padding: 0 20px;">
+      
+      <div class="section-title">
+        <h2>ஏன் முத்துசிஸ் உடன் இணைய வேண்டும்?</h2>
+        <p>10+ வருட பிராண்ட் பலம் மற்றும் முழுமையான தொழில்நுட்ப ஆதரவு</p>
+      </div>
+
+      <div class="franchise-steps">
+        <div class="f-step-card">
+          <div class="num"><i class="fa-solid fa-chart-line"></i></div>
+          <h4 style="color:var(--primary-purple); margin-bottom:8px;">உயர்ந்த வருமானம்</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">ஸ்பாட் நகைக்கடன் மற்றும் பழைய தங்கம் வாங்கும் வணிகத்தில் உத்தரவாதமான வருவாய் வாய்ப்பு.</p>
+        </div>
+        <div class="f-step-card">
+          <div class="num"><i class="fa-solid fa-laptop-code"></i></div>
+          <h4 style="color:var(--primary-purple); margin-bottom:8px;">முழு ஆட்டோமேஷன்</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">பில்லிங், லாக்கர் மேனேஜ்மென்ட், DLT SMS மற்றும் வாடிக்கையாளர் நோட்டிபிகேஷன் சாப்ட்வேர் வசதி.</p>
+        </div>
+        <div class="f-step-card">
+          <div class="num"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h4 style="color:var(--primary-purple); margin-bottom:8px;">காரட் பரிசோதனை</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">ஹைட்ரோஸ்டேடிக் சோதனை உபகரணங்கள் மற்றும் ஊழியர்களுக்கான முழுமையான தொழிற்பயிற்சி.</p>
+        </div>
+        <div class="f-step-card">
+          <div class="num"><i class="fa-solid fa-bullhorn"></i></div>
+          <h4 style="color:var(--primary-purple); margin-bottom:8px;">மார்க்கெட்டிங் ஆதரவு</h4>
+          <p style="font-size:0.85rem; color:var(--text-muted);">டிஜிட்டல் விளம்பரங்கள், சமூக வலைத்தள பிரச்சாரம் மற்றும் பிராண்டிங் வழிகாட்டுதல்.</p>
+        </div>
+      </div>
+
+      <!-- Franchise Application Form -->
+      <div class="form-box" style="margin-top:40px;">
+        <h3 style="color:var(--primary-purple); margin-bottom:15px; text-align:center;">பிரான்சைசி உரிமைக்கு விண்ணப்பிக்கவும்</h3>
+        <p style="text-align:center; color:var(--text-muted); font-size:0.9rem; margin-bottom:25px;">கீழே உள்ள படிவத்தை பூர்த்தி செய்தால் எங்கள் நிறுவனத்தின் இயக்குநர் குழு தங்களை நேரில் சந்திக்கும்.</p>
+        
+        <form onsubmit="handleFranchiseSubmit(event)">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
+            <div class="form-group">
+              <label>தங்கள் பெயர்</label>
+              <input type="text" placeholder="முழு பெயர்" required>
+            </div>
+            <div class="form-group">
+              <label>மொபைல் எண்</label>
+              <input type="tel" placeholder="10 இலக்க மொபைல் எண்" required>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
+            <div class="form-group">
+              <label>மின்னஞ்சல் முகவரி</label>
+              <input type="email" placeholder="example@gmail.com" required>
+            </div>
+            <div class="form-group">
+              <label>கிளை அமைக்க விரும்பும் ஊர் / பகுதி</label>
+              <input type="text" placeholder="எ.கா: திருநெல்வேலி, மதுரை, வள்ளியூர்..." required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>முதலீட்டுத் திறன் (Investment Budget)</label>
+            <select>
+              <option>ரூ. 15 முதல் 25 லட்சம் வரை</option>
+              <option>ரூ. 25 முதல் 50 லட்சம் வரை</option>
+              <option>ரூ. 50 லட்சத்திற்கு மேல்</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>தங்களுக்கு நகைத் தொழில் அல்லது நிதித்துறையில் முன் அனுபவம் உள்ளதா?</label>
+            <textarea rows="2" placeholder="உங்கள் வணிகப் பின்னணி பற்றி குறிப்பிடவும்..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-orange" style="width:100%; font-size:1rem; padding:12px;">விண்ணப்பத்தை அனுப்புக</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- TAB 7: CONTACT US -->
   <main id="tab-contact" class="page-tab">
-    <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 40px;">
+    <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 35px;">
       <h2>தொடர்பு கொள்ள (Contact Us)</h2>
-      <p style="color:var(--metallic-gold)">எங்களை எப்போது வேண்டுமானாலும் தொடர்பு கொள்ளுங்கள்</p>
+      <p style="color:var(--metallic-gold)">முத்துசிஸ் கோல்டு கம்பெனி இயக்குநர் குழுவோடு நேரடித் தொடர்பு</p>
     </div>
 
     <div class="contact-wrapper">
       <div style="background:white; padding: 35px; border-radius: 16px; border: 1px solid var(--border-color);">
-        <h3 style="color:var(--primary-purple); margin-bottom: 20px;">நேரடித் தொடர்பு விவரங்கள்</h3>
-        <p style="margin-bottom: 15px;"><i class="fa-solid fa-building" style="color:var(--metallic-gold); width:25px;"></i> <strong>முத்துசிஸ் கோல்டு கம்பெனி</strong></p>
-        <p style="margin-bottom: 15px;"><i class="fa-solid fa-map-location-dot" style="color:var(--metallic-gold); width:25px;"></i> தலைமை அலுவலகம்: நாகர்கோவில், கன்னியாகுமரி மாவட்டம், தமிழ்நாடு.</p>
-        <p style="margin-bottom: 15px;"><i class="fa-solid fa-phone" style="color:var(--metallic-gold); width:25px;"></i> வாடிக்கையாளர் உதவி: +91 98434 12624 / +91 99445 75800</p>
-        <p style="margin-bottom: 15px;"><i class="fa-solid fa-envelope" style="color:var(--metallic-gold); width:25px;"></i> info@muthusisegold.com</p>
-        <p style="margin-bottom: 20px;"><i class="fa-solid fa-calendar-check" style="color:var(--metallic-gold); width:25px;"></i> திங்கள் - சனி: காலை 9:30 மணி முதல் இரவு 8:30 மணி வரை</p>
+        <h3 style="color:var(--primary-purple); margin-bottom: 20px;">தலைமை அலுவலக விவரங்கள்</h3>
+        <p style="margin-bottom: 12px;"><i class="fa-solid fa-building" style="color:var(--metallic-gold); width:25px;"></i> <strong>MUTHUSISE GOLD PRODUCT PRIVATE LIMITED</strong></p>
+        <p style="margin-bottom: 12px;"><i class="fa-solid fa-file-contract" style="color:var(--metallic-gold); width:25px;"></i> CIN: U47912TN2024PTC171143</p>
+        <p style="margin-bottom: 12px;"><i class="fa-solid fa-map-location-dot" style="color:var(--metallic-gold); width:25px;"></i> # 435, 2nd Floor, KP Road, Chettikulam Junction, Nagercoil, Kanyakumari, Tamil Nadu - 629001.</p>
+        <p style="margin-bottom: 12px;"><i class="fa-solid fa-phone" style="color:var(--metallic-gold); width:25px;"></i> +91 78100 04040 / +91 98434 12624</p>
+        <p style="margin-bottom: 12px;"><i class="fa-solid fa-envelope" style="color:var(--metallic-gold); width:25px;"></i> admin@muthusisegold.com</p>
+        <p style="margin-bottom: 20px;"><i class="fa-solid fa-clock" style="color:var(--metallic-gold); width:25px;"></i> திங்கள் - சனி: காலை 9:30 மணி முதல் இரவு 8:30 மணி வரை</p>
       </div>
 
-      <div class="contact-form-box">
+      <div class="form-box">
         <h3 style="color:var(--primary-purple); margin-bottom: 15px;">உடனடி விசாரணை படிவம்</h3>
         <form onsubmit="handleFormSubmit(event)">
           <div class="form-group">
@@ -789,96 +993,4 @@
           </div>
           <div class="form-group">
             <label>மொபைல் எண்</label>
-            <input type="tel" placeholder="10 இலக்க மொபைல் எண்" required>
-          </div>
-          <div class="form-group">
-            <label>தேவைப்படும் சேவை</label>
-            <select>
-              <option>ஸ்பாட் நகைக்கடன் (Jewel Loan)</option>
-              <option>அடகு நகைகள் மீட்பு</option>
-              <option>பழைய தங்கம் விற்பனை</option>
-              <option>916 ஆபரணங்கள் வாங்குதல்</option>
-              <option>தங்க சேமிப்புத் திட்டம்</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>செய்தி / குறிப்பு</label>
-            <textarea rows="3" placeholder="உங்கள் கேள்விகள் அல்லது தேவையை இங்கு குறிப்பிடவும்"></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold" style="width: 100%;">விசாரணையை அனுப்புக</button>
-        </form>
-      </div>
-    </div>
-  </main>
-
-  <!-- WhatsApp Float Button -->
-  <a href="https://wa.me/919843412624?text=வணக்கம்,%20முத்துசிஸ்%20கோல்டு%20கம்பெனி%20சேவைகள்%20பற்றி%20தெரிந்து%20கொள்ள%20விரும்புகிறேன்" class="whatsapp-float" target="_blank" title="WhatsApp Chat">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-col">
-        <h4>முத்துசிஸ் கோல்டு கம்பெனி</h4>
-        <p>10+ ஆண்டுகளாக உங்கள் நன்மதிப்பைப் பெற்ற நம்பகமான நிறுவனம். BIS 916 ஹால்மார்க் நகைகள் மற்றும் நியாயமான நிதிச் சேவைகள்.</p>
-      </div>
-      <div class="footer-col">
-        <h4>முக்கிய சேவைகள்</h4>
-        <ul>
-          <li>உடனடி ஸ்பாட் நகைக்கடன்</li>
-          <li>அடகு நகைகள் மீட்பு</li>
-          <li>பழைய தங்கம் சிறந்த விலைக்கு வாங்குதல்</li>
-          <li>முத்துசிஸ் சேமிப்புத் திட்டங்கள்</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>முக்கிய கிளைகள்</h4>
-        <ul>
-          <li>நாகர்கோவில் (HQ)</li>
-          <li>திங்கள்நகர் கிளை</li>
-          <li>ஆண்டிவிளை கிளை</li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>தொடர்புக்கு</h4>
-        <p><i class="fa-solid fa-phone"></i> +91 98434 12624</p>
-        <p><i class="fa-solid fa-envelope"></i> info@muthusisegold.com</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Company). அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
-    </div>
-  </footer>
-
-  <script>
-    function switchTab(tabId) {
-      // Hide all tabs
-      document.querySelectorAll('.page-tab').forEach(tab => {
-        tab.classList.remove('active-tab');
-      });
-      // Deactivate all nav links
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.classList.remove('active');
-      });
-      // Show selected tab
-      const selectedTab = document.getElementById('tab-' + tabId);
-      if(selectedTab) {
-        selectedTab.classList.add('active-tab');
-      }
-      // Highlight nav link
-      const activeNav = document.getElementById('nav-' + tabId);
-      if(activeNav) {
-        activeNav.classList.add('active');
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      alert('நன்றி! தங்கள் விசாரணை வெற்றிகரமாக பெறப்பட்டது. எங்கள் முத்துசிஸ் கோல்டு கம்பெனி பிரதிநிதி விரைவில் தங்களைத் தொடர்பு கொள்வார்.');
-      e.target.reset();
-    }
-  </script>
-</body>
-</html>
+            <input type
