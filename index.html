@@ -464,7 +464,7 @@
       color: var(--text-muted);
     }
 
-    /* Portals */
+    /* Portals Banner */
     .portals-banner-section {
       background: white;
       margin: 0 5% 50px;
@@ -767,7 +767,7 @@
       box-shadow: 0 0 0 3px rgba(114, 58, 145, 0.15);
     }
 
-    /* Legal */
+    /* Legal Card */
     .legal-card {
       background: #fdfbf7;
       border: 1.5px dashed var(--metallic-gold);
@@ -1200,7 +1200,6 @@
       
       <ul class="nav-links" id="navLinks">
         <li><button class="tab-btn active" data-target="home" data-i18n="nav_home">Home</button></li>
-        <!-- NEW SHOWCASE TAB -->
         <li><button class="tab-btn nav-btn-catalog" data-target="showcase" data-i18n="nav_catalog"><i class="fa-solid fa-gem"></i> நகை அங்காடி</button></li>
         <li><button class="tab-btn" data-target="about" data-i18n="nav_about">எங்களைப் பற்றி</button></li>
         <li><button class="tab-btn" data-target="services" data-i18n="nav_services">சேவைகள்</button></li>
@@ -1320,9 +1319,7 @@
     </div>
   </main>
 
-  <!-- ======================================================== -->
-  <!-- TAB: JEWELLERY SHOWCASE / CATALOG (DYNAMIC SHOWROOM) -->
-  <!-- ======================================================== -->
+  <!-- TAB: JEWELLERY SHOWCASE / CATALOG (DYNAMIC) -->
   <main id="tab-showcase" class="page-tab">
     <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 30px;">
       <h2 data-i18n="showcase_heading">முத்துசிஸ் 916 ஆபரணக் காட்சியகம் (Jewellery Showcase)</h2>
@@ -1782,7 +1779,7 @@
     </div>
   </main>
 
-  <!-- Login Modal -->
+  <!-- Login Modal Popup Dialog (Customer & Shop Only) -->
   <div class="modal-overlay" id="loginModal">
     <div class="modal-box">
       <button class="close-modal-btn" id="closeModalBtn">&times;</button>
@@ -1899,7 +1896,6 @@
             jewelLoanMax: `₹${Number(row.jewel_loan_max).toLocaleString('en-IN')}/g`
           };
           renderTickerContent(currentLang);
-          // விலைகள் மாறியவுடன் நகைகளின் விலையையும் மறு கணக்கீடு செய்கிறோம்
           if (ALL_JEWELLERY.length > 0) {
             renderJewelleryGrid(ALL_JEWELLERY);
           }
@@ -2567,4 +2563,83 @@
 
       const menuToggle = document.getElementById('menuToggle');
       const navLinks = document.getElementById('navLinks');
-      if (menuToggle && navLinks)
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+        });
+      }
+
+      // Modal Handling
+      const loginModal = document.getElementById('loginModal');
+      const openModalBtn = document.getElementById('openModalBtn');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+
+      function openModal() {
+        if (loginModal) loginModal.classList.add('active');
+      }
+      function closeModal() {
+        if (loginModal) loginModal.classList.remove('active');
+      }
+
+      if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+
+      if (loginModal) {
+        loginModal.addEventListener('click', function(e) {
+          if (e.target === loginModal) {
+            closeModal();
+          }
+        });
+      }
+
+      // 1. தொடர்பு படிவம் சமர்ப்பிப்பு
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const btn = document.getElementById('cnt_submit_btn');
+          const payload = {
+            lead_type: "Contact Inquiry",
+            customer_name: document.getElementById('cnt_name').value.trim(),
+            phone: document.getElementById('cnt_phone').value.trim(),
+            service_or_budget: document.getElementById('cnt_service').value,
+            message: document.getElementById('cnt_message').value.trim()
+          };
+
+          const msg = currentLang === 'ta' 
+            ? 'நன்றி! தங்கள் விசாரணை வெற்றிகரமாக பதிவு செய்யப்பட்டது. எங்கள் முத்துசிஸ் கோல்டு கம்பெனி நிர்வாகம் விரைவில் தங்களைத் தொடர்பு கொள்ளும்.' 
+            : 'Thank you! Your inquiry has been submitted. Our team will contact you shortly.';
+
+          await submitLead(payload, btn, msg);
+          this.reset();
+        });
+      }
+
+      // 2. பிரான்சைசி விண்ணப்ப படிவம் சமர்ப்பிப்பு
+      const franchiseForm = document.getElementById('franchiseForm');
+      if (franchiseForm) {
+        franchiseForm.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const btn = document.getElementById('fr_submit_btn');
+          const payload = {
+            lead_type: "Franchise Application",
+            customer_name: document.getElementById('fr_name').value.trim(),
+            phone: document.getElementById('fr_phone').value.trim(),
+            email: document.getElementById('fr_email').value.trim(),
+            location: document.getElementById('fr_location').value.trim(),
+            service_or_budget: document.getElementById('fr_budget').value,
+            message: document.getElementById('fr_message').value.trim()
+          };
+
+          const msg = currentLang === 'ta' 
+            ? 'முத்துசிஸ் பிரான்சைசி விண்ணப்பத்திற்கு நன்றி! எங்கள் வணிக விரிவாக்க இயக்குநர் குழு விரைவில் தங்களை நேரில் தொடர்பு கொள்ளும்.' 
+            : 'Thank you for your franchise application! Our business expansion team will contact you directly.';
+
+          await submitLead(payload, btn, msg);
+          this.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
