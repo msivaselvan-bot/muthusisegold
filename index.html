@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muthusise Gold Company | முத்துசிஸ் கோல்டு கம்பெனி</title>
   
+  <!-- Favicon / Logo on Tab -->
   <link rel="icon" type="image/png" href="logo.png">
 
   <!-- Fonts -->
@@ -219,6 +220,7 @@
       letter-spacing: 0.5px;
     }
 
+    /* Nav Links */
     .nav-links {
       display: flex;
       list-style: none;
@@ -242,6 +244,16 @@
     .nav-links li button:hover, .nav-links li button.active {
       background: var(--primary-purple);
       color: var(--white);
+    }
+    .nav-btn-catalog {
+      background: #faf4ff !important;
+      color: var(--primary-purple) !important;
+      border: 1.5px solid var(--primary-purple) !important;
+      font-weight: 700 !important;
+    }
+    .nav-btn-catalog:hover, .nav-btn-catalog.active {
+      background: var(--primary-purple) !important;
+      color: white !important;
     }
     .nav-btn-franchise {
       background: var(--metallic-gold) !important;
@@ -275,7 +287,6 @@
       background: #e66e00 !important;
       transform: translateY(-2px);
     }
-
     .lang-switcher-btn {
       background: #f0e6f7 !important;
       color: var(--primary-purple) !important;
@@ -283,11 +294,6 @@
       border-radius: 20px !important;
       font-weight: 700 !important;
       padding: 6px 14px !important;
-      transition: all 0.3s ease !important;
-    }
-    .lang-switcher-btn:hover {
-      background: var(--primary-purple) !important;
-      color: white !important;
     }
 
     .menu-toggle {
@@ -299,19 +305,11 @@
       cursor: pointer;
     }
 
-    .page-tab {
-      display: none;
-    }
-    .page-tab.active-tab {
-      display: block;
-      animation: fadeIn 0.4s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .page-tab { display: none; }
+    .page-tab.active-tab { display: block; animation: fadeIn 0.4s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Hero */
+    /* Hero Section */
     .hero {
       background: linear-gradient(135deg, rgba(80, 35, 106, 0.94), rgba(114, 58, 145, 0.88)), 
                   url('https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1500&q=80') center/cover;
@@ -907,6 +905,190 @@
       transform: translateY(0);
     }
 
+    /* ======================================================== */
+    /* JEWELLERY SHOWCASE STYLES */
+    /* ======================================================== */
+    .category-filter-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 0 5% 30px;
+    }
+    .cat-btn {
+      background: white;
+      border: 1.5px solid var(--border-color);
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-weight: 600;
+      color: var(--primary-purple);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.88rem;
+    }
+    .cat-btn.active, .cat-btn:hover {
+      background: var(--primary-purple);
+      color: white;
+      border-color: var(--primary-purple);
+      box-shadow: 0 4px 12px rgba(114, 58, 145, 0.2);
+    }
+
+    .jewel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 25px;
+      padding: 0 5% 60px;
+    }
+    .jewel-card {
+      background: white;
+      border-radius: 18px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.35s ease;
+    }
+    .jewel-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(114, 58, 145, 0.18);
+    }
+    .jewel-gallery {
+      background: #faf7fc;
+      padding: 16px;
+      border-bottom: 1px solid #ebdcb9;
+      text-align: center;
+    }
+    .jewel-main-img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: white;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+      transition: opacity 0.25s ease;
+    }
+    .jewel-thumbs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .jewel-thumb-img {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      background: white;
+      transition: all 0.2s;
+    }
+    .jewel-thumb-img.active, .jewel-thumb-img:hover {
+      border-color: var(--metallic-gold);
+      transform: scale(1.05);
+    }
+
+    .jewel-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+    .jewel-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .jewel-code {
+      font-size: 0.78rem;
+      background: #f0e6f7;
+      color: var(--primary-purple);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .jewel-target {
+      font-size: 0.75rem;
+      color: #937107;
+      background: #fff8e1;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+      border: 1px solid #ffe082;
+    }
+    .jewel-title {
+      color: var(--primary-purple);
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .jewel-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .jewel-specs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+      margin-bottom: 15px;
+    }
+    .jewel-specs-table td {
+      padding: 5px 0;
+      border-bottom: 1px dashed #ebdcb9;
+    }
+    .jewel-specs-table td.sp-label {
+      color: #666;
+    }
+    .jewel-specs-table td.sp-val {
+      text-align: right;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .jewel-price-box {
+      background: #faf6fd;
+      border-radius: 10px;
+      padding: 10px 14px;
+      border: 1px solid #ebdcb9;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .jewel-price-val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #b8860b;
+    }
+
+    .btn-jewel-order {
+      background: linear-gradient(135deg, var(--primary-purple), var(--primary-purple-dark));
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .btn-jewel-order:hover {
+      background: var(--metallic-gold);
+      color: var(--primary-purple-dark);
+      transform: translateY(-2px);
+    }
+
     /* Footer */
     footer {
       background: var(--primary-purple-dark);
@@ -933,6 +1115,7 @@
     .footer-col ul li a {
       color: #dfd3e7;
       text-decoration: none;
+      transition: color 0.3s;
     }
     .footer-col ul li a:hover {
       color: var(--metallic-gold);
@@ -1017,6 +1200,8 @@
       
       <ul class="nav-links" id="navLinks">
         <li><button class="tab-btn active" data-target="home" data-i18n="nav_home">Home</button></li>
+        <!-- NEW SHOWCASE TAB -->
+        <li><button class="tab-btn nav-btn-catalog" data-target="showcase" data-i18n="nav_catalog"><i class="fa-solid fa-gem"></i> நகை அங்காடி</button></li>
         <li><button class="tab-btn" data-target="about" data-i18n="nav_about">எங்களைப் பற்றி</button></li>
         <li><button class="tab-btn" data-target="services" data-i18n="nav_services">சேவைகள்</button></li>
         <li><button class="tab-btn" data-target="schemes" data-i18n="nav_schemes">திட்டங்கள்</button></li>
@@ -1036,14 +1221,13 @@
       <h2 data-i18n="hero_title">முத்துசிஸ் கோல்டு கம்பெனி — உங்கள் தங்கத்திற்கான நம்பகமான முகவரி</h2>
       <p data-i18n="hero_desc">10+ ஆண்டுகளாக முந்தைய 'இந்தியன் கோல்டு' நற்பெயருடன் மக்களின் பேராதரவு பெற்ற நிறுவனம். புதிய 916 ஆபரண விற்பனை, ஸ்பாட் நகைக்கடன் மற்றும் மூழ்கும் நகைகள் மீட்பு சேவை.</p>
       <div class="btn-group">
-        <button class="btn btn-gold tab-btn" data-target="services" data-i18n="btn_services"><i class="fa-solid fa-list-check"></i> எங்கள் சேவைகள்</button>
-        <button class="btn btn-orange tab-btn" data-target="franchise" data-i18n="btn_franchise"><i class="fa-solid fa-handshake"></i> பிரான்சைசி வாய்ப்புகள்</button>
-        <button class="btn btn-purple" id="heroLoginBtn" data-i18n="btn_scheme_login"><i class="fa-solid fa-lock"></i> ஆன்லைன் சேமிப்பு லாகின்</button>
-        <button class="btn btn-outline tab-btn" data-target="branches" data-i18n="btn_branches"><i class="fa-solid fa-store"></i> கிளை விவரங்கள் (10)</button>
+        <button class="btn btn-gold tab-btn" data-target="showcase" data-i18n="btn_view_jewels"><i class="fa-solid fa-gem"></i> ஆபரண கலெக்ஷன்களைப் பார்க்க</button>
+        <button class="btn btn-orange tab-btn" data-target="schemes" data-i18n="btn_schemes_home"><i class="fa-solid fa-piggy-bank"></i> தங்க சேமிப்புத் திட்டம்</button>
+        <button class="btn btn-purple tab-btn" data-target="branches" data-i18n="btn_branches"><i class="fa-solid fa-store"></i> கிளை விவரங்கள் (10)</button>
       </div>
     </section>
 
-    <!-- 4 Pillars -->
+    <!-- 4 Trust Pillars -->
     <div class="pillars-container">
       <div class="pillar-card reveal">
         <i class="fa-solid fa-award"></i>
@@ -1067,7 +1251,7 @@
       </div>
     </div>
 
-    <!-- Quick Portals -->
+    <!-- Quick Portals Access Strip -->
     <div class="portals-banner-section reveal">
       <div>
         <h3 style="color:var(--primary-purple); font-size:1.15rem; margin:0;" data-i18n="portals_heading"><i class="fa-solid fa-laptop-code" style="color:var(--metallic-gold);"></i> முத்துசிஸ் டிஜிட்டல் போர்ட்டல்கள் (Online Portals)</h3>
@@ -1094,7 +1278,7 @@
       </div>
     </div>
 
-    <!-- Services Preview -->
+    <!-- Quick Services Preview -->
     <div class="section-title reveal">
       <h2 data-i18n="sec_services_title">எங்களின் முதன்மைச் சேவைகள்</h2>
       <p data-i18n="sec_services_desc">வாடிக்கையாளர்களின் திருப்தி மற்றும் வெளிப்படைத்தன்மையே எங்களின் மூலதனம்</p>
@@ -1132,6 +1316,35 @@
           </div>
           <button class="btn btn-gold tab-btn" data-target="contact" style="width:100%;" data-i18n="btn_estimate">மதிப்பீடு செய்ய</button>
         </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- TAB: JEWELLERY SHOWCASE / CATALOG (DYNAMIC SHOWROOM) -->
+  <!-- ======================================================== -->
+  <main id="tab-showcase" class="page-tab">
+    <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 30px;">
+      <h2 data-i18n="showcase_heading">முத்துசிஸ் 916 ஆபரணக் காட்சியகம் (Jewellery Showcase)</h2>
+      <p style="color:var(--metallic-gold)" data-i18n="showcase_sub">100% BIS Hallmarked • செய்கூலி, சேதாரம் மற்றும் எடை விபரங்களின் முழு வெளிப்படைத்தன்மை</p>
+    </div>
+
+    <!-- Category Filter Buttons -->
+    <div class="category-filter-wrap">
+      <button class="cat-btn active" onclick="filterShowcase('all')" data-i18n="cat_all">அனைத்தும் (All)</button>
+      <button class="cat-btn" onclick="filterShowcase('rings')" data-i18n="cat_rings">மோதிரங்கள் (Rings)</button>
+      <button class="cat-btn" onclick="filterShowcase('bangles')" data-i18n="cat_bangles">வளையல்கள் (Bangles)</button>
+      <button class="cat-btn" onclick="filterShowcase('necklaces')" data-i18n="cat_necklaces">நெக்லஸ் & ஹாரம்</button>
+      <button class="cat-btn" onclick="filterShowcase('earrings')" data-i18n="cat_earrings">கம்மல் & ஜிமிக்கி</button>
+      <button class="cat-btn" onclick="filterShowcase('chains')" data-i18n="cat_chains">தாலி & செயின்கள்</button>
+      <button class="cat-btn" onclick="filterShowcase('coins')" data-i18n="cat_coins">நாணயங்கள் (Coins)</button>
+    </div>
+
+    <!-- Dynamic Showcase Grid -->
+    <div class="jewel-grid" id="jewelGridContainer">
+      <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--primary-purple);">
+        <i class="fa-solid fa-spinner fa-spin" style="font-size:2rem;"></i>
+        <p style="margin-top:10px;">ஆபரண விபரங்கள் திரட்டப்படுகின்றன...</p>
       </div>
     </div>
   </main>
@@ -1233,6 +1446,7 @@
       <p style="color:var(--metallic-gold)" data-i18n="schemes_tagline">சிறுகச் சிறுகச் சேமிப்போம் • சீர்மிகு தங்கம் பெறுவோம்</p>
     </div>
     <div style="max-width: 900px; margin: 0 auto 50px; padding: 0 20px;">
+      
       <div class="scheme-box reveal">
         <span style="background:var(--gold-light); color:var(--primary-purple); padding:4px 12px; border-radius:20px; font-weight:700; font-size:0.85rem; border:1px solid var(--metallic-gold);" data-i18n="scheme1_badge">முக்கிய திட்டம்</span>
         <h3 style="color:var(--primary-purple); font-size:1.35rem; margin-top:10px;" data-i18n="scheme1_title">முத்துசிஸ் 11 மாத தங்க சேமிப்புத் திட்டம்</h3>
@@ -1258,10 +1472,11 @@
         </ul>
         <button class="btn btn-gold tab-btn" data-target="contact" data-i18n="btn_learn_more">விவரங்கள் அறிய</button>
       </div>
+
     </div>
   </main>
 
-  <!-- TAB 5: BRANCHES -->
+  <!-- TAB 5: BRANCHES (ALL 10 VERIFIED BRANCHES) -->
   <main id="tab-branches" class="page-tab">
     <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 35px;">
       <h2 data-i18n="branches_heading">எங்கள் கிளைகள் (Our 10 Branch Network)</h2>
@@ -1578,6 +1793,7 @@
         <p style="color:var(--text-muted); font-size:0.85rem;" data-i18n="modal_sub">நீங்கள் செல்ல விரும்பும் தளத்தைத் தேர்ந்தெடுக்கவும்</p>
       </div>
 
+      <!-- Option 1: Gold Scheme Login -->
       <a href="https://muthusise.mygold916.com/login" target="_blank" class="modal-portal-item">
         <div class="icon-circle" style="background:#fff3e6; color:var(--accent-orange);">
           <i class="fa-solid fa-piggy-bank"></i>
@@ -1589,6 +1805,7 @@
         <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left:auto; color:var(--metallic-gold);"></i>
       </a>
 
+      <!-- Option 2: Jewellery Sales POS / Shop -->
       <a href="https://shop.muthusisegold.com" target="_blank" class="modal-portal-item">
         <div class="icon-circle" style="background:#eaf8ef; color:#27ae60;">
           <i class="fa-solid fa-store"></i>
@@ -1615,42 +1832,38 @@
         <p data-i18n="ftr_col1_desc">MUTHUSISE GOLD PRODUCT PVT LTD (CIN: U47912TN2024PTC171143). 10+ ஆண்டுகளாக மக்களின் நன்மதிப்பைப் பெற்ற நம்பகமான நிறுவனம்.</p>
       </div>
       <div class="footer-col">
-        <h4>முக்கிய சேவைகள்</h4>
+        <h4 data-i18n="ftr_col2_title">முக்கிய சேவைகள்</h4>
         <ul>
-          <li>உடனடி ஸ்பாட் நகைக்கடன்</li>
-          <li>அடகு நகைகள் மீட்பு</li>
-          <li>பழைய தங்கம் சிறந்த விலைக்கு வாங்குதல்</li>
-          <li>முத்துசிஸ் சேமிப்புத் திட்டங்கள்</li>
+          <li data-i18n="ftr_s1">உடனடி ஸ்பாட் நகைக்கடன்</li>
+          <li data-i18n="ftr_s2">அடகு நகைகள் மீட்பு</li>
+          <li data-i18n="ftr_s3">பழைய தங்கம் சிறந்த விலைக்கு வாங்குதல்</li>
+          <li data-i18n="ftr_s4">முத்துசிஸ் சேமிப்புத் திட்டங்கள்</li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>டிஜிட்டல் போர்ட்டல்கள்</h4>
+        <h4 data-i18n="ftr_col3_title">டிஜிட்டல் போர்ட்டல்கள்</h4>
         <ul>
-          <li><a href="https://muthusise.mygold916.com/login" target="_blank">வாடிக்கையாளர் தங்க சேமிப்பு லாகின்</a></li>
-          <li><a href="https://shop.muthusisegold.com" target="_blank">நகை விற்பனை அங்காடி</a></li>
+          <li><a href="https://muthusise.mygold916.com/login" target="_blank" data-i18n="ftr_p1">வாடிக்கையாளர் தங்க சேமிப்பு லாகின்</a></li>
+          <li><a href="https://shop.muthusisegold.com" target="_blank" data-i18n="ftr_p2">நகை விற்பனை அங்காடி</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>தொடர்புக்கு</h4>
+        <h4 data-i18n="ftr_col4_title">தொடர்புக்கு</h4>
         <p><i class="fa-solid fa-phone"></i> +91 916 2700 916</p>
         <p><i class="fa-solid fa-envelope"></i> admin@muthusisegold.com</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Product Private Limited). அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+      <p data-i18n="ftr_copy">&copy; 2026 முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Product Private Limited). அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
     </div>
   </footer>
 
   <!-- ======================================================== -->
-  <!-- JAVASCRIPT: SUPABASE & EMAIL NOTIFICATION WORKFLOW -->
+  <!-- JAVASCRIPT: SUPABASE & INTERACTION & SHOWCASE LOGIC -->
   <!-- ======================================================== -->
   <script>
     const SUPABASE_URL = "https://gxdmupqopfocmmcxxkbv.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4ZG11cHFvcGZvY21tY3h4a2J2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2ODc4NDEsImV4cCI6MjEwNDI2Mzg0MX0.BU3Cjtow8zzMQukTxXo4J-ulJW5M3k1pnX3Dd204u1M";
-
-    // இலவச Web3Forms Key (உங்கள் இமெயில் அறிவிப்புக்காக)
-    // web3forms.com-ல் இருந்து பெறப்பட்ட உங்கள் access key-ஐ இங்கு இடவும்
-    const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY"; 
 
     let TODAY_RATES = {
       gold22k_1g: "₹7,150",
@@ -1661,6 +1874,10 @@
       jewelLoanMax: "₹5,600/g"
     };
 
+    let LIVE_22K_NUMERIC = 7150;
+    let ALL_JEWELLERY = [];
+
+    // Supabase-ல் இருந்து நேரடி விலைகளைப் பெறுதல்
     async function fetchLiveRatesFromSupabase() {
       try {
         const response = await fetch(`${SUPABASE_URL}/rest/v1/daily_rates?id=eq.1&select=*`, {
@@ -1672,6 +1889,7 @@
         const data = await response.json();
         if (data && data.length > 0) {
           const row = data[0];
+          LIVE_22K_NUMERIC = Number(row.gold_22k_1g || 7150);
           TODAY_RATES = {
             gold22k_1g: `₹${Number(row.gold_22k_1g).toLocaleString('en-IN')}`,
             gold22k_8g: `₹${Number(row.gold_22k_8g).toLocaleString('en-IN')}`,
@@ -1681,12 +1899,139 @@
             jewelLoanMax: `₹${Number(row.jewel_loan_max).toLocaleString('en-IN')}/g`
           };
           renderTickerContent(currentLang);
+          // விலைகள் மாறியவுடன் நகைகளின் விலையையும் மறு கணக்கீடு செய்கிறோம்
+          if (ALL_JEWELLERY.length > 0) {
+            renderJewelleryGrid(ALL_JEWELLERY);
+          }
         }
       } catch (err) {
         console.log("Supabase fetch fallback to defaults:", err);
       }
     }
 
+    // Supabase-ல் இருந்து நகைப் பொருட்களை எடுத்தல்
+    async function fetchJewelleryProducts() {
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/jewellery_products?is_active=eq.true&order=created_at.desc`, {
+          headers: {
+            "apikey": SUPABASE_ANON_KEY,
+            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`
+          }
+        });
+        ALL_JEWELLERY = await res.json();
+        renderJewelleryGrid(ALL_JEWELLERY);
+      } catch (err) {
+        console.log("Showcase fetch error:", err);
+        document.getElementById('jewelGridContainer').innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #c0392b;">
+            <p>ஆபரண விபரங்களை ஏற்றுவதில் பிழை. மீண்டும் முயற்சிக்கவும்.</p>
+          </div>`;
+      }
+    }
+
+    // நகைகளைத் திரையிடுதல்
+    function renderJewelleryGrid(items) {
+      const container = document.getElementById('jewelGridContainer');
+      if (!items || items.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 50px; background:white; border-radius:12px; border:1px solid #ebdcb9;">
+            <i class="fa-solid fa-gem" style="font-size:2.5rem; color:var(--metallic-gold); margin-bottom:12px;"></i>
+            <h4 style="color:var(--primary-purple);">விரைவில் புதிய கலெக்ஷன்கள் இணைக்கப்படும்!</h4>
+            <p style="color:#666;">எங்கள் அட்மின் போர்ட்டலில் தயாரிப்புகள் பதிவேற்றப்பட்டவுடன் இங்கு உடனுக்குடன் தோன்றும்.</p>
+          </div>`;
+        return;
+      }
+
+      container.innerHTML = items.map((p, idx) => {
+        const netWt = Number(p.net_weight || 0);
+        const grossWt = Number(p.gross_weight || 0);
+        const wastagePct = Number(p.wastage_pct || 0);
+        const makingPct = Number(p.making_pct || 0);
+        const otherCost = Number(p.other_cost || 0);
+
+        // நேரடி விலை கணக்கீடு (Net Gold + VA + Making + Other + 3% GST)
+        const goldVal = netWt * LIVE_22K_NUMERIC;
+        const vaCost = goldVal * (wastagePct / 100);
+        const makingCost = goldVal * (makingPct / 100);
+        const subTotal = goldVal + vaCost + makingCost + otherCost;
+        const estTotalWithGst = Math.round(subTotal * 1.03);
+
+        const imgList = Array.isArray(p.images) && p.images.length > 0 ? p.images : ["logo.png"];
+        const mainImgId = `main_img_${idx}`;
+
+        const thumbsHtml = imgList.map((imgUrl, thumbIdx) => `
+          <img src="${imgUrl}" class="jewel-thumb-img ${thumbIdx === 0 ? 'active' : ''}" 
+               onclick="switchImage('${mainImgId}', '${imgUrl}', this)" alt="Angle ${thumbIdx+1}">
+        `).join('');
+
+        const orderMsg = encodeURIComponent(`வணக்கம் முத்துசிஸ் கோல்டு கம்பெனி, நான் உங்கள் இணையதளத்தில் ${p.title} (${p.product_code}) ஆபரணத்தைப் பார்த்தேன். எடை: ${grossWt}g. இதனை வாங்க / ஆர்டர் செய்ய விரும்புகிறேன்.`);
+
+        return `
+          <div class="jewel-card reveal visible" data-category="${p.category}">
+            <div class="jewel-gallery">
+              <img id="${mainImgId}" src="${imgList[0]}" class="jewel-main-img" alt="${p.title}">
+              <div class="jewel-thumbs">${thumbsHtml}</div>
+            </div>
+            <div class="jewel-content">
+              <div>
+                <div class="jewel-badge-row">
+                  <span class="jewel-code">${p.product_code}</span>
+                  <span class="jewel-target"><i class="fa-solid fa-user-check"></i> ${p.who_can_wear || 'அனைவருக்கும்'}</span>
+                </div>
+                <h3 class="jewel-title">${p.title}</h3>
+                <p class="jewel-desc">${p.description || '100% தூய 22K 916 ஹால்மார்க் தரத்தில் உருவான சிறப்பு ஆபரண வடிவமைப்பு.'}</p>
+
+                <table class="jewel-specs-table">
+                  <tr><td class="sp-label">மொத்த எடை (Gross Wt):</td><td class="sp-val">${grossWt.toFixed(3)} g</td></tr>
+                  <tr><td class="sp-label">நிகர எடை (Net Gold):</td><td class="sp-val">${netWt.toFixed(3)} g</td></tr>
+                  <tr><td class="sp-label">அளவு (Size):</td><td class="sp-val">${p.size || 'Standard'}</td></tr>
+                  <tr><td class="sp-label">சேதாரம் % (VA):</td><td class="sp-val">${wastagePct}%</td></tr>
+                  <tr><td class="sp-label">செய்கூலி % (Making):</td><td class="sp-val">${makingPct}%</td></tr>
+                  <tr><td class="sp-label">பிற செலவு (HUID/கல்):</td><td class="sp-val">₹${otherCost}</td></tr>
+                </table>
+              </div>
+
+              <div>
+                <div class="jewel-price-box">
+                  <span style="font-size:0.8rem; color:#666;">இன்றைய தோராய மதிப்பு<br><small>(GST உட்பட)</small>:</span>
+                  <span class="jewel-price-val">₹${estTotalWithGst.toLocaleString('en-IN')}</span>
+                </div>
+                <a href="https://wa.me/919162700916?text=${orderMsg}" target="_blank" class="btn-jewel-order">
+                  <i class="fa-brands fa-whatsapp"></i> வாட்ஸ்அப்பில் விசாரிக்க
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function switchImage(mainImgId, newSrc, thumbElem) {
+      const mainImg = document.getElementById(mainImgId);
+      if (mainImg) {
+        mainImg.style.opacity = '0.35';
+        setTimeout(() => {
+          mainImg.src = newSrc;
+          mainImg.style.opacity = '1';
+        }, 150);
+      }
+      const parent = thumbElem.parentElement;
+      parent.querySelectorAll('.jewel-thumb-img').forEach(el => el.classList.remove('active'));
+      thumbElem.classList.add('active');
+    }
+
+    function filterShowcase(cat) {
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      if (cat === 'all') {
+        renderJewelleryGrid(ALL_JEWELLERY);
+      } else {
+        const filtered = ALL_JEWELLERY.filter(item => item.category === cat);
+        renderJewelleryGrid(filtered);
+      }
+    }
+
+    // மொழியாக்க அகராதி (Translations)
     const translations = {
       ta: {
         langBtn: '<i class="fa-solid fa-globe"></i> English',
@@ -1701,6 +2046,7 @@
         t_loan_val: 'நகைக்கடன் கிராமிற்கு:',
         brand_title: 'முத்துசிஸ் கோல்டு கம்பெனி',
         nav_home: 'Home',
+        nav_catalog: '<i class="fa-solid fa-gem"></i> நகை அங்காடி',
         nav_about: 'எங்களைப் பற்றி',
         nav_services: 'சேவைகள்',
         nav_schemes: 'திட்டங்கள்',
@@ -1711,9 +2057,8 @@
         hero_badge: '<i class="fa-solid fa-shield-halved"></i> அரசு பதிவுபெற்ற நிறுவனம் (CIN: U47912TN2024PTC171143)',
         hero_title: 'முத்துசிஸ் கோல்டு கம்பெனி — உங்கள் தங்கத்திற்கான நம்பகமான முகவரி',
         hero_desc: "10+ ஆண்டுகளாக முந்தைய 'இந்தியன் கோல்டு' நற்பெயருடன் மக்களின் பேராதரவு பெற்ற நிறுவனம். புதிய 916 ஆபரண விற்பனை, ஸ்பாட் நகைக்கடன் மற்றும் மூழ்கும் நகைகள் மீட்பு சேவை.",
-        btn_services: '<i class="fa-solid fa-list-check"></i> எங்கள் சேவைகள்',
-        btn_franchise: '<i class="fa-solid fa-handshake"></i> பிரான்சைசி வாய்ப்புகள்',
-        btn_scheme_login: '<i class="fa-solid fa-lock"></i> ஆன்லைன் சேமிப்பு லாகின்',
+        btn_view_jewels: '<i class="fa-solid fa-gem"></i> ஆபரண கலெக்ஷன்களைப் பார்க்க',
+        btn_schemes_home: '<i class="fa-solid fa-piggy-bank"></i> தங்க சேமிப்புத் திட்டம்',
         btn_branches: '<i class="fa-solid fa-store"></i> கிளை விவரங்கள் (10)',
         pillar1_title: '10+ வருட அனுபவம்',
         pillar1_desc: '15 வருட கைவினை நகை தயாரிப்பு & 10 வருட நம்பகமான நிதி நிர்வாகம்.',
@@ -1738,6 +2083,15 @@
         btn_enquire: 'விசாரிக்க',
         btn_contact_us: 'தொடர்பு கொள்ள',
         btn_estimate: 'மதிப்பீடு செய்ய',
+        showcase_heading: 'முத்துசிஸ் 916 ஆபரணக் காட்சியகம் (Jewellery Showcase)',
+        showcase_sub: '100% BIS Hallmarked • செய்கூலி, சேதாரம் மற்றும் எடை விபரங்களின் முழு வெளிப்படைத்தன்மை',
+        cat_all: 'அனைத்தும் (All)',
+        cat_rings: 'மோதிரங்கள் (Rings)',
+        cat_bangles: 'வளையல்கள் (Bangles)',
+        cat_necklaces: 'நெக்லஸ் & ஹாரம்',
+        cat_earrings: 'கம்மல் & ஜிமிக்கி',
+        cat_chains: 'தாலி & செயின்கள்',
+        cat_coins: 'நாணயங்கள் (Coins)',
         about_heading: 'எங்களைப் பற்றி (About Us)',
         about_tagline: 'பாரம்பரியத்தின் பெருமை • கார்ப்பரேட் சட்டப்படியான நம்பகத்தன்மை',
         about_hist_title: 'எங்கள் வரலாறு & நிர்வாகம்',
@@ -1857,7 +2211,17 @@
         m_opt2_title: '2. நகை விற்பனை & அங்காடி',
         m_opt2_desc: 'Jewellery Catalog & Online Shop',
         ftr_col1_title: 'முத்துசிஸ் கோல்டு கம்பெனி',
-        ftr_col1_desc: 'MUTHUSISE GOLD PRODUCT PVT LTD (CIN: U47912TN2024PTC171143). 10+ ஆண்டுகளாக மக்களின் நன்மதிப்பைப் பெற்ற நம்பகமான நிறுவனம்.'
+        ftr_col1_desc: 'MUTHUSISE GOLD PRODUCT PVT LTD (CIN: U47912TN2024PTC171143). 10+ ஆண்டுகளாக மக்களின் நன்மதிப்பைப் பெற்ற நம்பகமான நிறுவனம்.',
+        ftr_col2_title: 'முக்கிய சேவைகள்',
+        ftr_s1: 'உடனடி ஸ்பாட் நகைக்கடன்',
+        ftr_s2: 'அடகு நகைகள் மீட்பு',
+        ftr_s3: 'பழைய தங்கம் சிறந்த விலைக்கு வாங்குதல்',
+        ftr_s4: 'முத்துசிஸ் சேமிப்புத் திட்டங்கள்',
+        ftr_col3_title: 'டிஜிட்டல் போர்ட்டல்கள்',
+        ftr_p1: 'வாடிக்கையாளர் தங்க சேமிப்பு லாகின்',
+        ftr_p2: 'நகை விற்பனை அங்காடி',
+        ftr_col4_title: 'தொடர்புக்கு',
+        ftr_copy: '&copy; 2026 முத்துசிஸ் கோல்டு கம்பெனி (Muthusise Gold Product Private Limited). அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.'
       },
       en: {
         langBtn: '<i class="fa-solid fa-globe"></i> தமிழ்',
@@ -1872,6 +2236,7 @@
         t_loan_val: 'Loan Per Gram:',
         brand_title: 'Muthusise Gold Company',
         nav_home: 'Home',
+        nav_catalog: '<i class="fa-solid fa-gem"></i> Jewellery Showcase',
         nav_about: 'About Us',
         nav_services: 'Services',
         nav_schemes: 'Schemes',
@@ -1882,9 +2247,8 @@
         hero_badge: '<i class="fa-solid fa-shield-halved"></i> Registered Entity (CIN: U47912TN2024PTC171143)',
         hero_title: 'Muthusise Gold Company — The Trusted Destination for Your Gold',
         hero_desc: "Serving with 10+ years of trust formerly as 'Indian Gold'. Premier 916 jewellery retail, instant gold loans, and pledge release services.",
-        btn_services: '<i class="fa-solid fa-list-check"></i> Our Services',
-        btn_franchise: '<i class="fa-solid fa-handshake"></i> Franchise Opportunities',
-        btn_scheme_login: '<i class="fa-solid fa-lock"></i> Online Scheme Login',
+        btn_view_jewels: '<i class="fa-solid fa-gem"></i> View Jewellery Collection',
+        btn_schemes_home: '<i class="fa-solid fa-piggy-bank"></i> Gold Savings Scheme',
         btn_branches: '<i class="fa-solid fa-store"></i> 10 Branches Network',
         pillar1_title: '10+ Years Legacy',
         pillar1_desc: '15 years handmade goldsmith craftsmanship & 10 years trusted finance operations.',
@@ -1909,6 +2273,15 @@
         btn_enquire: 'Enquire Now',
         btn_contact_us: 'Contact Now',
         btn_estimate: 'Get Valuation',
+        showcase_heading: 'Muthusise 916 Jewellery Showcase',
+        showcase_sub: '100% BIS Hallmarked • Full Transparency on Weight, Wastage (VA) & Making Charges',
+        cat_all: 'All',
+        cat_rings: 'Rings',
+        cat_bangles: 'Bangles',
+        cat_necklaces: 'Necklaces & Haram',
+        cat_earrings: 'Earrings & Jhumkas',
+        cat_chains: 'Chains & Thali',
+        cat_coins: 'Gold Coins',
         about_heading: 'About Us',
         about_tagline: 'Craftsmanship Heritage • Corporate Compliance & Trust',
         about_hist_title: 'Our Heritage & Leadership',
@@ -2028,7 +2401,17 @@
         m_opt2_title: '2. Jewellery Catalog & Online Shop',
         m_opt2_desc: 'Online Jewellery Store & Showcase',
         ftr_col1_title: 'Muthusise Gold Company',
-        ftr_col1_desc: 'MUTHUSISE GOLD PRODUCT PVT LTD (CIN: U47912TN2024PTC171143). Delivering trust, hallmark purity, and fair finance for over 10 years.'
+        ftr_col1_desc: 'MUTHUSISE GOLD PRODUCT PVT LTD (CIN: U47912TN2024PTC171143). Delivering trust, hallmark purity, and fair finance for over 10 years.',
+        ftr_col2_title: 'Core Services',
+        ftr_s1: 'Spot Gold Loans',
+        ftr_s2: 'Pledged Gold Takeover',
+        ftr_s3: 'Scrap Gold Purchasing',
+        ftr_s4: 'Gold Savings Schemes',
+        ftr_col3_title: 'Digital Portals',
+        ftr_p1: 'Customer Gold Scheme Login',
+        ftr_p2: 'Online Jewellery Store',
+        ftr_col4_title: 'Contact Information',
+        ftr_copy: '&copy; 2026 Muthusise Gold Company (Muthusise Gold Product Private Limited). All Rights Reserved.'
       }
     };
 
@@ -2130,16 +2513,13 @@
       });
     }
 
-    // ========================================================
-    // படிவங்களை SUPABASE & மின்னஞ்சலுக்கு அனுப்பும் ஃபங்ஷன்
-    // ========================================================
+    // படிவங்களை Supabase டேட்டாபேஸில் சேமிக்கும் செயல்பாடு
     async function submitLead(leadData, submitBtn, successMsg) {
       const originalText = submitBtn.innerText;
       submitBtn.disabled = true;
       submitBtn.innerText = "அனுப்பப்படுகிறது...";
 
       try {
-        // 1. Supabase டேட்டாபேஸில் பதிவு செய்தல்
         await fetch(`${SUPABASE_URL}/rest/v1/website_leads`, {
           method: "POST",
           headers: {
@@ -2150,20 +2530,6 @@
           },
           body: JSON.stringify(leadData)
         });
-
-        // 2. மின்னஞ்சல் அறிவிப்பு (Web3Forms வழியாக)
-        if (WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY !== "YOUR_WEB3FORMS_ACCESS_KEY") {
-          fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              access_key: WEB3FORMS_ACCESS_KEY,
-              subject: `புதிய இணையதள லீட்: ${leadData.customer_name} (${leadData.lead_type})`,
-              from_name: "Muthusise Gold Website",
-              ...leadData
-            })
-          }).catch(e => console.log("Email notification error:", e));
-        }
 
         alert(successMsg);
       } catch (err) {
@@ -2178,6 +2544,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       setLanguage(currentLang);
       fetchLiveRatesFromSupabase();
+      fetchJewelleryProducts();
 
       handleScrollReveal();
       window.addEventListener('scroll', handleScrollReveal);
@@ -2200,84 +2567,4 @@
 
       const menuToggle = document.getElementById('menuToggle');
       const navLinks = document.getElementById('navLinks');
-      if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', function() {
-          navLinks.classList.toggle('active');
-        });
-      }
-
-      const loginModal = document.getElementById('loginModal');
-      const openModalBtn = document.getElementById('openModalBtn');
-      const heroLoginBtn = document.getElementById('heroLoginBtn');
-      const closeModalBtn = document.getElementById('closeModalBtn');
-
-      function openModal() {
-        if (loginModal) loginModal.classList.add('active');
-      }
-      function closeModal() {
-        if (loginModal) loginModal.classList.remove('active');
-      }
-
-      if (openModalBtn) openModalBtn.addEventListener('click', openModal);
-      if (heroLoginBtn) heroLoginBtn.addEventListener('click', openModal);
-      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-
-      if (loginModal) {
-        loginModal.addEventListener('click', function(e) {
-          if (e.target === loginModal) {
-            closeModal();
-          }
-        });
-      }
-
-      // 1. தொடர்பு விசாரணை படிவம் சமர்ப்பிப்பு
-      const contactForm = document.getElementById('contactForm');
-      if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-          e.preventDefault();
-          const btn = document.getElementById('cnt_submit_btn');
-          const payload = {
-            lead_type: "Contact Inquiry",
-            customer_name: document.getElementById('cnt_name').value.trim(),
-            phone: document.getElementById('cnt_phone').value.trim(),
-            service_or_budget: document.getElementById('cnt_service').value,
-            message: document.getElementById('cnt_message').value.trim()
-          };
-
-          const msg = currentLang === 'ta' 
-            ? 'நன்றி! தங்கள் விசாரணை வெற்றிகரமாக பதிவு செய்யப்பட்டது. எங்கள் முத்துசிஸ் கோல்டு கம்பெனி நிர்வாகம் விரைவில் தங்களைத் தொடர்பு கொள்ளும்.' 
-            : 'Thank you! Your inquiry has been submitted. Our team will contact you shortly.';
-
-          await submitLead(payload, btn, msg);
-          this.reset();
-        });
-      }
-
-      // 2. பிரான்சைசி விண்ணப்ப படிவம் சமர்ப்பிப்பு
-      const franchiseForm = document.getElementById('franchiseForm');
-      if (franchiseForm) {
-        franchiseForm.addEventListener('submit', async function(e) {
-          e.preventDefault();
-          const btn = document.getElementById('fr_submit_btn');
-          const payload = {
-            lead_type: "Franchise Application",
-            customer_name: document.getElementById('fr_name').value.trim(),
-            phone: document.getElementById('fr_phone').value.trim(),
-            email: document.getElementById('fr_email').value.trim(),
-            location: document.getElementById('fr_location').value.trim(),
-            service_or_budget: document.getElementById('fr_budget').value,
-            message: document.getElementById('fr_message').value.trim()
-          };
-
-          const msg = currentLang === 'ta' 
-            ? 'முத்துசிஸ் பிரான்சைசி விண்ணப்பத்திற்கு நன்றி! எங்கள் வணிக விரிவாக்க இயக்குநர் குழு விரைவில் தங்களை நேரில் தொடர்பு கொள்ளும்.' 
-            : 'Thank you for your franchise application! Our business expansion team will contact you directly.';
-
-          await submitLead(payload, btn, msg);
-          this.reset();
-        });
-      }
-    });
-  </script>
-</body>
-</html>
+      if (menuToggle && navLinks)
