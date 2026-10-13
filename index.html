@@ -89,13 +89,13 @@
       font-size: 0.78rem;
     }
 
-    /* Live Gold Rate Ticker */
+    /* 3. மாற்றி அமைக்கப்பட்ட குறுகிய லைவ் ரேட் டிக்கர் */
     .ticker-wrap {
       display: flex;
       align-items: center;
       background: #200a35;
       color: #ffffff;
-      height: 42px;
+      height: 40px;
       overflow: hidden;
       border-bottom: 2.5px solid var(--metallic-gold);
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
@@ -104,18 +104,19 @@
       background: linear-gradient(135deg, var(--metallic-gold) 0%, #b8860b 100%);
       color: #200a35;
       font-weight: 800;
-      font-size: 0.82rem;
-      padding: 0 18px;
+      font-size: 0.78rem;
+      padding: 0 10px;
       height: 100%;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       white-space: nowrap;
       z-index: 5;
-      box-shadow: 4px 0 10px rgba(0,0,0,0.3);
-      text-transform: uppercase;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.3);
       letter-spacing: 0.5px;
+      flex-shrink: 0;
     }
+    .ticker-label .full-text { display: inline-block; }
     .ticker-scroll {
       flex-grow: 1;
       overflow: hidden;
@@ -138,8 +139,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin: 0 24px;
-      font-size: 0.88rem;
+      margin: 0 20px;
+      font-size: 0.86rem;
     }
     .rate-item .tag {
       color: #d8b8f2;
@@ -155,22 +156,22 @@
     }
     .rate-sep {
       color: rgba(212, 175, 55, 0.4);
-      margin: 0 10px;
+      margin: 0 8px;
     }
 
     .live-pulse-dot {
       display: inline-block;
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 8px;
       background-color: #00e676;
       border-radius: 50%;
       box-shadow: 0 0 0 rgba(0, 230, 118, 0.7);
       animation: pulseDot 1.8s infinite;
-      margin-right: 4px;
+      margin-right: 2px;
     }
     @keyframes pulseDot {
       0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 230, 118, 0); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 230, 118, 0); }
       100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
     }
 
@@ -906,67 +907,31 @@
     }
 
     /* ======================================================== */
-    /* ENHANCED JEWELLERY SHOWCASE STYLES (ZOOM & SHIMMER BADGE) */
+    /* 4. நகைப் படம் பெரிதாகத் தெரிவதற்கான சிறப்பு அமைப்புகள் (340px) */
     /* ======================================================== */
-    .showcase-header-bar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin: 0 5% 20px;
-    }
-    .showcase-search-box {
-      position: relative;
-      max-width: 380px;
-      width: 100%;
-    }
-    .showcase-search-box input {
-      width: 100%;
-      padding: 10px 18px 10px 42px;
-      border-radius: 25px;
-      border: 1.5px solid var(--border-color);
-      outline: none;
-      font-size: 0.9rem;
-      background: white;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-    }
-    .showcase-search-box input:focus {
-      border-color: var(--primary-purple);
-      box-shadow: 0 0 0 3px rgba(114, 58, 145, 0.15);
-    }
-    .showcase-search-box i {
-      position: absolute;
-      top: 50%;
-      left: 16px;
-      transform: translateY(-50%);
-      color: var(--primary-purple);
-    }
-
     .category-filter-wrap {
       display: flex;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin: 0 5% 35px;
+      margin: 0 5% 30px;
     }
     .cat-btn {
       background: white;
       border: 1.5px solid var(--border-color);
-      padding: 7px 16px;
+      padding: 8px 18px;
       border-radius: 25px;
       font-weight: 600;
       color: var(--primary-purple);
       cursor: pointer;
       transition: all 0.3s ease;
-      font-size: 0.84rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      font-size: 0.88rem;
     }
     .cat-btn.active, .cat-btn:hover {
       background: var(--primary-purple);
       color: white;
       border-color: var(--primary-purple);
-      box-shadow: 0 4px 12px rgba(114, 58, 145, 0.25);
+      box-shadow: 0 4px 12px rgba(114, 58, 145, 0.2);
     }
 
     .jewel-grid {
@@ -991,7 +956,7 @@
       box-shadow: 0 16px 35px rgba(114, 58, 145, 0.22);
     }
 
-    /* Glowing 916 Hallmark Ribbon on Every Card */
+    /* Glowing 916 Hallmark Ribbon */
     .hallmark-glow-badge {
       background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #aa771c 100%);
       color: #2a1145;
@@ -1027,7 +992,7 @@
       100% { left: 140%; }
     }
 
-    /* Magnifier Zoom Image Wrapper */
+    /* Magnifier Zoom Image Wrapper - 340px பெரிய உயரம் */
     .jewel-gallery {
       background: #faf7fc;
       padding: 16px;
@@ -1037,7 +1002,7 @@
     }
     .jewel-zoom-box {
       width: 100%;
-      height: 260px;
+      height: 340px;
       overflow: hidden;
       border-radius: 12px;
       background: white;
@@ -1149,19 +1114,6 @@
       color: var(--text-dark);
     }
 
-    .scheme-badge-note {
-      background: #fcf9e8;
-      border: 1px dashed var(--metallic-gold);
-      border-radius: 8px;
-      padding: 6px 10px;
-      font-size: 0.78rem;
-      color: #7b5900;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
     .jewel-price-box {
       background: #faf6fd;
       border-radius: 10px;
@@ -1200,34 +1152,6 @@
       color: var(--primary-purple-dark);
       transform: translateY(-2px);
       box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
-    }
-
-    /* Lightbox Modal */
-    .lightbox-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      backdrop-filter: blur(8px);
-      z-index: 3000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .lightbox-modal.active { display: flex; animation: fadeIn 0.2s ease-out; }
-    .lightbox-img { max-width: 90%; max-height: 85vh; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .close-lightbox {
-      position: absolute;
-      top: 20px;
-      right: 25px;
-      color: white;
-      font-size: 2.2rem;
-      background: none;
-      border: none;
-      cursor: pointer;
     }
 
     /* Footer */
@@ -1269,7 +1193,8 @@
       color: #cbbdd5;
     }
 
-    @media (max-width: 950px) {
+    /* மொபைல் திரை சிறப்பு அமைப்புகள் */
+    @media (max-width: 768px) {
       .top-bar { display: none; }
       .menu-toggle { display: block; }
       .nav-links {
@@ -1295,8 +1220,13 @@
         text-align: left;
         padding: 12px 16px;
       }
-      .hero h2 { font-size: 1.7rem; }
+      .hero h2 { font-size: 1.6rem; }
       .contact-wrapper { grid-template-columns: 1fr; }
+      
+      /* மொபைலில் பேட்ஜ் சுருக்கப்பட்டு LIVE என்று மட்டும் இருக்கும் */
+      .ticker-label { padding: 0 8px; font-size: 0.72rem; }
+      .ticker-label .full-text { display: none; }
+      .jewel-zoom-box { height: 280px; }
     }
   </style>
 </head>
@@ -1314,10 +1244,10 @@
     </div>
   </div>
 
-  <!-- LIVE GOLD RATE SCROLLING TICKER -->
+  <!-- 3. சுருக்கப்பட்ட லைவ் கோல்ட் ரேட் பேட்ஜ் (குறைந்த நீளத்துடன்) -->
   <div class="ticker-wrap">
     <div class="ticker-label">
-      <span class="live-pulse-dot"></span> <span data-i18n="ticker_live_badge">நேரலை விலை விகிதம்</span> (<span id="tickerDate"></span>)
+      <span class="live-pulse-dot"></span> <span>LIVE</span> <span class="full-text">ரேட்</span>
     </div>
     <div class="ticker-scroll">
       <div class="ticker-content" id="goldRateMarquee"></div>
@@ -1341,7 +1271,6 @@
       
       <ul class="nav-links" id="navLinks">
         <li><button class="tab-btn active" data-target="home" data-i18n="nav_home">Home</button></li>
-        <!-- SHOWCASE TAB -->
         <li><button class="tab-btn nav-btn-catalog" data-target="showcase" data-i18n="nav_catalog"><i class="fa-solid fa-gem"></i> நகை அங்காடி</button></li>
         <li><button class="tab-btn" data-target="about" data-i18n="nav_about">எங்களைப் பற்றி</button></li>
         <li><button class="tab-btn" data-target="services" data-i18n="nav_services">சேவைகள்</button></li>
@@ -1461,37 +1390,19 @@
     </div>
   </main>
 
-  <!-- TAB: JEWELLERY SHOWCASE / CATALOG (ENHANCED SHOWROOM) -->
+  <!-- TAB: JEWELLERY SHOWCASE / CATALOG (DYNAMIC SHOWROOM) -->
   <main id="tab-showcase" class="page-tab">
     <div style="background:var(--primary-purple); color:white; padding: 40px 5%; text-align: center; margin-bottom: 25px;">
       <h2 data-i18n="showcase_heading">முத்துசிஸ் 916 ஆபரணக் காட்சியகம் (Jewellery Showcase)</h2>
       <p style="color:var(--metallic-gold)" data-i18n="showcase_sub">100% BIS Hallmarked • செய்கூலி, சேதாரம் மற்றும் எடை விபரங்களின் முழு வெளிப்படைத்தன்மை</p>
     </div>
 
-    <!-- Live Search & Category Bar -->
-    <div class="showcase-header-bar">
-      <div class="showcase-search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="jewelSearchInput" onkeyup="searchJewels()" placeholder="நகையின் பெயர் அல்லது குறியீடு கொண்டு தேடுக...">
-      </div>
+    <!-- 1. டைனமிக் கேட்டகிரி வடிகட்டி (Supabase Categories) -->
+    <div class="category-filter-wrap" id="categoryFilterContainer">
+      <button class="cat-btn active" onclick="filterShowcase('all')">அனைத்தும் (All)</button>
     </div>
 
-    <!-- Category Filter Buttons (11 Extended Categories) -->
-    <div class="category-filter-wrap">
-      <button class="cat-btn active" onclick="filterShowcase('all')" data-i18n="cat_all">அனைத்தும் (All)</button>
-      <button class="cat-btn" onclick="filterShowcase('rings')" data-i18n="cat_rings">மோதிரங்கள் (Rings)</button>
-      <button class="cat-btn" onclick="filterShowcase('bangles')" data-i18n="cat_bangles">வளையல்கள் & காப்பு</button>
-      <button class="cat-btn" onclick="filterShowcase('necklaces')" data-i18n="cat_necklaces">நெக்லஸ் & சோக்கர்</button>
-      <button class="cat-btn" onclick="filterShowcase('haram')" data-i18n="cat_haram">ஆரம் & நீண்ட மாலை</button>
-      <button class="cat-btn" onclick="filterShowcase('earrings')" data-i18n="cat_earrings">கம்மல் & ஜிமிக்கி</button>
-      <button class="cat-btn" onclick="filterShowcase('chains')" data-i18n="cat_chains">தாலி கொடி & செயின்கள்</button>
-      <button class="cat-btn" onclick="filterShowcase('anklets')" data-i18n="cat_anklets">கொலுசு & மெட்டி</button>
-      <button class="cat-btn" onclick="filterShowcase('kids')" data-i18n="cat_kids">குழந்தைகள் நகைகள்</button>
-      <button class="cat-btn" onclick="filterShowcase('bridal')" data-i18n="cat_bridal">மணப்பெண் திருமணத் தொகுப்பு</button>
-      <button class="cat-btn" onclick="filterShowcase('coins')" data-i18n="cat_coins">தங்க நாணயங்கள் & பார்</button>
-    </div>
-
-    <!-- Dynamic Showcase Grid -->
+    <!-- 4. நகைகள் பெரிய அளவில் தெரியும் கட்டமைப்பு (340px பெரிய படங்களுடன்) -->
     <div class="jewel-grid" id="jewelGridContainer">
       <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--primary-purple);">
         <i class="fa-solid fa-spinner fa-spin" style="font-size:2rem;"></i>
@@ -1970,12 +1881,6 @@
     </div>
   </div>
 
-  <!-- Full-Screen Lightbox Modal for HD Inspection -->
-  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
-    <button class="close-lightbox" onclick="closeLightbox(event)">&times;</button>
-    <img id="lightboxImg" class="lightbox-img" src="" alt="Enlarged Gold Ornament">
-  </div>
-
   <!-- WhatsApp Float -->
   <a href="https://wa.me/919162700916?text=Hello,%20Muthusise%20Gold%20Company" class="whatsapp-float" target="_blank" title="WhatsApp Chat">
     <i class="fa-brands fa-whatsapp"></i>
@@ -2016,7 +1921,7 @@
   </footer>
 
   <!-- ======================================================== -->
-  <!-- JAVASCRIPT: SUPABASE & INTERACTION & SHOWCASE LOGIC -->
+  <!-- JAVASCRIPT: SUPABASE & DYNAMIC CATEGORIES & ZOOM LOGIC -->
   <!-- ======================================================== -->
   <script>
     const SUPABASE_URL = "https://gxdmupqopfocmmcxxkbv.supabase.co";
@@ -2033,9 +1938,34 @@
 
     let LIVE_22K_NUMERIC = 7150;
     let ALL_JEWELLERY = [];
+    let ALL_CATEGORIES = [];
     let currentCategory = "all";
 
-    // Supabase-ல் இருந்து நேரடி விலைகளைப் பெறுதல்
+    // 1. Supabase-லிருந்து கேட்டகிரிகளை எடுத்தல் (Dynamic Categories)
+    async function fetchCategories() {
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/jewellery_categories?select=*&order=id`, {
+          headers: { "apikey": SUPABASE_ANON_KEY, "Authorization": `Bearer ${SUPABASE_ANON_KEY}` }
+        });
+        ALL_CATEGORIES = await res.json();
+        renderCategoryButtons(ALL_CATEGORIES);
+      } catch (e) {
+        console.log("Cat error:", e);
+      }
+    }
+
+    function renderCategoryButtons(cats) {
+      const container = document.getElementById('categoryFilterContainer');
+      let html = `<button class="cat-btn active" onclick="filterShowcase('all')">அனைத்தும் (All)</button>`;
+      if (cats && cats.length > 0) {
+        cats.forEach(c => {
+          html += `<button class="cat-btn" onclick="filterShowcase('${c.slug}')">${c.name_ta}</button>`;
+        });
+      }
+      container.innerHTML = html;
+    }
+
+    // 2. நேரடி விலைகளைப் பெறுதல்
     async function fetchLiveRatesFromSupabase() {
       try {
         const response = await fetch(`${SUPABASE_URL}/rest/v1/daily_rates?id=eq.1&select=*`, {
@@ -2066,7 +1996,7 @@
       }
     }
 
-    // Supabase-ல் இருந்து நகைப் பொருட்களை எடுத்தல்
+    // 3. நகைப் பொருட்களை எடுத்தல்
     async function fetchJewelleryProducts() {
       try {
         const res = await fetch(`${SUPABASE_URL}/rest/v1/jewellery_products?is_active=eq.true&order=created_at.desc`, {
@@ -2086,14 +2016,14 @@
       }
     }
 
-    // நகைகளைத் திரையிடுதல் (Hallmark Ribbon + Zoom Box இணைக்கப்பட்டது)
+    // 4. நகைகளைத் திரையிடுதல் (340px பெரிய பட அமைப்பு + Hallmarking Ribbon + Zoom Box)
     function renderJewelleryGrid(items) {
       const container = document.getElementById('jewelGridContainer');
       if (!items || items.length === 0) {
         container.innerHTML = `
           <div style="grid-column: 1/-1; text-align: center; padding: 50px; background:white; border-radius:12px; border:1px solid #ebdcb9;">
             <i class="fa-solid fa-gem" style="font-size:2.5rem; color:var(--metallic-gold); margin-bottom:12px;"></i>
-            <h4 style="color:var(--primary-purple);">விரைவில் புதிய கலெக்ஷன்கள் இணைக்கப்படும்!</h4>
+            <h4 style="color:var(--primary-purple);">இப்பிரிவில் நகைகள் ஏதும் இல்லை அல்லது விரைவில் இணைக்கப்படும்!</h4>
             <p style="color:#666;">எங்கள் அட்மின் போர்ட்டலில் தயாரிப்புகள் பதிவேற்றப்பட்டவுடன் இங்கு உடனுக்குடன் தோன்றும்.</p>
           </div>`;
         return;
@@ -2132,13 +2062,12 @@
             </div>
 
             <div class="jewel-gallery">
-              <!-- Magnifier Zoom Container -->
+              <!-- Magnifier Zoom Container - 340px பெரிய உயரம் -->
               <div class="jewel-zoom-box" id="${zoomBoxId}" 
                    onmousemove="zoomImage(event, '${mainImgId}')" 
-                   onmouseleave="resetZoom('${mainImgId}')"
-                   onclick="openLightbox('${imgList[0]}')">
+                   onmouseleave="resetZoom('${mainImgId}')">
                 <img id="${mainImgId}" src="${imgList[0]}" class="jewel-main-img" alt="${p.title}">
-                <span class="zoom-hint-tag"><i class="fa-solid fa-magnifying-glass-plus"></i> உருப்பெருக்க மவுஸ் நகர்த்தவும்</span>
+                <span class="zoom-hint-tag"><i class="fa-solid fa-magnifying-glass-plus"></i> ஜூம் செய்ய நகர்த்தவும்</span>
               </div>
               <div class="jewel-thumbs">${thumbsHtml}</div>
             </div>
@@ -2160,11 +2089,6 @@
                   <tr><td class="sp-label">செய்கூலி % (Making):</td><td class="sp-val">${makingPct}%</td></tr>
                   <tr><td class="sp-label">பிற செலவு (HUID/கல்):</td><td class="sp-val">₹${otherCost}</td></tr>
                 </table>
-
-                <div class="scheme-badge-note">
-                  <i class="fa-solid fa-piggy-bank" style="color:var(--accent-orange);"></i> 
-                  <span>முத்துசிஸ் 11 மாத சேமிப்புத் திட்டத்தில் செய்கூலி/சேதாரமின்றி வாங்கலாம்!</span>
-                </div>
               </div>
 
               <div>
@@ -2214,61 +2138,30 @@
       thumbElem.classList.add('active');
     }
 
-    // Full-screen Lightbox view
-    function openLightbox(src) {
-      const lb = document.getElementById('lightboxModal');
-      const img = document.getElementById('lightboxImg');
-      if (lb && img) {
-        img.src = src;
-        lb.classList.add('active');
-      }
-    }
-    function closeLightbox(e) {
-      const lb = document.getElementById('lightboxModal');
-      if (lb) lb.classList.remove('active');
-    }
-
-    function filterShowcase(cat) {
-      currentCategory = cat;
+    function filterShowcase(slug) {
+      currentCategory = slug;
       document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
       event.target.classList.add('active');
-      applyFilters();
-    }
-
-    function searchJewels() {
-      applyFilters();
-    }
-
-    function applyFilters() {
-      const query = (document.getElementById('jewelSearchInput').value || '').trim().toLowerCase();
-      let filtered = ALL_JEWELLERY;
-
-      if (currentCategory !== 'all') {
-        filtered = filtered.filter(item => item.category === currentCategory);
+      if (slug === 'all') {
+        renderJewelleryGrid(ALL_JEWELLERY);
+      } else {
+        renderJewelleryGrid(ALL_JEWELLERY.filter(j => j.category === slug));
       }
-      if (query) {
-        filtered = filtered.filter(item => 
-          (item.title && item.title.toLowerCase().includes(query)) ||
-          (item.product_code && item.product_code.toLowerCase().includes(query)) ||
-          (item.description && item.description.toLowerCase().includes(query))
-        );
-      }
-      renderJewelleryGrid(filtered);
     }
 
-    // மொழியாக்க அகராதி (Translations)
+    // மொழியாக்க அகராதி (Translations - அனைத்து 10 கிளைகள் மற்றும் பக்கங்களின் முழுமையான விபரங்களுடன்)
     const translations = {
       ta: {
         langBtn: '<i class="fa-solid fa-globe"></i> English',
         top_trust: '<i class="fa-solid fa-gem" style="color:var(--metallic-gold)"></i> 10+ வருடங்கள் தொடரும் வாடிக்கையாளர் நம்பிக்கை',
         top_cust_login: '<i class="fa-solid fa-piggy-bank"></i> வாடிக்கையாளர் லாகின்',
         ticker_live_badge: 'நேரலை விலை விகிதம்',
-        t_gold22k: '22K தங்கம் (1g):',
-        t_gold22k_8g: '22K தங்கம் (1 பவுன்):',
-        t_gold24k: '24K தங்கம் (1g):',
-        t_silver: 'வெள்ளி (1g):',
-        t_silver_kg: 'வெள்ளி (1kg):',
-        t_loan_val: 'நகைக்கடன் கிராமிற்கு:',
+        t_gold22k: '22K 1g:',
+        t_gold22k_8g: '22K 8g:',
+        t_gold24k: '24K 1g:',
+        t_silver: 'வெள்ளி 1g:',
+        t_silver_kg: 'வெள்ளி 1kg:',
+        t_loan_val: 'கடன்/g:',
         brand_title: 'முத்துசிஸ் கோல்டு கம்பெனி',
         nav_home: 'Home',
         nav_catalog: '<i class="fa-solid fa-gem"></i> நகை அங்காடி',
@@ -2310,17 +2203,6 @@
         btn_estimate: 'மதிப்பீடு செய்ய',
         showcase_heading: 'முத்துசிஸ் 916 ஆபரணக் காட்சியகம் (Jewellery Showcase)',
         showcase_sub: '100% BIS Hallmarked • செய்கூலி, சேதாரம் மற்றும் எடை விபரங்களின் முழு வெளிப்படைத்தன்மை',
-        cat_all: 'அனைத்தும் (All)',
-        cat_rings: 'மோதிரங்கள் (Rings)',
-        cat_bangles: 'வளையல்கள் & காப்பு',
-        cat_necklaces: 'நெக்லஸ் & சோக்கர்',
-        cat_haram: 'ஆரம் & நீண்ட மாலை',
-        cat_earrings: 'கம்மல் & ஜிமிக்கி',
-        cat_chains: 'தாலி கொடி & செயின்கள்',
-        cat_anklets: 'கொலுசு & மெட்டி',
-        cat_kids: 'குழந்தைகள் நகைகள்',
-        cat_bridal: 'மணப்பெண் திருமணத் தொகுப்பு',
-        cat_coins: 'தங்க நாணயங்கள் & பார்',
         about_heading: 'எங்களைப் பற்றி (About Us)',
         about_tagline: 'பாரம்பரியத்தின் பெருமை • கார்ப்பரேட் சட்டப்படியான நம்பகத்தன்மை',
         about_hist_title: 'எங்கள் வரலாறு & நிர்வாகம்',
@@ -2456,13 +2338,13 @@
         langBtn: '<i class="fa-solid fa-globe"></i> தமிழ்',
         top_trust: '<i class="fa-solid fa-gem" style="color:var(--metallic-gold)"></i> 10+ Years of Customer Trust & Integrity',
         top_cust_login: '<i class="fa-solid fa-piggy-bank"></i> Customer Scheme Login',
-        ticker_live_badge: 'Live Gold Rates',
-        t_gold22k: '22K Gold (1g):',
-        t_gold22k_8g: '22K Sovereign (8g):',
-        t_gold24k: '24K Pure (1g):',
-        t_silver: 'Silver (1g):',
-        t_silver_kg: 'Silver (1kg):',
-        t_loan_val: 'Loan Per Gram:',
+        ticker_live_badge: 'Live Rates',
+        t_gold22k: '22K 1g:',
+        t_gold22k_8g: '22K 8g:',
+        t_gold24k: '24K 1g:',
+        t_silver: 'Silver 1g:',
+        t_silver_kg: 'Silver 1kg:',
+        t_loan_val: 'Loan/g:',
         brand_title: 'Muthusise Gold Company',
         nav_home: 'Home',
         nav_catalog: '<i class="fa-solid fa-gem"></i> Jewellery Showcase',
@@ -2504,17 +2386,6 @@
         btn_estimate: 'Get Valuation',
         showcase_heading: 'Muthusise 916 Jewellery Showcase',
         showcase_sub: '100% BIS Hallmarked • Full Transparency on Weight, Wastage (VA) & Making Charges',
-        cat_all: 'All',
-        cat_rings: 'Rings',
-        cat_bangles: 'Bangles & Kadas',
-        cat_necklaces: 'Necklaces & Chokers',
-        cat_haram: 'Haram & Long Chains',
-        cat_earrings: 'Earrings & Jhumkas',
-        cat_chains: 'Chains & Thali',
-        cat_anklets: 'Anklets & Toe Rings',
-        cat_kids: 'Kids Jewellery',
-        cat_bridal: 'Bridal Sets',
-        cat_coins: 'Gold Coins & Bars',
         about_heading: 'About Us',
         about_tagline: 'Craftsmanship Heritage • Corporate Compliance & Trust',
         about_hist_title: 'Our Heritage & Leadership',
@@ -2670,13 +2541,6 @@
       if (marqueeContainer) {
         marqueeContainer.innerHTML = singleSet + singleSet;
       }
-
-      const today = new Date();
-      const options = { day: 'numeric', month: 'short', year: 'numeric' };
-      const dateElem = document.getElementById('tickerDate');
-      if (dateElem) {
-        dateElem.textContent = today.toLocaleDateString(lang === 'ta' ? 'ta-IN' : 'en-IN', options);
-      }
     }
 
     function setLanguage(lang) {
@@ -2776,6 +2640,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       setLanguage(currentLang);
+      fetchCategories();
       fetchLiveRatesFromSupabase();
       fetchJewelleryProducts();
 
